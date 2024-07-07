@@ -1,6 +1,5 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import Main from "./Main";
 import Cart from "./Cart/Cart";
 import Sunscreen from "./Sunscreen/Sunscreen";
 import "./Home.css";

@@ -1,0 +1,13 @@
+.productlisting-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.productlistings-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+}
+.productlistings-header {
+  display: flex;
+  justify-content: space-between;
+}
