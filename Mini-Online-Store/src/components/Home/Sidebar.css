@@ -1,0 +1,47 @@
+.sidebarMain,
+.filter {
+  display: flex;
+  flex-direction: column;
+}
+.sidebarMain {
+  padding: 0 2.5rem;
+  border-right: 1px solid #cbcbcb;
+}
+hr {
+  border: 1px solid #cbcbcb;
+  width: 11.8rem;
+  margin-top: 1.2rem;
+}
+.sidebar-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 24.38px;
+  text-align: left;
+}
+.category-contents {
+  margin-left: 1.5rem;
+}
+
+.category-contents p:not(.sidebar-title) {
+  margin: 0;
+  font-weight: 400;
+  line-height: 19.5px;
+  margin-bottom: 0.5rem;
+}
+.Filters p.sidebar-title {
+  margin-top: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.sidebar-subtitle {
+  padding: 10px;
+  font-weight: 500;
+  line-height: 19.5px;
+  margin: 0;
+}
+.checkbox-cntr {
+  display: flex;
+}
+.checkbox-btn {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}

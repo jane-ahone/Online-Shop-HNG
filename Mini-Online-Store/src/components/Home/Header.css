@@ -1,0 +1,35 @@
+.headerMain {
+  background-color: #14335a;
+  display: grid;
+  grid-template-columns: 0.2fr 0.6fr 0.2fr;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+}
+.search-btn {
+  background-color: transparent;
+  display: inline-block;
+  color: white;
+  font-weight: 400;
+  line-height: 19.5px;
+  text-align: left;
+  border: 1px solid #fafafa;
+  width: 21rem;
+  height: 2.81rem;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+.header-logo {
+  justify-self: center;
+}
+.search-btn > * {
+  margin: 0 0.5rem;
+}
+.icon-group {
+  justify-self: flex-end;
+  display: flex;
+}
+.icon-group > * {
+  margin-right: 2rem;
+}

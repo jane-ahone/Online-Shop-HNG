@@ -1,0 +1,6 @@
+.homeMain-contents {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 18% 82%;
+  /* justify-items: center; */
+}
