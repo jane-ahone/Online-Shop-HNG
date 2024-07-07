@@ -2,3 +2,23 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+.sunscreen-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 39.01px;
+  text-align: left;
+}
+.selected-filters {
+  display: flex;
+}
+.selected-filters > * {
+  padding: 0.5rem;
+  border-radius: 10px;
+  background: #f0f0f0;
+  margin-left: 0.5rem;
+}
+.products .prodDesc,
+.products .prodPrice {
+  font-weight: 600;
+  line-height: 19.5px;
+}

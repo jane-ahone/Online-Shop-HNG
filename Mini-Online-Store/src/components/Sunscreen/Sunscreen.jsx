@@ -1,7 +1,15 @@
 import React from "react";
 import Sidebar from "../Home/Sidebar";
 import Header from "../Home/Header";
-import product1 from "../../assets/images/sunscreen-page/Frame 12-1.svg";
+import product1 from "../../assets/images/blue-product-with-heart.svg";
+import product2 from "../../assets/images/sunscreen-page/Frame 12-1.svg";
+import product3 from "../../assets/images/sunscreen-page/Frame 12-2.svg";
+import product4 from "../../assets/images/sunscreen-page/Frame 12-3.svg";
+import product5 from "../../assets/images/sunscreen-page/Frame 12-4.svg";
+import product6 from "../../assets/images/sunscreen-page/Frame 12-5.svg";
+import product7 from "../../assets/images/sunscreen-page/Frame 12-6.svg";
+import product8 from "../../assets/images/sunscreen-page/Frame 12-7.svg";
+import product9 from "../../assets/images/sunscreen-page/Frame 12-8.svg";
 import exit from "../../assets/icons/multiplication-sign-icon.svg";
 import "./Sunscreen.css";
 
@@ -9,71 +17,71 @@ const Sunscreen = () => {
   return (
     <div>
       <div className="sunscreen-main-content">
-        <p>Sunscreen</p>
-        <p className="filter">
-          <p>
-            Sensitive Skin
+        <p className="sunscreen-title">Sunscreen</p>
+        <div className="selected-filters">
+          <div>
+            <span>Sensitive Skin</span>
             <img src={exit} alt="exit-icon" className="exit-icon" />
-          </p>
-          <p>
-            Dry Skin
+          </div>
+          <div>
+            <span>Dry Skin</span>
             <img src={exit} alt="exit-icon" className="exit-icon" />
-          </p>
-        </p>
+          </div>
+        </div>
         <div className="products">
           <div className="product1">
             <img src={product1} />
-            <p>Banana Boat Light As Air SPF 50+</p>
+            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
-            <p>$75</p>
+            <p className="prodPrice">$75</p>
           </div>
           <div className="product2">
-            <img src={product1} />
-            <p>Banana Boat Light As Air SPF 50+</p>
+            <img src={product2} />
+            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
-            <p>$75</p>
+            <p className="prodPrice">$75</p>
           </div>
           <div className="product3">
-            <img src={product1} />
-            <p>Banana Boat Light As Air SPF 50+</p>
+            <img src={product3} />
+            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
-            <p>$75</p>
+            <p className="prodPrice">$75</p>
           </div>
           <div className="product4">
-            <img src={product1} />
-            <p>Banana Boat Light As Air SPF 50+</p>
+            <img src={product4} />
+            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
-            <p>$75</p>
+            <p className="prodPrice">$75</p>
           </div>
           <div className="product5">
-            <img src={product1} />
-            <p>Banana Boat Light As Air SPF 50+</p>
+            <img src={product5} />
+            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
-            <p>$75</p>
+            <p className="prodPrice">$75</p>
           </div>
           <div className="product6">
-            <img src={product1} />
-            <p>Banana Boat Light As Air SPF 50+</p>
+            <img src={product6} />
+            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
-            <p>$75</p>
+            <p className="prodPrice">$75</p>
           </div>
           <div className="product7">
-            <img src={product1} />
-            <p>Banana Boat Light As Air SPF 50+</p>
+            <img src={product7} />
+            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
-            <p>$75</p>
+            <p className="prodPrice">$75</p>
           </div>
           <div className="product8">
-            <img src={product1} />
-            <p>Banana Boat Light As Air SPF 50+</p>
+            <img src={product8} />
+            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
-            <p>$75</p>
+            <p className="prodPrice">$75</p>
           </div>
           <div className="product9">
-            <img src={product1} />
-            <p>Banana Boat Light As Air SPF 50+</p>
+            <img src={product9} />
+            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
-            <p>$75</p>
+            <p className="prodPrice">$75</p>
           </div>
         </div>
       </div>
