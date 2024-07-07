@@ -16,11 +16,12 @@ const Home = () => {
   return (
     <div className="productlistings-home-main">
       <Header />
-      <div className="productlistings-header">
-        <p className="productlistings-title">All Products</p>
-        <img src={catIcon} alt="icon" className="cat-icon" />
-      </div>
+
       <div className="productlisting-content">
+        <div className="productlistings-header">
+          <p className="productlistings-title">All Products</p>
+          <img src={catIcon} alt="icon" className="cat-icon" />
+        </div>
         <div className="product1">
           <img src={product2} />
           <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>

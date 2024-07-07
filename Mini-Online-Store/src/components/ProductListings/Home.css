@@ -1,6 +1,8 @@
 .productlisting-content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  gap: 2rem;
 }
 .productlistings-title {
   font-size: 2rem;
@@ -8,6 +10,12 @@
   line-height: 2.5rem;
 }
 .productlistings-header {
+  grid-column-start: span 4;
   display: flex;
   justify-content: space-between;
+}
+.productlisting-content .prodDesc,
+.productlisting-content .prodPrice {
+  font-weight: 600;
+  line-height: 19.5px;
 }
