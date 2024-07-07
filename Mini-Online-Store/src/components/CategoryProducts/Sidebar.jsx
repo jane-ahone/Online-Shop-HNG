@@ -19,51 +19,6 @@ const Sidebar = () => {
           <p>Exfoliators</p>
           <p>Treatments</p>
         </div>
-        <hr></hr>
-      </div>
-
-      <div className="Filters">
-        <p className="sidebar-title">Filter</p>
-        <div className="filter skin-type">
-          <p className="sidebar-subtitle">Skin Type</p>
-          <div className="checkbox-cntr">
-            <img className="checkbox-btn" src={checkbox}></img>
-            <span>Dry Skin</span>
-          </div>
-          <div className="checkbox-cntr">
-            <img src={checkbox} className="checkbox-btn"></img>
-            <span>Oily Skin</span>
-          </div>
-          <div className="checkbox-cntr">
-            <img src={checkbox} className="checkbox-btn"></img>
-            <span>Sensitive Skin</span>
-          </div>
-        </div>
-        <hr></hr>
-        <div className="filter condition">
-          <p className="sidebar-subtitle">Skin Type</p>
-          <div className="checkbox-cntr">
-            <img src={checkbox} className="checkbox-btn"></img>
-            <span>Acne</span>
-          </div>
-          <div className="checkbox-cntr">
-            <img src={checkbox} className="checkbox-btn"></img>
-            <span>Wrinkles</span>
-          </div>
-          <div className="checkbox-cntr">
-            <img src={checkbox} className="checkbox-btn"></img>
-            <span>Even Tone</span>
-          </div>
-          <div className="checkbox-cntr">
-            <img src={checkbox} className="checkbox-btn"></img>
-            <span>Dark Circles</span>
-          </div>
-        </div>
-        <hr></hr>
-      </div>
-      <div className="Price">
-        <button>Min</button>
-        <button>Max</button>
       </div>
     </div>
   );

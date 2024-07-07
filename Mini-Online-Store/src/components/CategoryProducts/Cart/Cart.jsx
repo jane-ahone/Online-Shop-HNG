@@ -5,10 +5,12 @@ import blueProduct from "../../../assets/images/image 4.svg";
 import plusIcon from "../../../assets/icons/plus-sign.svg";
 import minusIcon from "../../../assets/icons/minus-icon.svg";
 import deleteIcon from "../../../assets/icons/delete-icon.svg";
+import "./Cart.css";
 import { Link } from "react-router-dom";
+
 const Cart = () => {
   return (
-    <div>
+    <div className="cart-main">
       <div className="cart-header">
         <p className="cart-title">Cart</p>
         <img src={exit} className="exit-icon"></img>
