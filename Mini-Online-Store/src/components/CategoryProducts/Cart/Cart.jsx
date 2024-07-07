@@ -5,6 +5,7 @@ import blueProduct from "../../../assets/images/image 4.svg";
 import plusIcon from "../../../assets/icons/plus-sign.svg";
 import minusIcon from "../../../assets/icons/minus-icon.svg";
 import deleteIcon from "../../../assets/icons/delete-icon.svg";
+import { Link } from "react-router-dom";
 const Cart = () => {
   return (
     <div>
@@ -61,7 +62,9 @@ const Cart = () => {
               <p>$160 </p>
             </div>
           </div>
-          <button>Continue to Checkouth</button>
+          <Link to="/checkout">
+            <button>Continue to Checkout</button>
+          </Link>
         </div>
       </div>
     </div>
