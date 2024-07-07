@@ -4,8 +4,8 @@ import App from "./App.jsx";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 
 import "./index.css";
-import Home from "./components/Home/Home.jsx";
-import Sunscreen from "./components/Sunscreen/Sunscreen.jsx";
+import Home from "./components/ProductListings/Home.jsx";
+import HomeCategory from "./components/CategoryProducts/Home.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/sunscreen",
-    element: <Sunscreen />,
+    element: <HomeCategory />,
   },
 ]);
 

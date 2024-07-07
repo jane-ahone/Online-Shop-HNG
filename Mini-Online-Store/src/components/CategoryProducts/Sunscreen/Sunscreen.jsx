@@ -1,16 +1,14 @@
 import React from "react";
-import Sidebar from "../Home/Sidebar";
-import Header from "../Home/Header";
-import product1 from "../../assets/images/blue-product-with-heart.svg";
-import product2 from "../../assets/images/sunscreen-page/Frame 12-1.svg";
-import product3 from "../../assets/images/sunscreen-page/Frame 12-2.svg";
-import product4 from "../../assets/images/sunscreen-page/Frame 12-3.svg";
-import product5 from "../../assets/images/sunscreen-page/Frame 12-4.svg";
-import product6 from "../../assets/images/sunscreen-page/Frame 12-5.svg";
-import product7 from "../../assets/images/sunscreen-page/Frame 12-6.svg";
-import product8 from "../../assets/images/sunscreen-page/Frame 12-7.svg";
-import product9 from "../../assets/images/sunscreen-page/Frame 12-8.svg";
-import exit from "../../assets/icons/multiplication-sign-icon.svg";
+import product1 from "../../../assets/images/blue-product-with-heart.svg";
+import product2 from "../../../assets/images/sunscreen-page/Frame 12-1.svg";
+import product3 from "../../../assets/images/sunscreen-page/Frame 12-2.svg";
+import product4 from "../../../assets/images/sunscreen-page/Frame 12-3.svg";
+import product5 from "../../../assets/images/sunscreen-page/Frame 12-4.svg";
+import product6 from "../../../assets/images/sunscreen-page/Frame 12-5.svg";
+import product7 from "../../../assets/images/sunscreen-page/Frame 12-6.svg";
+import product8 from "../../../assets/images/sunscreen-page/Frame 12-7.svg";
+import product9 from "../../../assets/images/sunscreen-page/Frame 12-8.svg";
+import exit from "../../../assets/icons/multiplication-sign-icon.svg";
 import "./Sunscreen.css";
 
 const Sunscreen = () => {
