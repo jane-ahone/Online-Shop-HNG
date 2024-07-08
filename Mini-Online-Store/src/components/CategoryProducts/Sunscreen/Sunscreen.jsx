@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import product1 from "../../../assets/images/product-listings/image 10.svg";
 import product2 from "../../../assets/images/product-listings/image 9.svg";
 import product3 from "../../../assets/images/product-listings/image 6.svg";
@@ -10,74 +10,139 @@ import product8 from "../../../assets/images/product-listings/image 6.svg";
 import product9 from "../../../assets/images/product-listings/image 9.svg";
 import exit from "../../../assets/icons/multiplication-sign-icon.svg";
 import cartIcon from "../../../assets/icons/icon-shopping-bag.svg";
+import cartFilledIcon from "../../../assets/icons/icon-shopping-bag-filled.svg";
 import heartIcon from "../../../assets/icons/heart-icon.svg";
+import heartFilledIcon from "../../../assets/icons/heart-filled-icon.svg";
 import "./Sunscreen.css";
 
-const Sunscreen = () => {
+const Sunscreen = ({ selectedCategory }) => {
+  const products = [
+    {
+      id: 1,
+      img: product1,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 2,
+      img: product2,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 3,
+      img: product3,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 4,
+      img: product4,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 5,
+      img: product5,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 6,
+      img: product6,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 7,
+      img: product7,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 8,
+      img: product8,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 9,
+      img: product9,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+  ];
+
+  const [productsState, setProductsState] = useState(products);
+
+  const toggleLike = (id) => {
+    const newProducts = productsState.map((product) =>
+      product.id === id ? { ...product, like: !product.like } : product
+    );
+    setProductsState(newProducts);
+  };
+
+  const toggleCart = (id) => {
+    const newProducts = productsState.map((product) =>
+      product.id === id ? { ...product, cart: !product.cart } : product
+    );
+    setProductsState(newProducts);
+  };
+
   return (
     <div>
       <div className="sunscreen-main-content">
-        <p className="sunscreen-title">Sunscreens</p>
+        <p className="sunscreen-title">{selectedCategory}</p>
         <div className="products">
-          <div className="product1">
-            <div className="product-image">
-              <img src={product2} />
-              <img src={heartIcon} className="heart-icon" />
-              <img src={cartIcon} className="cart-icon" />
+          {productsState.map((product) => (
+            <div className="product" key={product.id}>
+              <div className="product-image">
+                <img src={product.img} alt="Product" />
+                <img
+                  src={product.like ? heartFilledIcon : heartIcon}
+                  className="heart-icon"
+                  onClick={() => toggleLike(product.id)}
+                  alt="Like button"
+                />
+                <img
+                  src={product.cart ? cartFilledIcon : cartIcon}
+                  className="cart-icon"
+                  onClick={() => toggleCart(product.id)}
+                  alt="Cart button"
+                />
+              </div>
+              <p className="prodDesc">{product.desc}</p>
+              <p>{product.sold} sold</p>
+              <p className="prodPrice">{product.price}</p>
             </div>
-            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
-            <p>13,000 sold</p>
-            <p className="prodPrice">$75</p>
-          </div>
-          <div className="product2">
-            <img src={product2} />
-
-            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
-            <p>13,000 sold</p>
-            <p className="prodPrice">$75</p>
-          </div>
-          <div className="product3">
-            <img src={product3} />
-            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
-            <p>13,000 sold</p>
-            <p className="prodPrice">$75</p>
-          </div>
-          <div className="product4">
-            <img src={product4} />
-            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
-            <p>13,000 sold</p>
-            <p className="prodPrice">$75</p>
-          </div>
-          <div className="product5">
-            <img src={product5} />
-            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
-            <p>13,000 sold</p>
-            <p className="prodPrice">$75</p>
-          </div>
-          <div className="product6">
-            <img src={product6} />
-            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
-            <p>13,000 sold</p>
-            <p className="prodPrice">$75</p>
-          </div>
-          <div className="product7">
-            <img src={product7} />
-            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
-            <p>13,000 sold</p>
-            <p className="prodPrice">$75</p>
-          </div>
-          <div className="product8">
-            <img src={product8} />
-            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
-            <p>13,000 sold</p>
-            <p className="prodPrice">$75</p>
-          </div>
-          <div className="product9">
-            <img src={product9} />
-            <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
-            <p>13,000 sold</p>
-            <p className="prodPrice">$75</p>
-          </div>
+          ))}
         </div>
       </div>
     </div>

@@ -45,7 +45,36 @@ const Checkout = () => {
         </div>
         <div className="checkout-main-contents">
           <Cart />
-          <div className="shipping-information"></div>
+          <div className="shipping-information">
+            <p className="shipping-title">Shipping Information</p>
+            <form>
+              <div>
+                <label htmlFor="name">Name:</label>
+                <input type="text" id="name" required />
+              </div>
+              <div>
+                <label htmlFor="address">Address:</label>
+                <input type="text" id="address" />
+              </div>
+              <div>
+                <label htmlFor="city">City:</label>
+                <input type="text" id="city" required />
+              </div>
+              <div>
+                <label htmlFor="state">State:</label>
+                <input type="text" id="state" />
+              </div>
+              <div>
+                <label htmlFor="zip">ZIP Code:</label>
+                <input type="text" id="zip" />
+              </div>
+              <div>
+                <label htmlFor="country">Country:</label>
+                <input type="text" id="country" />
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

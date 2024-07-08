@@ -27,4 +27,8 @@
   font-weight: 400;
   line-height: 19.5px;
   margin-bottom: 2.5rem;
+  color: var(--Base-Base-White, #fafafa);
+}
+.active-category {
+  font-weight: 600 !important;
 }

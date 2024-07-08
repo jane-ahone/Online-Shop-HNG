@@ -12,7 +12,11 @@ const router = createBrowserRouter([
     element: <HomeCategory />,
   },
   {
-    path: "/sunscreen",
+    path: "/sunscreens",
+    element: <HomeCategory />,
+  },
+  {
+    path: "/all products",
     element: <Home />,
   },
   {

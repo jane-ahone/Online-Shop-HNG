@@ -1,25 +1,43 @@
-import React from "react";
-import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
-import checkbox from "../../assets/icons/btn-unchecked.svg";
-import logo from "../../assets/icons/logo.svg";
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  const [selectedCategory, setSelectedCategory] = useState("Sunscreens");
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <div className="sidebarMain">
       <div className="Category">
         <p className="sidebar-title">Category</p>
         <div className="category-contents">
-          <p>Cleansers</p>
-          <p>Toners</p>
-          <p>Moisturisers</p>
-          <p>Masks</p>
-          <Link to="/sunscreen">
-            <p>Sunscreens</p>
-          </Link>
-          <p>Exfoliators</p>
-          <p>Treatments</p>
+          {[
+            "All Products",
+            "Cleansers",
+            "Toners",
+            "Moisturisers",
+            "Masks",
+            "Sunscreens",
+            "Exfoliators",
+            "Treatments",
+          ].map((category) => (
+            <Link
+              to={`/${category.toLowerCase()}`}
+              key={category}
+              onClick={() => handleCategoryClick(category)}
+            >
+              <p
+                className={
+                  selectedCategory === category ? "active-category" : ""
+                }
+              >
+                {category}
+              </p>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

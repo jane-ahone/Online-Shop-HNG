@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("Sunscreens");
   return (
     <div className="homeMain">
       <Header setCartVisibility={setCartVisibility} />
@@ -20,8 +21,8 @@ const Home = () => {
       ) : null}
 
       <div className="homeMain-contents">
-        <Sidebar />
-        <Sunscreen />
+        <Sidebar setSelectedCategory={setSelectedCategory} />
+        <Sunscreen selectedCategory={selectedCategory} />
         <span className="page-number">1</span>
       </div>
     </div>
