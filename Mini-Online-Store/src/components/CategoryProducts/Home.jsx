@@ -4,13 +4,20 @@ import Cart from "./Cart/Cart";
 import Sunscreen from "./Sunscreen/Sunscreen";
 import "./Home.css";
 import Header from "./Header";
+import Overlay from "./Overlay/Overlay";
 
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
   return (
     <div className="homeMain">
       <Header setCartVisibility={setCartVisibility} />
-      {cartVisibility ? <Cart /> : null}
+      {cartVisibility ? (
+        <>
+          <Overlay />
+          <Cart />
+        </>
+      ) : null}
+
       <div className="homeMain-contents">
         <Sidebar />
         <Sunscreen />

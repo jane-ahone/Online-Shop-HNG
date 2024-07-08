@@ -21,12 +21,11 @@ const Cart = () => {
           <img src={blueProduct} className="blueProduct"></img>
           <div className="product-details">
             <p className="product-desc">Banana Boat Light As Air SPF 50+</p>
-            <p>13,000 sold</p>
             <p className="product-price">$75</p>
             <div className="action-icons">
               <div className="numerical-icons">
                 <img src={plusIcon} alt="" className="plus-icon" />
-                <span>1</span>
+                <span className="quantity">1</span>
                 <img src={minusIcon} alt="" className="minus-icon" />
               </div>
               <img src={deleteIcon} alt="" className="delete-icon" />
@@ -38,23 +37,34 @@ const Cart = () => {
           <img src={blueProduct} className="blueProduct"></img>
           <div className="product-details">
             <p className="product-desc">Banana Boat Light As Air SPF 50+</p>
-            <p>13,000 sold</p>
             <p className="product-price">$75</p>
             <div className="action-icons">
               <div className="numerical-icons">
-                <img src={plusIcon} alt="" className="plus-icon" />
-                <span>1</span>
-                <img src={minusIcon} alt="" className="minus-icon" />
+                <img
+                  src={plusIcon}
+                  alt=""
+                  className="plus-icon numerical-icon"
+                />
+                <span className="quantity">1</span>
+                <img
+                  src={minusIcon}
+                  alt=""
+                  className="minus-icon numerical-icon"
+                />
               </div>
-              <img src={deleteIcon} alt="" className="delete-icon" />
+              <img
+                src={deleteIcon}
+                alt=""
+                className="delete-icon numerical-icon"
+              />
             </div>
           </div>
         </div>
         <div className="all-btn">
           <img src={checkedIcon} className="check-icon"></img>
           <p>ALL</p>
-          <hr />
         </div>
+        <hr />
         <div className="order-summary">
           <div className="subtotal">
             <p>Subtotal </p>
@@ -70,7 +80,7 @@ const Cart = () => {
           </div>
         </div>
         <Link to="/checkout">
-          <button>Continue to Checkout</button>
+          <button className="checkout-btn">Continue to Checkout</button>
         </Link>
       </div>
     </div>
