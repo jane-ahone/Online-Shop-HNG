@@ -1,25 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+
 import "./index.css";
 import Home from "./components/ProductListings/Home.jsx";
-import HomeCategory from "./components/CategoryProducts/Home.jsx";
+import Sunscreen from "./components/CategoryProducts/Sunscreen/Home.jsx";
 import Checkout from "./components/Checkout/Checkout.jsx";
-import Cleansers from "./components/CategoryProducts/Cleansers/Cleaners.jsx";
-import Masks from "./components/CategoryProducts/Masks/Masks.jsx";
-import Exfoliators from "./components/CategoryProducts/Exfoliators/Exfoliators.jsx";
-import Toners from "./components/CategoryProducts/Toners/Toners.jsx";
-import Moisturizers from "./components/CategoryProducts/Moisturisers/Moisturizers.jsx";
-import Treatments from "./components/CategoryProducts/Treatments/Treatments.jsx";
+import Cleansers from "./components/CategoryProducts/Cleansers/Home.jsx";
+import Masks from "./components/CategoryProducts/Masks/Home.jsx";
+import Exfoliators from "./components/CategoryProducts/Exfoliators/Home.jsx";
+import Toners from "./components/CategoryProducts/Toners/Home.jsx";
+import Moisturizers from "./components/CategoryProducts/Moisturisers/Home.jsx";
+import Treatments from "./components/CategoryProducts/Treatments/Home.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeCategory />,
+    element: <Sunscreen />,
   },
   {
     path: "/sunscreens",
-    element: <HomeCategory />,
+    element: <Sunscreen />,
   },
   {
     path: "/all products",

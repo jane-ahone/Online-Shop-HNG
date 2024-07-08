@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import catIcon from "../../assets/icons/cat-icon.svg";
 import cartIcon from "../../assets/icons/icon-shopping-bag.svg";
-import Header from "../CategoryProducts/Header";
+import Header from "../CategoryProducts/Global/Header/Header";
 import heartIcon from "../../assets/icons/heart-icon.svg";
 import product2 from "../../assets/images/product-listings/image 6.svg";
 import product3 from "../../assets/images/product-listings/image 12.svg";
@@ -15,7 +15,7 @@ import toggleFilter from "../../assets/icons/filter-mail-square.svg";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import Overlay from "../CategoryProducts/Overlay/Overlay";
-import Cart from "../CategoryProducts/Cart/Cart";
+import Cart from "../CategoryProducts/Global/Cart/Cart";
 
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);

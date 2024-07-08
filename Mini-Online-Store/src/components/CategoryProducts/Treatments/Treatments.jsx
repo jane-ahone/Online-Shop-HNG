@@ -14,8 +14,11 @@ import cartFilledIcon from "../../../assets/icons/icon-shopping-bag-filled.svg";
 import heartIcon from "../../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../../assets/icons/heart-filled-icon.svg";
 import "./Treatments.css";
+import { useLocation } from "react-router-dom";
 
-const Treatments = ({ selectedCategory }) => {
+const Treatments = () => {
+  const location = useLocation();
+  const selectedCategory = location.state;
   const products = [
     {
       id: 1,

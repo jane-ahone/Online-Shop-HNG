@@ -1,10 +1,11 @@
 import React from "react";
-import exit from "../../../assets/icons/multiplication-sign-icon.svg";
-import checkedIcon from "../../../assets/icons/btn-checkmark.svg";
-import blueProduct from "../../../assets/images/image 4.svg";
-import plusIcon from "../../../assets/icons/plus-sign.svg";
-import minusIcon from "../../../assets/icons/minus-icon.svg";
-import deleteIcon from "../../../assets/icons/delete-icon.svg";
+import exit from "../../../../assets/icons/multiplication-sign-icon.svg";
+import checkedIcon from "../../../../assets/icons/btn-checkmark.svg";
+import blueProduct from "../../../../assets/images/image 4.svg";
+import plusIcon from "../../../../assets/icons/plus-sign.svg";
+import minusIcon from "../../../../assets/icons/minus-icon.svg";
+import deleteIcon from "../../../../assets/icons/delete-icon.svg";
+
 import "./Cart.css";
 import { Link } from "react-router-dom";
 

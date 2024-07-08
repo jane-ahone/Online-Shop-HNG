@@ -1,8 +1,8 @@
 import React from "react";
 import "./Checkout.css";
-import Header from "../CategoryProducts/Header";
+import Header from "../CategoryProducts/Global/Header/Header";
 import arrowRightDouble from "../../assets/icons/arrow-right-double.svg";
-import Cart from "../CategoryProducts/Cart/Cart";
+import Cart from "../CategoryProducts/Global/Cart/Cart";
 
 const Checkout = () => {
   return (

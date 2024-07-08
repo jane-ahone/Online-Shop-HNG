@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
-const Sidebar = () => {
-  const [selectedCategory, setSelectedCategory] = useState("Sunscreens");
-
+const Sidebar = ({ selectedCategoryState }) => {
   const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
+    selectedCategoryState.set(category);
   };
 
   return (
@@ -26,13 +24,16 @@ const Sidebar = () => {
           ].map((category) => (
             <Link
               to={`/${category.toLowerCase()}`}
+              state={category}
               key={category}
-              onClick={() => handleCategoryClick(category)}
+              // onClick={() => handleCategoryClick(category)}
             >
               <p
-                className={
-                  selectedCategory === category ? "active-category" : ""
-                }
+              // className={
+              //   selectedCategoryState.get() === category
+              //     ? "active-category"
+              //     : ""
+              // }
               >
                 {category}
               </p>
