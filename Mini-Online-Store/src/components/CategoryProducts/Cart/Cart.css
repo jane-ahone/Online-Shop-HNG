@@ -18,15 +18,25 @@
   grid-template-columns: 0.2fr 1.51fr 2.62fr;
   align-items: center;
 }
+.cart-products > * {
+  margin-bottom: 1.5rem;
+}
 .cart-products > * .checked-icon {
   margin-left: 1.2rem;
   margin-right: 2.4rem;
 }
 .product-details,
-.action-icons {
+.action-icons,
+.numerical-icons {
   display: flex;
 }
 .product-details {
   flex-direction: column;
   margin-left: 0.5rem;
+}
+.minus-icon {
+  height: fit-content;
+}
+.product-details p {
+  margin: 0;
 }
