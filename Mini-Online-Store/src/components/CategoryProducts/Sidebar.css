@@ -29,6 +29,9 @@
   margin-bottom: 2.5rem;
   color: var(--Base-Base-White, #fafafa);
 }
+.category-contents p:hover {
+  color: #a29c9c;
+}
 .active-category {
   font-weight: 600 !important;
 }

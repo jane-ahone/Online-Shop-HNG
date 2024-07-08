@@ -11,6 +11,7 @@ import product6 from "../../assets/images/product-listings/image 10.svg";
 import product7 from "../../assets/images/product-listings/image 6.svg";
 import product8 from "../../assets/images/product-listings/image 12.svg";
 import product9 from "../../assets/images/product-listings/image 9.svg";
+import toggleFilter from "../../assets/icons/filter-mail-square.svg";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import Overlay from "../CategoryProducts/Overlay/Overlay";
@@ -31,8 +32,11 @@ const Home = () => {
       <div className="productlisting-content">
         <div className="productlistings-header">
           <p className="productlistings-title">All Products</p>
-          <Link to="/sunscreen">
-            <img src={catIcon} alt="icon" className="cat-icon" />
+          <Link to="/sunscreens">
+            <div className="toggle-filter">
+              <span className="">Filter by Category</span>
+              <img src={toggleFilter} alt="" className="" />
+            </div>
           </Link>
         </div>
         <div className="product1">

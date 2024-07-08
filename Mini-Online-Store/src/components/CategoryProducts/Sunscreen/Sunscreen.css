@@ -4,6 +4,23 @@
   gap: 2.5rem;
   justify-items: center;
 }
+.sunscreen-header,
+.toggle-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.toggle-filter {
+  gap: 1rem;
+  border: 1px solid var(--Primary-Primary, #14335a);
+  background-color: #14335a;
+  color: #fafafa;
+  padding: 10px 16px 10px 16px;
+  border-radius: 10px;
+}
+.toggle-filter:hover {
+  background-color: #040c17;
+}
 .sunscreen-title {
   font-size: 2rem;
   font-weight: 700;

@@ -13,7 +13,9 @@ import cartIcon from "../../../assets/icons/icon-shopping-bag.svg";
 import cartFilledIcon from "../../../assets/icons/icon-shopping-bag-filled.svg";
 import heartIcon from "../../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../../assets/icons/heart-filled-icon.svg";
+import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
 import "./Sunscreen.css";
+import { Link } from "react-router-dom";
 
 const Sunscreen = ({ selectedCategory }) => {
   const products = [
@@ -119,7 +121,15 @@ const Sunscreen = ({ selectedCategory }) => {
   return (
     <div>
       <div className="sunscreen-main-content">
-        <p className="sunscreen-title">{selectedCategory}</p>
+        <div className="sunscreen-header">
+          <p className="sunscreen-title">{selectedCategory}</p>
+          <Link to="/all products">
+            <div className="toggle-filter">
+              <span className="">Filter by Category</span>
+              <img src={toggleFilter} alt="" className="" />
+            </div>
+          </Link>
+        </div>
         <div className="products">
           {productsState.map((product) => (
             <div className="product" key={product.id}>

@@ -46,7 +46,13 @@
   justify-content: space-between;
   align-items: center;
 }
-
+.productlistings-header .toggle-filter {
+  background-color: white;
+  color: black;
+}
+.productlistings-header .toggle-filter:hover {
+  background-color: #c9ddd8;
+}
 .productlisting-content .prodDesc,
 .productlisting-content .prodPrice {
   font-weight: 600;
