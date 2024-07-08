@@ -41,22 +41,6 @@ const Header = ({ setCartVisibility }) => {
         </span>
       </div>
       <div className="header icon-group">
-        <svg
-          width="46"
-          height="46"
-          viewBox="0 0 46 46"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="23" cy="23" r="22.5" stroke="#CBCBCB" />
-          <path
-            d="M30.4626 14.9942C27.7809 13.3492 25.4404 14.0121 24.0344 15.068C23.4578 15.501 23.1696 15.7174 23 15.7174C22.8304 15.7174 22.5422 15.501 21.9656 15.068C20.5596 14.0121 18.2191 13.3492 15.5374 14.9942C12.0181 17.1529 11.2217 24.2749 19.3395 30.2834C20.8857 31.4278 21.6588 32 23 32C24.3412 32 25.1143 31.4278 26.6605 30.2834C34.7783 24.2749 33.9819 17.1529 30.4626 14.9942Z"
-            stroke="#fafafa"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
-
         <div className="cart-page" onClick={handleCartClick}>
           <svg
             width="48"
@@ -79,7 +63,6 @@ const Header = ({ setCartVisibility }) => {
             <circle cx="40" cy="11" r="8" fill="#fafafa" />
           </svg>
         </div>
-        {/* <img src={avatar}></img> */}
       </div>
     </div>
   );
