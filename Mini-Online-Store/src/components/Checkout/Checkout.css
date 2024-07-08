@@ -1,8 +1,27 @@
 .checkout-main-header {
   display: flex;
   justify-content: center;
+  margin: 2rem 0;
+}
+.checkout-main-header p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+}
+.checkout-main-header p > * {
+  margin: 0 1rem;
 }
 .checkout-main-contents {
+  border: solid var(--Neutrals-Neutrals200, #cbcbcb);
+  border-width: 1px 0 0 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+}
+.checkout-main-contents > * {
+  margin-top: 1rem;
+  border: 1px solid var(--Neutrals-Neutrals200, #cbcbcb);
+  border-radius: 10px;
 }
