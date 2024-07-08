@@ -15,6 +15,8 @@ import heartIcon from "../../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../../assets/icons/heart-filled-icon.svg";
 import "./Treatments.css";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
 
 const Treatments = () => {
   const location = useLocation();
@@ -122,7 +124,15 @@ const Treatments = () => {
   return (
     <div>
       <div className="sunscreen-main-content">
-        <p className="sunscreen-title">{selectedCategory}</p>
+        <div className="sunscreen-header">
+          <p className="sunscreen-title">{selectedCategory}</p>
+          <Link to="/all products">
+            <div className="toggle-filter">
+              <span className="">Filter by Category</span>
+              <img src={toggleFilter} alt="" className="" />
+            </div>
+          </Link>
+        </div>
         <div className="products">
           {productsState.map((product) => (
             <div className="product" key={product.id}>
