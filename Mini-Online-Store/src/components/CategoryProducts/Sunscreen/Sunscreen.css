@@ -1,12 +1,16 @@
 .sunscreen-main-content .products {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: min-content min-content min-content;
+  grid-template-rows: min-content min-content min-content;
+  justify-content: space-between;
 }
 .sunscreen-title {
   font-size: 2rem;
   font-weight: 700;
   line-height: 39.01px;
   text-align: left;
+  margin-top: 5.4rem;
+  margin-bottom: 3.4rem;
 }
 .selected-filters {
   display: flex;

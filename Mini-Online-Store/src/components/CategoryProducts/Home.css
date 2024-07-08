@@ -5,3 +5,9 @@
   column-gap: 2rem;
   /* justify-items: center; */
 }
+.homeMain-contents .page-number {
+  grid-column-start: span 2;
+  width: fit-content;
+  align-self: center;
+  justify-self: center;
+}
