@@ -1,14 +1,16 @@
 import React from "react";
-import product1 from "../../../assets/images/product-listings/Frame 12.png";
-import product2 from "../../../assets/images/product-listings/Frame 12.png";
-import product3 from "../../../assets/images/product-listings/Frame 12.png";
-import product4 from "../../../assets/images/product-listings/Frame 12.png";
-import product5 from "../../../assets/images/product-listings/Frame 12.png";
-import product6 from "../../../assets/images/product-listings/Frame 12.png";
-import product7 from "../../../assets/images/product-listings/Frame 12.png";
-import product8 from "../../../assets/images/product-listings/Frame 12.png";
-import product9 from "../../../assets/images/product-listings/Frame 12.png";
+import product1 from "../../../assets/images/product-listings/image 10.svg";
+import product2 from "../../../assets/images/product-listings/image 9.svg";
+import product3 from "../../../assets/images/product-listings/image 6.svg";
+import product4 from "../../../assets/images/product-listings/image 12.svg";
+import product5 from "../../../assets/images/product-listings/image 10.svg";
+import product6 from "../../../assets/images/product-listings/image 12.svg";
+import product7 from "../../../assets/images/product-listings/image 9.svg";
+import product8 from "../../../assets/images/product-listings/image 6.svg";
+import product9 from "../../../assets/images/product-listings/image 9.svg";
 import exit from "../../../assets/icons/multiplication-sign-icon.svg";
+import cartIcon from "../../../assets/icons/icon-shopping-bag.svg";
+import heartIcon from "../../../assets/icons/heart-icon.svg";
 import "./Sunscreen.css";
 
 const Sunscreen = () => {
@@ -19,13 +21,19 @@ const Sunscreen = () => {
 
         <div className="products">
           <div className="product1">
-            <img src={product1} />
+            <div className="product-image">
+              <img src={product2} />
+              <img src={heartIcon} className="heart-icon" />
+              <img src={cartIcon} className="cart-icon" />
+            </div>
+
             <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
             <p className="prodPrice">$75</p>
           </div>
           <div className="product2">
             <img src={product2} />
+
             <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
             <p className="prodPrice">$75</p>

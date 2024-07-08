@@ -5,6 +5,7 @@ import Sunscreen from "./Sunscreen/Sunscreen";
 import "./Home.css";
 import Header from "./Header";
 import Overlay from "./Overlay/Overlay";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);

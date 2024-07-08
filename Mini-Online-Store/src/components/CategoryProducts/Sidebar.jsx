@@ -1,6 +1,8 @@
 import React from "react";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import checkbox from "../../assets/icons/btn-unchecked.svg";
+import logo from "../../assets/icons/logo.svg";
+
 import "./Sidebar.css";
 
 const Sidebar = () => {

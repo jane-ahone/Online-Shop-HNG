@@ -1,29 +1,22 @@
 .sunscreen-main-content .products {
   display: grid;
-  grid-template-columns: min-content min-content min-content;
-  grid-template-rows: min-content min-content min-content;
-  justify-content: space-between;
-  display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.5rem;
 }
 .sunscreen-title {
   font-size: 2rem;
   font-weight: 700;
   line-height: 39.01px;
   text-align: left;
-  margin-top: 5.4rem;
+  margin-top: 3.6rem;
   margin-bottom: 3.4rem;
 }
-.selected-filters {
-  display: flex;
-}
-.selected-filters > * {
-  padding: 0.5rem;
-  border-radius: 10px;
-  background: #f0f0f0;
-  margin-left: 0.5rem;
-}
+
 .products .prodDesc,
 .products .prodPrice {
   font-weight: 600;
   line-height: 19.5px;
+}
+.products img {
+  max-width: 100%;
 }

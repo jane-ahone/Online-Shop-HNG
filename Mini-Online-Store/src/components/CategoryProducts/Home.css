@@ -15,6 +15,7 @@
   position: relative;
   z-index: 20;
 }
+
 .overlay-main {
   position: fixed;
   top: 0;

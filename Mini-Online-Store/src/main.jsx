@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
-
 import "./index.css";
 import Home from "./components/ProductListings/Home.jsx";
 import HomeCategory from "./components/CategoryProducts/Home.jsx";
@@ -10,11 +9,11 @@ import Checkout from "./components/Checkout/Checkout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <HomeCategory />,
   },
   {
     path: "/sunscreen",
-    element: <HomeCategory />,
+    element: <Home />,
   },
   {
     path: "/checkout",
