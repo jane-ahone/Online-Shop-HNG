@@ -9,8 +9,8 @@ const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
   return (
     <div className="homeMain">
-      <Header />
-      <Cart />
+      <Header setCartVisibility={setCartVisibility} />
+      {cartVisibility ? <Cart /> : null}
       <div className="homeMain-contents">
         <Sidebar />
         <Sunscreen />

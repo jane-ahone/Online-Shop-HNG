@@ -1,5 +1,32 @@
 .cart-main {
-  display: none;
   position: absolute;
   right: 0;
+}
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.cart-products > * {
+  display: grid;
+  grid-template-columns: 0.2fr 1.51fr 2.62fr;
+  align-items: center;
+}
+.cart-products > * .checked-icon {
+  margin-left: 1.2rem;
+  margin-right: 2.4rem;
+}
+.product-details,
+.action-icons {
+  display: flex;
+}
+.product-details {
+  flex-direction: column;
+  margin-left: 0.5rem;
 }
