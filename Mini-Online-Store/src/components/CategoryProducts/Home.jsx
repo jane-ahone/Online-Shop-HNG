@@ -15,7 +15,7 @@ const Home = () => {
       {cartVisibility ? (
         <>
           <Overlay />
-          <Cart />
+          <Cart setCartVisibility={setCartVisibility} />
         </>
       ) : null}
 

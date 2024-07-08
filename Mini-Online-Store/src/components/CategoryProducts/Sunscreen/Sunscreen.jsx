@@ -18,7 +18,6 @@ const Sunscreen = () => {
     <div>
       <div className="sunscreen-main-content">
         <p className="sunscreen-title">Sunscreens</p>
-
         <div className="products">
           <div className="product1">
             <div className="product-image">
@@ -26,7 +25,6 @@ const Sunscreen = () => {
               <img src={heartIcon} className="heart-icon" />
               <img src={cartIcon} className="cart-icon" />
             </div>
-
             <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
             <p>13,000 sold</p>
             <p className="prodPrice">$75</p>

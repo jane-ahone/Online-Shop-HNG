@@ -8,12 +8,15 @@ import deleteIcon from "../../../assets/icons/delete-icon.svg";
 import "./Cart.css";
 import { Link } from "react-router-dom";
 
-const Cart = () => {
+const Cart = ({ setCartVisibility }) => {
+  const handleDeleteClick = () => {
+    setCartVisibility((prevState) => !prevState);
+  };
   return (
     <div className="cart-main">
       <div className="cart-header">
         <p className="cart-title">My Cart</p>
-        <img src={exit} className="exit-icon"></img>
+        <img src={exit} onClick={handleDeleteClick} className="exit-icon"></img>
       </div>
       <div className="cart-products">
         <div className="cart-product-1">

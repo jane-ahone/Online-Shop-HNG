@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2.5rem;
+  justify-items: center;
 }
 .sunscreen-title {
   font-size: 2rem;
@@ -17,6 +18,8 @@
   font-weight: 600;
   line-height: 19.5px;
 }
+
 .products img {
+  border-radius: 10px;
   max-width: 100%;
 }
