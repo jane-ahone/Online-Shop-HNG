@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import logo from "../../assets/icons/logo.svg";
 import avatar from "../../assets/icons/avatar-icon.svg";
 
@@ -10,30 +11,35 @@ const Header = ({ setCartVisibility }) => {
 
   return (
     <div className="headerMain">
-      <img className="header-logo" src={logo} />
+      <Link to="/" className="header-logo">
+        <img src={logo} />
+      </Link>
       <div className="search-btn">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17.5 17.5L22 22"
-            stroke="#fafafa"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
-            stroke="#fafafa"
-            strokeWidth="1.5"
-            strokeLinejoin="round"
-          />
-        </svg>
-        Search
+        <input type="text" placeholder="Search" className="search-btn-input" />
+        <span>
+          <svg
+            className="search-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.5 17.5L22 22"
+              stroke="#fafafa"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
+              stroke="#fafafa"
+              strokeWidth="1.5"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
       </div>
       <div className="header icon-group">
         <svg
@@ -74,7 +80,7 @@ const Header = ({ setCartVisibility }) => {
             <circle cx="40" cy="11" r="8" fill="#fafafa" />
           </svg>
         </div>
-        <img src={avatar}></img>
+        {/* <img src={avatar}></img> */}
       </div>
     </div>
   );

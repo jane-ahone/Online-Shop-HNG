@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import catIcon from "../../assets/icons/cat-icon.svg";
+import cartIcon from "../../assets/icons/icon-shopping-bag.svg";
 import Header from "../CategoryProducts/Header";
-import product1 from "../../assets/images/blue-product-with-heart.svg";
-import product2 from "../../assets/images/product-listings/Frame 12.png";
-import product3 from "../../assets/images/product-listings/Frame 12.png";
-import product4 from "../../assets/images/product-listings/Frame 12.png";
-import product5 from "../../assets/images/product-listings/Frame 12.png";
-import product6 from "../../assets/images/product-listings/Frame 12.png";
-import product7 from "../../assets/images/product-listings/Frame 12.png";
-import product8 from "../../assets/images/product-listings/Frame 12.png";
-import product9 from "../../assets/images/product-listings/Frame 12.png";
+import heartIcon from "../../assets/icons/heart-icon.svg";
+import product2 from "../../assets/images/product-listings/image 6.svg";
+import product3 from "../../assets/images/product-listings/image 12.svg";
+import product4 from "../../assets/images/product-listings/image 9.svg";
+import product5 from "../../assets/images/product-listings/image 10.svg";
+import product6 from "../../assets/images/product-listings/image 10.svg";
+import product7 from "../../assets/images/product-listings/image 6.svg";
+import product8 from "../../assets/images/product-listings/image 12.svg";
+import product9 from "../../assets/images/product-listings/image 9.svg";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import Overlay from "../CategoryProducts/Overlay/Overlay";
+import Cart from "../CategoryProducts/Cart/Cart";
 
 const Home = () => {
+  const [cartVisibility, setCartVisibility] = useState(false);
   return (
     <div className="productlistings-home-main">
-      <Header />
+      <Header setCartVisibility={setCartVisibility} />
+      {cartVisibility ? (
+        <>
+          <Overlay />
+          <Cart />
+        </>
+      ) : null}
 
       <div className="productlisting-content">
         <div className="productlistings-header">
@@ -26,13 +36,19 @@ const Home = () => {
           </Link>
         </div>
         <div className="product1">
-          <img src={product2} />
+          <div className="product-image">
+            <img src={product2} />
+            <img src={heartIcon} className="heart-icon" />
+            <img src={cartIcon} className="cart-icon" />
+          </div>
+
           <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
           <p>13,000 sold</p>
           <p className="prodPrice">$75</p>
         </div>
         <div className="product2">
           <img src={product2} />
+
           <p className="prodDesc">Banana Boat Light As Air SPF 50+</p>
           <p>13,000 sold</p>
           <p className="prodPrice">$75</p>
