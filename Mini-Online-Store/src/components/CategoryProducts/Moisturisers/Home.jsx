@@ -34,7 +34,7 @@ const Home = () => {
 
       <div className="homeMain-contents">
         <Sidebar />
-        <Moisturizers sselectedCartProductState={selectedCartProductState} />
+        <Moisturizers selectedCartProductState={selectedCartProductState} />
         {/* <span className="page-number">1</span> */}
       </div>
     </div>

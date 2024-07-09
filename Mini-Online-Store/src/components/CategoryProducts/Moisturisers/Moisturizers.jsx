@@ -122,7 +122,7 @@ const Moisturizers = ({ selectedCartProductState }) => {
               </div>
               <p className="prodDesc">{product.desc}</p>
               <p>{product.sold} sold</p>
-              <p className="prodPrice">{product.price}</p>
+              <p className="prodPrice">${product.price}</p>
             </div>
           ))}
         </div>
