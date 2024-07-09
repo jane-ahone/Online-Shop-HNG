@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import catIcon from "../../assets/icons/cat-icon.svg";
-import cartIcon from "../../assets/icons/icon-shopping-bag.svg";
 import Header from "../CategoryProducts/Global/Header/Header";
-import heartIcon from "../../assets/icons/heart-icon.svg";
+import Overlay from "../CategoryProducts/Overlay/Overlay";
+import Cart from "../CategoryProducts/Global/Cart/Cart";
+
 import product2 from "../../assets/images/product-listings/image 6.svg";
 import product3 from "../../assets/images/product-listings/image 12.svg";
 import product4 from "../../assets/images/product-listings/image 9.svg";
@@ -32,192 +32,232 @@ import product26 from "../../assets/images/Treatments/2.png";
 import product27 from "../../assets/images/Treatments/3.png";
 import product28 from "../../assets/images/Treatments/4.png";
 import toggleFilter from "../../assets/icons/filter-mail-square.svg";
+import cartIcon from "../../assets/icons/icon-shopping-bag.svg";
+import cartFilledIcon from "../../assets/icons/icon-shopping-bag-filled.svg";
+import heartIcon from "../../assets/icons/heart-icon.svg";
+import heartFilledIcon from "../../assets/icons/heart-filled-icon.svg";
 import "./Home.css";
-import Overlay from "../CategoryProducts/Overlay/Overlay";
-import Cart from "../CategoryProducts/Global/Cart/Cart";
 
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
 
-  const products = [
+  const initialProducts = [
     {
       id: 2,
       image: product2,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
+      description: "Supergoop Unseen Sunscreen SPF 40",
+      sold: "3,000",
+      price: "$25",
+      like: false,
+      cart: false,
     },
     {
       id: 3,
       image: product3,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
+      description: "Trader Joe’s Daily Facial Sunscreen SPF 40",
+      sold: "70,000",
       price: "$75",
+      like: false,
+      cart: false,
     },
     {
       id: 4,
       image: product4,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
+      description: "Cerave Ultra Absorbent Facial Sunscreen SPF 40",
+      sold: "100,000",
+      price: "$128",
+      like: false,
+      cart: false,
     },
     {
       id: 5,
       image: product5,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
-    },
-    {
-      id: 6,
-      image: product6,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
-    },
-    {
-      id: 7,
-      image: product7,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
-    },
-    {
-      id: 8,
-      image: product8,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
-    },
-    {
-      id: 9,
-      image: product9,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
+      description: "Dr. Jart+ Mineral Sunscreen SPF 50+",
+      sold: "10,000",
+      price: "$15",
+      like: false,
+      cart: false,
     },
 
     {
-      id: 15,
-      image: product15,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
+      id: 11,
+      image: product11,
+      description: "Origins Ginzing Refreshing Scrub",
+      sold: "45,000",
+      price: "$39",
+      like: false,
+      cart: false,
     },
     {
-      id: 16,
-      image: product16,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
+      id: 12,
+      image: product12,
+      description: "Zo Skin Health Exfoliating Polish",
+      sold: "17,950",
+      price: "$33",
+      like: false,
+      cart: false,
     },
-    {
-      id: 17,
-      image: product17,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
-    },
-    {
-      id: 18,
-      image: product18,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
-    },
-
     {
       id: 13,
       image: product13,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
+      description: "Fresh Sugar Face Polish",
+      sold: "12,988",
+      price: "$7",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 14,
+      image: product14,
+      description: "SkinMedica Exfoliating Cleanser",
+      sold: "54,100",
+      price: "$50",
+      like: false,
+      cart: false,
     },
 
     {
-      id: 19,
-      image: product19,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
-    },
-    {
       id: 20,
       image: product20,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
+      description: "The Ordinary Natural Moisturizing Factors ",
+      sold: "2,000",
+      price: "$175",
+      like: false,
+      cart: false,
     },
     {
       id: 21,
       image: product21,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
+      description: "L'Oréal Paris Collagen Moisture Filler",
+      sold: "70,000",
       price: "$75",
+      like: false,
+      cart: false,
     },
-
     {
       id: 22,
       image: product22,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
+      description: "Renée Rouleau facial toner",
+      sold: "70,000",
       price: "$75",
+      like: false,
+      cart: false,
     },
+
     {
       id: 23,
       image: product23,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
+      description: "The Rose & Hyaluronic Acid Deep Toner ",
+      sold: "70,000",
       price: "$75",
+      like: false,
+      cart: false,
     },
-    {
-      id: 24,
-      image: product24,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
-    },
+
     {
       id: 25,
       image: product25,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
+      description: "Biossance Squalane + Probiotic Gel",
+      sold: "70,000",
       price: "$75",
+      like: false,
+      cart: false,
     },
     {
       id: 26,
       image: product26,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
+      description: "Cleanse & Polish Hot Cloth Cleanser",
+      sold: "70,000",
       price: "$75",
+      like: false,
+      cart: false,
     },
     {
-      id: 27,
-      image: product27,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
+      id: 24,
+      image: product24,
+      description: "This Freck Beauty face ",
+      sold: "70,000",
       price: "$75",
+      like: false,
+      cart: false,
     },
     {
-      id: 28,
-      image: product28,
-      description: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
+      id: 10,
+      image: product10,
+      description: "Acure Brightening Facial Scrub",
+      sold: "70,000",
       price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 6,
+      image: product6,
+      description: "Hyper Skin Even Gentle Brightening",
+      sold: "70,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 7,
+      image: product7,
+      description: "Cerave SA Smoothing Cleanser",
+      sold: "70,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 8,
+      image: product8,
+      description: "Bolden Skin Clarifying Cleanser",
+      sold: "70,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 9,
+      image: product9,
+      description: "Blueland Facial Cleanser Starter Set",
+      sold: "70,000",
+      price: "$75",
+      like: false,
+      cart: false,
     },
   ];
+
+  const [products, setProducts] = useState(initialProducts);
+
+  const toggleLike = (id) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id ? { ...product, like: !product.like } : product
+      )
+    );
+  };
+
+  const toggleCart = (id) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id ? { ...product, cart: !product.cart } : product
+      )
+    );
+  };
 
   return (
     <div className="productlistings-home-main">
       <Header setCartVisibility={setCartVisibility} />
-      {cartVisibility && (
-        <>
-          <Overlay />
-          <Cart setCartVisibility={setCartVisibility} />
-        </>
-      )}
 
       <div className="productlisting-content">
+        {cartVisibility && (
+          <>
+            <Overlay />
+            <Cart setCartVisibility={setCartVisibility} />
+          </>
+        )}
+
         <div className="productlistings-header">
           <p className="productlistings-title">All Products</p>
           <Link to="/sunscreens">
@@ -229,16 +269,28 @@ const Home = () => {
         </div>
 
         {products.map((product) => (
-          <div key={product.id} className={`product${product.id}`}>
-            <img src={product.image} alt={product.description} />
+          <div key={product.id} className="product">
+            <div className="product-image">
+              <img src={product.image} alt={product.description} />
+              <img
+                src={product.like ? heartFilledIcon : heartIcon}
+                className="heart-icon"
+                onClick={() => toggleLike(product.id)}
+                alt="Like button"
+              />
+              <img
+                src={product.cart ? cartFilledIcon : cartIcon}
+                className="cart-icon"
+                onClick={() => toggleCart(product.id)}
+                alt="Cart button"
+              />
+            </div>
             <p className="prodDesc">{product.description}</p>
             <p>{product.sold} sold</p>
             <p className="prodPrice">{product.price}</p>
           </div>
         ))}
       </div>
-
-      {/* <span className="page-number">1</span> */}
     </div>
   );
 };

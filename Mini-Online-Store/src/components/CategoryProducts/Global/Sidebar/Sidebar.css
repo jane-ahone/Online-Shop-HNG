@@ -1,11 +1,12 @@
 .sidebarMain {
   position: sticky;
+  top: 0;
   display: flex;
   flex-direction: column;
   border-right: 1px solid #cbcbcb;
   background-color: #14335a;
   color: #fafafa;
-  height: 95vh;
+  height: 100vh;
   align-items: center;
   width: 100%;
   /* padding-left: 2.9rem; */

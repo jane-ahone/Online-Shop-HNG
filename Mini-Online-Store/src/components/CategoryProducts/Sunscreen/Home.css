@@ -22,8 +22,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Dim effect */
-  z-index: 10; /* Ensure it's above the main content but below the modal */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 .homeMain .cart-main {
   border: 1px solid #ffffff;
@@ -32,6 +32,6 @@
   position: absolute;
   right: 0;
   max-width: 34%;
-  max-height: 70vh;
-  overflow-y: scroll;
+  max-height: fit-content;
+  /* overflow-y: scroll; */
 }

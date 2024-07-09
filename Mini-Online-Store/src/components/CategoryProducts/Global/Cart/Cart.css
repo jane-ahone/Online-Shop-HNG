@@ -93,3 +93,9 @@
   color: #fafafa;
   margin-bottom: 3.5rem;
 }
+.checkout-btn:hover {
+  background-color: #051b35;
+}
+.checkout-btn:active {
+  background-color: #051b35;
+}
