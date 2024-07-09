@@ -39,8 +39,18 @@ import heartFilledIcon from "../../assets/icons/heart-filled-icon.svg";
 import filterSM from "../../assets/icons/filter-sm.svg";
 import "./Home.css";
 
+function useSelectedCartProducts() {
+  const [selectedCartProducts, set] = useState([]);
+  const get = () => {
+    return selectedCartProducts;
+  };
+
+  return { get, set };
+}
+
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
+  const selectedCartProductState = useSelectedCartProducts();
 
   const initialProducts = [
     {
@@ -191,42 +201,6 @@ const Home = () => {
       like: false,
       cart: false,
     },
-    {
-      id: 6,
-      image: product6,
-      description: "Hyper Skin Even Gentle Brightening",
-      sold: "70,000",
-      price: 75,
-      like: false,
-      cart: false,
-    },
-    {
-      id: 7,
-      image: product7,
-      description: "Cerave SA Smoothing Cleanser",
-      sold: "70,000",
-      price: 75,
-      like: false,
-      cart: false,
-    },
-    {
-      id: 8,
-      image: product8,
-      description: "Bolden Skin Clarifying Cleanser",
-      sold: "70,000",
-      price: 75,
-      like: false,
-      cart: false,
-    },
-    {
-      id: 9,
-      image: product9,
-      description: "Blueland Facial Cleanser Starter Set",
-      sold: "70,000",
-      price: 75,
-      like: false,
-      cart: false,
-    },
   ];
 
   const [products, setProducts] = useState(initialProducts);
@@ -255,7 +229,10 @@ const Home = () => {
         {cartVisibility && (
           <>
             <Overlay />
-            <Cart setCartVisibility={setCartVisibility} />
+            <Cart
+              setCartVisibility={setCartVisibility}
+              selectedCartProductState={selectedCartProductState}
+            />
           </>
         )}
 
@@ -291,7 +268,7 @@ const Home = () => {
             </div>
             <p className="prodDesc">{product.description}</p>
             <p className="prodSold">{product.sold} sold</p>
-            <p className="prodPrice">{product.price}</p>
+            <p className="prodPrice">${product.price}</p>
           </div>
         ))}
       </div>
