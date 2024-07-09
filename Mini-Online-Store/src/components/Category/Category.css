@@ -1,16 +1,16 @@
 .category-main {
   /* display: flex;
   flex-direction: column; */
-  border-right: 1px solid #cbcbcb;
+  /* border-right: 1px solid #cbcbcb; */
   height: 100vh;
   /* align-items: start; */
-  max-width: 100%;
   padding-left: 1.1rem;
-  min-width: 300px;
+  max-width: 300px;
 }
 .category-main-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .exit-icon:hover {
   filter: grayscale(100%) brightness(0%) contrast(100%);
@@ -20,7 +20,7 @@
   font-weight: 600;
   margin-bottom: 1.31rem;
   margin-top: 1.2rem;
-  margin-right: 20rem;
+  /* margin-right: 20rem; */
 }
 
 .category-main-contents p:not(.category-main-title) {
