@@ -32,8 +32,8 @@
   position: absolute;
   right: 0;
   max-width: 45%;
-  max-height: fit-content;
-  /* overflow-y: scroll; */
+  max-height: 80vh;
+  overflow-y: scroll;
 }
 @media screen and (max-width: 769px) {
   body {

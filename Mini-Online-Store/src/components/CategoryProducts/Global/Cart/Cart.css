@@ -5,6 +5,7 @@
 
 .cart-main > * {
   padding: 0 1.2rem;
+  /* overflow-y: scroll; */
 }
 .cart-header {
   display: flex;
@@ -17,6 +18,9 @@
   margin-top: 1.8rem;
   margin-bottom: 2.5rem;
   text-align: left;
+}
+.blue-product {
+  max-width: 10rem;
 }
 .cart-products > *:not(.order-summary, .checkout-link) {
   display: grid;

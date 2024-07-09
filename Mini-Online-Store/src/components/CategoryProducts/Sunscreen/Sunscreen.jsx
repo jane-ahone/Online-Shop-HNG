@@ -17,14 +17,15 @@ import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
 import "./Sunscreen.css";
 import { Link } from "react-router-dom";
 
-const Sunscreen = ({ selectedCategory }) => {
+const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
   const products = [
     {
       id: 2,
       img: product2,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
+      quantity: 1,
       like: false,
       cart: false,
     },
@@ -33,7 +34,8 @@ const Sunscreen = ({ selectedCategory }) => {
       img: product3,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
+      quantity: 1,
       like: false,
       cart: false,
     },
@@ -42,7 +44,8 @@ const Sunscreen = ({ selectedCategory }) => {
       img: product4,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
+      quantity: 1,
       like: false,
       cart: false,
     },
@@ -52,7 +55,8 @@ const Sunscreen = ({ selectedCategory }) => {
       img: product5,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
+      quantity: 1,
       like: false,
       cart: false,
     },
@@ -61,7 +65,8 @@ const Sunscreen = ({ selectedCategory }) => {
       img: product6,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
+      quantity: 1,
       like: false,
       cart: false,
     },
@@ -70,7 +75,8 @@ const Sunscreen = ({ selectedCategory }) => {
       img: product7,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
+      quantity: 1,
       like: false,
       cart: false,
     },
@@ -79,7 +85,8 @@ const Sunscreen = ({ selectedCategory }) => {
       img: product8,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
+      quantity: 1,
       like: false,
       cart: false,
     },
@@ -95,9 +102,23 @@ const Sunscreen = ({ selectedCategory }) => {
   };
 
   const toggleCart = (id) => {
-    const newProducts = productsState.map((product) =>
-      product.id === id ? { ...product, cart: !product.cart } : product
-    );
+    const newProducts = productsState.map((product) => {
+      if (product.id === id) {
+        const updatedProduct = { ...product, cart: !product.cart };
+        if (updatedProduct.cart) {
+          selectedCartProductState.set((prevCartProducts) => [
+            ...prevCartProducts,
+            updatedProduct,
+          ]);
+        } else {
+          selectedCartProductState.set((prevCartProducts) =>
+            prevCartProducts.filter((item) => item.id !== id)
+          );
+        }
+        return updatedProduct;
+      }
+      return product;
+    });
     setProductsState(newProducts);
   };
 
@@ -116,8 +137,8 @@ const Sunscreen = ({ selectedCategory }) => {
           </Link>
         </div>
         <div className="products">
-          {productsState.map((product) => (
-            <div className="product" key={product.id}>
+          {productsState.map((product, index) => (
+            <div className="product" key={index}>
               <div className="product-image">
                 <img src={product.img} alt="Product" />
                 <img

@@ -7,10 +7,10 @@ import Header from "../Global/Header/Header";
 import Overlay from "../Overlay/Overlay";
 import { Link } from "react-router-dom";
 
-function useSelectedCategory() {
-  const [selectedCategory, set] = useState("Sunscreens");
+function useSelectedCartProducts() {
+  const [selectedCartProducts, set] = useState([]);
   const get = () => {
-    return selectedCategory;
+    return selectedCartProducts;
   };
 
   return { get, set };
@@ -18,8 +18,7 @@ function useSelectedCategory() {
 
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
-  const selectedCategoryState = useSelectedCategory();
-  console.log(selectedCategoryState);
+  const selectedCartProductState = useSelectedCartProducts();
 
   return (
     <div className="homeMain">
@@ -27,13 +26,16 @@ const Home = () => {
       {cartVisibility ? (
         <>
           <Overlay />
-          <Cart setCartVisibility={setCartVisibility} />
+          <Cart
+            setCartVisibility={setCartVisibility}
+            selectedCartProductState={selectedCartProductState}
+          />
         </>
       ) : null}
 
       <div className="homeMain-contents">
-        <Sidebar selectedCategoryState={selectedCategoryState} />
-        <Sunscreen selectedCategory={selectedCategoryState.get()} />
+        <Sidebar />
+        <Sunscreen selectedCartProductState={selectedCartProductState} />
         {/* <span className="page-number">1</span> */}
       </div>
     </div>

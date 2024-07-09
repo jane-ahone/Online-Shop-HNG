@@ -8,15 +8,13 @@ import deleteIcon from "../../../../assets/icons/delete-icon.svg";
 import "./Cart.css";
 import { Link } from "react-router-dom";
 
-const Cart = ({ setCartVisibility }) => {
+const Cart = ({ setCartVisibility, selectedCartProductState }) => {
   const handleDeleteClick = () => {
     setCartVisibility((prevState) => !prevState);
   };
 
-  const initialProducts = [
-    { id: 1, name: "Banana Boat Light As Air SPF 50+", price: 75, quantity: 1 },
-    { id: 2, name: "Banana Boat Light As Air SPF 50+", price: 75, quantity: 1 },
-  ];
+  const initialProducts = selectedCartProductState.get();
+  console.log(initialProducts);
 
   const [products, setProducts] = useState(initialProducts);
 
@@ -64,9 +62,9 @@ const Cart = ({ setCartVisibility }) => {
         {products.map((product) => (
           <div key={product.id} className="cart-product">
             <img src={checkedIcon} className="checked-icon" alt="Checked" />
-            <img src={blueProduct} className="blueProduct" alt="Product" />
+            <img src={product.img} className="blue-product" alt="Product" />
             <div className="product-details">
-              <p className="product-desc">{product.name}</p>
+              <p className="product-desc">{product.desc}</p>
               <p className="product-price">${product.price}</p>
               <div className="action-icons">
                 <div className="numerical-icons">
