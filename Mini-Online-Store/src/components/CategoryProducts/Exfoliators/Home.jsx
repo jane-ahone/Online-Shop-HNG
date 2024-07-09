@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("Sunscreens");
+  const selectedCartProductState = useSelectedCartProducts();
   return (
     <div className="homeMain">
       <Header setCartVisibility={setCartVisibility} />
@@ -21,8 +21,8 @@ const Home = () => {
       ) : null}
 
       <div className="homeMain-contents">
-        <Sidebar setSelectedCategory={setSelectedCategory} />
-        <Exfoliators selectedCategory={selectedCategory} />
+        <Sidebar />
+        <Exfoliators selectedCartProductState={selectedCartProductState} />
         {/* <span className="page-number">1</span> */}
       </div>
     </div>

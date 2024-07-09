@@ -33,34 +33,37 @@ const Masks = () => {
       img: product2,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 3,
       img: product3,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 4,
       img: product4,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 5,
       img: product5,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
       like: false,
       cart: false,
     },
@@ -76,9 +79,23 @@ const Masks = () => {
   };
 
   const toggleCart = (id) => {
-    const newProducts = productsState.map((product) =>
-      product.id === id ? { ...product, cart: !product.cart } : product
-    );
+    const newProducts = productsState.map((product) => {
+      if (product.id === id) {
+        const updatedProduct = { ...product, cart: !product.cart };
+        if (updatedProduct.cart) {
+          selectedCartProductState.set((prevCartProducts) => [
+            ...prevCartProducts,
+            updatedProduct,
+          ]);
+        } else {
+          selectedCartProductState.set((prevCartProducts) =>
+            prevCartProducts.filter((item) => item.id !== id)
+          );
+        }
+        return updatedProduct;
+      }
+      return product;
+    });
     setProductsState(newProducts);
   };
 

@@ -36,7 +36,6 @@ const Home = () => {
       <div className="homeMain-contents">
         <Sidebar />
         <Sunscreen selectedCartProductState={selectedCartProductState} />
-        {/* <span className="page-number">1</span> */}
       </div>
     </div>
   );

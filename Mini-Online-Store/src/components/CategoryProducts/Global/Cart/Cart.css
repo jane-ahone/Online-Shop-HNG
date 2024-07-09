@@ -21,6 +21,7 @@
 }
 .blue-product {
   max-width: 10rem;
+  border-radius: 10px;
 }
 .cart-products > *:not(.order-summary, .checkout-link) {
   display: grid;

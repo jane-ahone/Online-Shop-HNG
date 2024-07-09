@@ -13,7 +13,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
 
-const Exfoliators = () => {
+const Exfoliators = ({ selectedCartProductState }) => {
   const location = useLocation();
   const selectedCategory = location.state;
   const products = [
@@ -22,34 +22,37 @@ const Exfoliators = () => {
       img: product2,
       desc: "Origins Ginzing Refreshing Scrub",
       sold: "1,001",
-      price: "$15",
+      price: 15,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 3,
       img: product3,
       desc: "Zo Skin Health Exfoliating Polish",
       sold: "3,023",
-      price: "$63",
+      price: 63,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 4,
       img: product4,
       desc: "Fresh Sugar Face Polish",
       sold: "13,000",
-      price: "$10",
+      price: 10,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 5,
       img: product5,
       desc: "SkinMedica Exfoliating Cleanse",
       sold: "2967",
-      price: "$91",
+      price: 91,
       like: false,
       cart: false,
     },
@@ -65,9 +68,23 @@ const Exfoliators = () => {
   };
 
   const toggleCart = (id) => {
-    const newProducts = productsState.map((product) =>
-      product.id === id ? { ...product, cart: !product.cart } : product
-    );
+    const newProducts = productsState.map((product) => {
+      if (product.id === id) {
+        const updatedProduct = { ...product, cart: !product.cart };
+        if (updatedProduct.cart) {
+          selectedCartProductState.set((prevCartProducts) => [
+            ...prevCartProducts,
+            updatedProduct,
+          ]);
+        } else {
+          selectedCartProductState.set((prevCartProducts) =>
+            prevCartProducts.filter((item) => item.id !== id)
+          );
+        }
+        return updatedProduct;
+      }
+      return product;
+    });
     setProductsState(newProducts);
   };
 

@@ -21,36 +21,40 @@ const Moisturizers = () => {
       img: product1,
       desc: "The Ordinary Natural Moisturizing Factors",
       sold: "7,000",
-      price: "$52",
+      price: 52,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 2,
       img: product2,
       desc: "L'Oréal Paris Collagen Moisture Filler",
       sold: "16,030",
-      price: "$75",
+      price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 3,
       img: product3,
       desc: "Vanicream Daily Facial Moisturizer.",
       sold: "9,081",
-      price: "$25",
+      price: 25,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 4,
       img: product4,
       desc: "Neutrogena Hydro Boost Gel Cream",
       sold: "4,670",
-      price: "$29",
+      price: 29,
       like: false,
       cart: false,
+      quantity: 1,
     },
   ];
 
@@ -64,9 +68,23 @@ const Moisturizers = () => {
   };
 
   const toggleCart = (id) => {
-    const newProducts = productsState.map((product) =>
-      product.id === id ? { ...product, cart: !product.cart } : product
-    );
+    const newProducts = productsState.map((product) => {
+      if (product.id === id) {
+        const updatedProduct = { ...product, cart: !product.cart };
+        if (updatedProduct.cart) {
+          selectedCartProductState.set((prevCartProducts) => [
+            ...prevCartProducts,
+            updatedProduct,
+          ]);
+        } else {
+          selectedCartProductState.set((prevCartProducts) =>
+            prevCartProducts.filter((item) => item.id !== id)
+          );
+        }
+        return updatedProduct;
+      }
+      return product;
+    });
     setProductsState(newProducts);
   };
 

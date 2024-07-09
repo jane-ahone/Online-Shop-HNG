@@ -13,7 +13,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
 
-const Cleansers = () => {
+const Cleansers = ({ selectedCartProductState }) => {
   const location = useLocation();
   const selectedCategory = location.state;
   const products = [
@@ -22,18 +22,20 @@ const Cleansers = () => {
       img: product1,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 2,
       img: product2,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
 
     {
@@ -41,27 +43,30 @@ const Cleansers = () => {
       img: product4,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 3,
       img: product3,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 5,
       img: product5,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
-      price: "$75",
+      price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
   ];
 
@@ -75,9 +80,23 @@ const Cleansers = () => {
   };
 
   const toggleCart = (id) => {
-    const newProducts = productsState.map((product) =>
-      product.id === id ? { ...product, cart: !product.cart } : product
-    );
+    const newProducts = productsState.map((product) => {
+      if (product.id === id) {
+        const updatedProduct = { ...product, cart: !product.cart };
+        if (updatedProduct.cart) {
+          selectedCartProductState.set((prevCartProducts) => [
+            ...prevCartProducts,
+            updatedProduct,
+          ]);
+        } else {
+          selectedCartProductState.set((prevCartProducts) =>
+            prevCartProducts.filter((item) => item.id !== id)
+          );
+        }
+        return updatedProduct;
+      }
+      return product;
+    });
     setProductsState(newProducts);
   };
 
@@ -90,14 +109,14 @@ const Cleansers = () => {
           </p>
           <Link to="/all products">
             <div className="toggle-filter">
-              <span className="">Filter by Category</span>
-              <img src={toggleFilter} alt="" className="" />
+              <span className="filter-cat-text">Filter by Category</span>
+              <img src={toggleFilter} alt="" className="toggle-filter-img" />
             </div>
           </Link>
         </div>
         <div className="products">
-          {productsState.map((product) => (
-            <div className="product" key={product.id}>
+          {productsState.map((product, index) => (
+            <div className="product" key={index}>
               <div className="product-image">
                 <img src={product.img} alt="Product" />
                 <img
@@ -115,7 +134,7 @@ const Cleansers = () => {
               </div>
               <p className="prodDesc">{product.desc}</p>
               <p>{product.sold} sold</p>
-              <p className="prodPrice">{product.price}</p>
+              <p className="prodPrice">${product.price}</p>
             </div>
           ))}
         </div>

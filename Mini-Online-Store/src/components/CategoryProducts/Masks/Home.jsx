@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("Sunscreens");
+  const selectedCartProductState = useSelectedCartProducts();
   return (
     <div className="homeMain">
       <Header setCartVisibility={setCartVisibility} />

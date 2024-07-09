@@ -21,7 +21,7 @@ const Treatments = () => {
       img: product1,
       desc: "Biossance Squalane + Probiotic Gel",
       sold: "13,000",
-      price: "$75",
+      price: 75,
       like: false,
       cart: false,
     },
@@ -30,7 +30,7 @@ const Treatments = () => {
       img: product2,
       desc: "Cleanse & Polish Hot Cloth Cleanser",
       sold: "23,000",
-      price: "$45",
+      price: 45,
       like: false,
       cart: false,
     },
@@ -39,7 +39,7 @@ const Treatments = () => {
       img: product3,
       desc: "Skin Perfecting 2% BHA Gel",
       sold: "6,020",
-      price: "$87",
+      price: 87,
       like: false,
       cart: false,
     },
@@ -48,7 +48,7 @@ const Treatments = () => {
       img: product4,
       desc: "La Roche-Posay Cicaplast Balm",
       sold: "7,000",
-      price: "$25",
+      price: 25,
       like: false,
       cart: false,
     },
@@ -64,9 +64,23 @@ const Treatments = () => {
   };
 
   const toggleCart = (id) => {
-    const newProducts = productsState.map((product) =>
-      product.id === id ? { ...product, cart: !product.cart } : product
-    );
+    const newProducts = productsState.map((product) => {
+      if (product.id === id) {
+        const updatedProduct = { ...product, cart: !product.cart };
+        if (updatedProduct.cart) {
+          selectedCartProductState.set((prevCartProducts) => [
+            ...prevCartProducts,
+            updatedProduct,
+          ]);
+        } else {
+          selectedCartProductState.set((prevCartProducts) =>
+            prevCartProducts.filter((item) => item.id !== id)
+          );
+        }
+        return updatedProduct;
+      }
+      return product;
+    });
     setProductsState(newProducts);
   };
 

@@ -59,13 +59,13 @@ const Checkout = () => {
               {products.map((product) => (
                 <div key={product.id} className="cart-product">
                   <img
-                    src={blueProduct}
-                    className="blueProduct"
+                    src={product.img}
+                    className="blue-product"
                     alt="Product"
                   />
                   <div className="product-details">
-                    <p className="product-desc">{product.name}</p>
-                    <p className="product-price">Qty{product.quantity}</p>
+                    <p className="product-desc">{product.desc}</p>
+                    <p className="product-price">Qty {product.quantity}</p>
                   </div>
                 </div>
               ))}
