@@ -117,7 +117,7 @@ const Checkout = () => {
             </div>
             <div className="save-select-cntr">
               <input
-                type="radio"
+                type="checkbox"
                 name="save-select"
                 id=""
                 className="save-select-btn"
