@@ -113,6 +113,9 @@
   .productlistings-header {
     grid-column-start: span 3;
   }
+  .toggle-filter {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 769px) {
