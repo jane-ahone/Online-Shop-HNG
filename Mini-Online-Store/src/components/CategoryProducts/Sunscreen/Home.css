@@ -68,10 +68,10 @@
     display: none;
   }
 }
-@media screen and (min-width: 1700px) {
+@media screen and (max-width: 1700px) {
   .productlistings-home-main {
     max-width: 1500px;
     margin: auto;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
   }
 }
