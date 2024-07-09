@@ -129,6 +129,7 @@
   }
   .productlistings-header {
     grid-column-start: span 2;
+    margin-bottom: 0;
   }
   .search-btn,
   .cart-icon-bg {

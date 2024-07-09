@@ -243,9 +243,6 @@ const Home = () => {
               <span>Filter by Category</span>
               <img src={toggleFilter} alt="Filter" />
             </div>
-            <div className="toggle-filter" id="toggle-filter-sm">
-              <img src={filterSM} alt="Filter" />
-            </div>
           </Link>
         </div>
 

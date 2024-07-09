@@ -5,7 +5,7 @@
   justify-items: center;
 }
 .sunscreen-main-content {
-  padding-right: 3rem;
+  padding-right: 1rem;
 }
 .sunscreen-header,
 .toggle-filter {
@@ -49,4 +49,27 @@
 .heart-icon:hover {
   filter: invert(27%) sepia(89%) saturate(6354%) hue-rotate(357deg)
     brightness(95%) contrast(107%);
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    font-size: 13px;
+  }
+  .cart-icon {
+    right: 0.6rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  body {
+    font-size: 10px;
+  }
+  .cart-icon {
+    width: 13px;
+  }
+  .heart-icon {
+    width: 7px;
+  }
+  .sunscreen-title {
+    margin-top: 0;
+  }
 }

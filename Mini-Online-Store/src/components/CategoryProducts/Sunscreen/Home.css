@@ -68,10 +68,15 @@
     display: none;
   }
 }
+@media screen and (max-width: 320px) {
+  .logo-img {
+    width: 80%;
+    margin-left: 0.7rem;
+  }
+}
 @media screen and (max-width: 1700px) {
   .productlistings-home-main {
     max-width: 1500px;
     margin: auto;
-    /* background-color: blueviolet; */
   }
 }

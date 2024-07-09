@@ -11,7 +11,7 @@ const Header = ({ setCartVisibility }) => {
   return (
     <div className="headerMain">
       <Link to="/" className="header-logo">
-        <img src={logo} />
+        <img className="logo-img" src={logo} />
       </Link>
       <div className="search-btn">
         <input type="text" placeholder="Search" className="search-btn-input" />

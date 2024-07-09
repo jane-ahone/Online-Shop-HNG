@@ -45,7 +45,10 @@ span svg.search-icon:hover {
   justify-self: flex-end;
   display: flex;
 }
-.icon-group > * {
+/* .icon-group > * {
+  margin-right: 2rem;
+} */
+.cart-page > * {
   margin-right: 2rem;
 }
 #menu-icon,

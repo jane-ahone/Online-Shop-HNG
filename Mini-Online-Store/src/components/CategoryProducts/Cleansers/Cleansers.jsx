@@ -107,12 +107,12 @@ const Cleansers = ({ selectedCartProductState }) => {
           <p className="sunscreen-title">
             {selectedCategory ? selectedCategory : "Cleansers"}
           </p>
-          <Link to="/all products">
+          {/* <Link to="/all products">
             <div className="toggle-filter">
               <span className="filter-cat-text">Filter by Category</span>
               <img src={toggleFilter} alt="" className="toggle-filter-img" />
             </div>
-          </Link>
+          </Link> */}
         </div>
         <div className="products">
           {productsState.map((product, index) => (
