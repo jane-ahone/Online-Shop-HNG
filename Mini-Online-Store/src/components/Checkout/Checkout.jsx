@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./Checkout.css";
 import Header from "../CategoryProducts/Global/Header/Header";
 import arrowRightDouble from "../../assets/icons/arrow-right-double.svg";
-import blueProduct from "../../assets/images/image 4.svg";
+import partyPopper from "../../assets/images/sunscreen-page/Party Popper.svg";
+import paymentOptions from "../../assets/images/sunscreen-page/payment-options.svg";
 import "../CategoryProducts/Global/Cart/Cart.css";
 import Cart from "../CategoryProducts/Global/Cart/Cart";
 import { Link, useLocation } from "react-router-dom";
@@ -15,10 +16,16 @@ const Checkout = () => {
   const subtotal = location.state.subtotal;
   const selectedCartProductState = location.state.selectedCartProductState;
   const [cartVisibility, setCartVisibility] = useState(false);
+  const [orderComplete, setOrderComplete] = useState(false);
 
   const handleCartClick = () => {
     setCartVisibility((prevState) => !prevState);
   };
+
+  const handleCheckout = () => {
+    setOrderComplete(true);
+  };
+
   return (
     <div className="checkout-page">
       <Header />
@@ -31,6 +38,33 @@ const Checkout = () => {
           />
         </>
       ) : null}
+      {orderComplete && (
+        <>
+          <Overlay />
+          <div className="order-complete-popup">
+            <div className="order-complete">
+              <img
+                src={partyPopper}
+                alt="Party Popper"
+                className="party-popper-svg"
+              />
+              <p className="order-complete-text">Order Complete</p>
+              <p>
+                You will be receiving an email with your order details and
+                shipping information soon.
+              </p>
+              <Link to="/all products">
+                <button
+                  className="payment-details-checkout"
+                  onClick={() => setOrderComplete(false)}
+                >
+                  Continue Shopping
+                </button>
+              </Link>
+            </div>
+          </div>
+        </>
+      )}
       <div className="checkout-main">
         <div className="checkout-main-header">
           <Link to="/all products">
@@ -43,7 +77,6 @@ const Checkout = () => {
               />
             </p>
           </Link>
-
           <p>
             My Cart
             <img
@@ -52,7 +85,6 @@ const Checkout = () => {
               className="arrow-right-double"
             />
           </p>
-
           <p style={{ color: "#14335A" }}>
             Checkout
             <img
@@ -73,9 +105,8 @@ const Checkout = () => {
         <div className="checkout-main-contents">
           <div className="cart-main">
             <p className="cart-title">My Order</p>
-
             <div className="cart-products">
-              <hr></hr>
+              <hr />
               {products.map((product) => (
                 <div key={product.id} className="cart-product">
                   <img
@@ -89,7 +120,6 @@ const Checkout = () => {
                   </div>
                 </div>
               ))}
-
               <hr />
               <div className="order-summary">
                 <div className="subtotal">
@@ -107,45 +137,57 @@ const Checkout = () => {
               </div>
             </div>
           </div>
-
           <div className="checkout-main-right">
             <div className="shipping-information">
               <p className="shipping-title">Shipping Information</p>
               <div>
-                <label htmlFor="name">Email</label>
-                <input type="text" id="name" placeholder="Email" />
+                <label htmlFor="email">Email</label>
+                <input type="text" id="email" placeholder="Email" />
               </div>
               <div>
-                <label htmlFor="address"> Shipping Address:</label>
+                <label htmlFor="full-name">Shipping Address:</label>
                 <input type="text" id="full-name" placeholder="Full Name" />
                 <input type="text" id="state" placeholder="State" />
                 <input type="text" id="address" placeholder="Address" />
               </div>
             </div>
             <div className="payment-details">
-              <p className="payment-title">Payment Details </p>
+              <p className="payment-title">Payment Details</p>
               <div>
-                <label htmlFor="name">Card Information</label>
-                <input
-                  type="text"
-                  id="card-number"
-                  placeholder="1234-1234-1234-1234"
-                />
-                <input type="text" id="card-number" placeholder="MM/YY" />
-                <input type="text" id="card-number" placeholder="CVV" />
+                <div className="first-input">
+                  <label htmlFor="card-number">Card Information</label>
+                  <input
+                    type="text"
+                    id="card-number"
+                    placeholder="1234-1234-1234-1234"
+                    className="card-info"
+                  />
+                </div>
+                <div className="card-specifics">
+                  <input type="text" id="card-expiry" placeholder="MM/YY" />
+                  <input type="text" id="card-cvv" placeholder="CVV" />
+                </div>
               </div>
             </div>
             <div className="save-select-cntr">
               <input
                 type="checkbox"
                 name="save-select"
-                id=""
+                id="save-select"
                 className="save-select-btn"
-              />{" "}
+              />
               <span>Save selected details</span>
             </div>
-            <button className="payment-details-checkout">Checkout</button>
-            <button className="payment-details-checkout-with-trans">
+            <button
+              className="payment-details-checkout"
+              onClick={handleCheckout}
+            >
+              Checkout
+            </button>
+            <button
+              className="payment-details-checkout-with-trans"
+              onClick={handleCheckout}
+            >
               Checkout with Transfer
             </button>
           </div>

@@ -42,7 +42,7 @@
   padding-right: 0;
 }
 .shipping-information input,
-.payment-details input {
+.payment-details input:not(#card-cvv, #card-expiry) {
   display: block;
   padding: 1rem;
   min-width: 90%;
@@ -99,6 +99,59 @@
 }
 .checkout-main-header p:hover {
   color: #1b5fb7;
+}
+.card-specifics {
+  display: flex;
+  gap: 0.9rem;
+}
+#card-expiry,
+#card-cvv {
+  display: inline-block;
+  gap: 10px;
+  width: 42% !important;
+  padding: 1rem;
+  border: 1px solid #cbcbcb;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.card-info {
+  background-image: url("../../assets/images/sunscreen-page/payment-options.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.order-complete-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+  padding: 2rem;
+}
+.order-complete {
+  text-align: center;
+}
+.order-complete-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.party-popper-svg {
+  width: 50px;
+  height: 50px;
+}
+
+.order-complete p {
+  margin: 10px 0;
+}
+
+.payment-details-checkout {
+  margin-top: 20px;
 }
 
 hr {
