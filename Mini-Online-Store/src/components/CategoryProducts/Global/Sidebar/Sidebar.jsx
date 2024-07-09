@@ -26,17 +26,8 @@ const Sidebar = ({ selectedCategoryState }) => {
               to={`/${category.toLowerCase()}`}
               state={category}
               key={category}
-              // onClick={() => handleCategoryClick(category)}
             >
-              <p
-              // className={
-              //   selectedCategoryState.get() === category
-              //     ? "active-category"
-              //     : ""
-              // }
-              >
-                {category}
-              </p>
+              <p>{category}</p>
             </Link>
           ))}
         </div>

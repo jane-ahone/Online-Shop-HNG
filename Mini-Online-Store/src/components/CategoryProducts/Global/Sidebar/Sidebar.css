@@ -33,6 +33,11 @@
 .category-contents p:hover {
   color: #a29c9c;
 }
+.category-contents p:active {
+  color: #a29c9c;
+}
+.category-contents button {
+}
 .active-category {
   font-weight: 600 !important;
 }

@@ -27,8 +27,9 @@
   color: #fafafa;
   font-weight: 400;
 }
-svg.search-icon:hover {
-  background-color: #14335a;
+span svg.search-icon:hover {
+  filter: invert(13%) sepia(99%) saturate(1900%) hue-rotate(178deg)
+    brightness(40%) contrast(120%);
 }
 .search-btn span {
   position: absolute;
