@@ -34,7 +34,7 @@ const Home = () => {
       <div className="homeMain-contents">
         <Sidebar selectedCategoryState={selectedCategoryState} />
         <Sunscreen selectedCategory={selectedCategoryState.get()} />
-        <span className="page-number">1</span>
+        {/* <span className="page-number">1</span> */}
       </div>
     </div>
   );

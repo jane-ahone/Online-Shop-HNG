@@ -23,7 +23,7 @@ const Home = () => {
       <div className="homeMain-contents">
         <Sidebar setSelectedCategory={setSelectedCategory} />
         <Toners selectedCategory={selectedCategory} />
-        <span className="page-number">1</span>
+        {/* <span className="page-number">1</span> */}
       </div>
     </div>
   );

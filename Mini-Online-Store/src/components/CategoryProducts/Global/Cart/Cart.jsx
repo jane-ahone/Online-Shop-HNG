@@ -113,7 +113,11 @@ const Cart = ({ setCartVisibility }) => {
             <p>${subtotal + 0} </p>
           </div>
         </div>
-        <Link to="/checkout" className="checkout-link">
+        <Link
+          to="/checkout"
+          state={{ products: products, subtotal: subtotal }}
+          className="checkout-link"
+        >
           <button className="checkout-btn">Continue To Checkout</button>
         </Link>
       </div>
