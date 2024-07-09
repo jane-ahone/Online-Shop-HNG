@@ -14,7 +14,7 @@ const Sidebar = ({ selectedCategoryState }) => {
         <div className="category-contents">
           {[
             "All Products",
-            "Cleansers",
+            // "Cleansers",
             "Toners",
             "Moisturisers",
             "Masks",

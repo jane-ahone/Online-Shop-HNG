@@ -7,7 +7,16 @@ import Header from "../Global/Header/Header";
 import Overlay from "../Overlay/Overlay";
 import { Link } from "react-router-dom";
 
-const Home = ({ useSelectedCartProducts }) => {
+function useSelectedCartProducts() {
+  const [selectedCartProducts, set] = useState([]);
+  const get = () => {
+    return selectedCartProducts;
+  };
+
+  return { get, set };
+}
+
+const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
   const selectedCartProductState = useSelectedCartProducts();
   return (
@@ -16,7 +25,10 @@ const Home = ({ useSelectedCartProducts }) => {
       {cartVisibility ? (
         <>
           <Overlay />
-          <Cart setCartVisibility={setCartVisibility} />
+          <Cart
+            setCartVisibility={setCartVisibility}
+            selectedCartProductState={selectedCartProductState}
+          />
         </>
       ) : null}
 

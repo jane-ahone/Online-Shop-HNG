@@ -12,7 +12,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
 
-const Moisturizers = () => {
+const Moisturizers = ({ selectedCartProductState }) => {
   const location = useLocation();
   const selectedCategory = location.state;
   const products = [

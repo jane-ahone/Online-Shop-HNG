@@ -127,7 +127,7 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
       <div className="sunscreen-main-content">
         <div className="sunscreen-header">
           <p className="sunscreen-title">
-            {selectedCategory ? selectedCategory : "Cleansers"}
+            {selectedCategory ? selectedCategory : "Sunscreens"}
           </p>
           <Link to="/all products">
             <div className="toggle-filter">
