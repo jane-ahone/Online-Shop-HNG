@@ -36,7 +36,42 @@
   /* overflow-y: scroll; */
 }
 @media screen and (max-width: 769px) {
+  body {
+    font-size: 13px;
+  }
   .sidebarMain {
     display: none;
+  }
+  .sunscreen-main-content .products {
+    grid-template-columns: 1fr 1fr;
+  }
+  .homeMain-contents {
+    display: flex;
+    width: 100%;
+    column-gap: 2rem;
+    padding: 2rem;
+    /* justify-items: center; */
+  }
+  .toggle-filter {
+    color: #fafafa;
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  }
+  .toggle-filter span {
+    display: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  body {
+    font-size: 10px;
+  }
+  .toggle-filter {
+    display: none;
+  }
+}
+@media screen and (min-width: 1700px) {
+  .productlistings-home-main {
+    max-width: 1500px;
+    margin: auto;
+    background-color: blueviolet;
   }
 }

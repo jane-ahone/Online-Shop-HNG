@@ -110,8 +110,8 @@ const Sunscreen = ({ selectedCategory }) => {
           </p>
           <Link to="/all products">
             <div className="toggle-filter">
-              <span className="">Filter by Category</span>
-              <img src={toggleFilter} alt="" className="" />
+              <span className="filter-cat-text">Filter by Category</span>
+              <img src={toggleFilter} alt="" className="toggle-filter-img" />
             </div>
           </Link>
         </div>

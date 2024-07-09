@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Category.css";
+import exit from "../../assets/icons/multiplication-sign-icon.svg";
 
 const Category = () => {
   return (
     <div className="category-main">
-      <p className="sidebar-title">Categories</p>
-      <div className="category-contents">
+      <div className="category-main-header">
+        <p className="category-main-title">Categories</p>
+        <Link to="/all products">
+          <img src={exit} alt="" className="exit-icon" />
+        </Link>
+      </div>
+      <div className="category-main-contents">
         {[
           "All Products",
           "Cleansers",

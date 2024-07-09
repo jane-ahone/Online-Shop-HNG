@@ -18,7 +18,7 @@
   border: 1px solid var(--Primary-Primary, #14335a);
   background-color: #14335a;
   color: #fafafa;
-  padding: 10px 16px 10px 16px;
+  padding: 0.6rem 1rem 0.6rem 1rem;
   border-radius: 10px;
 }
 .toggle-filter:hover {
