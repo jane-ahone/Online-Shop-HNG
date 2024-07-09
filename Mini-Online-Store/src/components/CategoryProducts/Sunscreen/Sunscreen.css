@@ -4,6 +4,9 @@
   gap: 2.5rem;
   justify-items: center;
 }
+.sunscreen-main-content {
+  padding-right: 3rem;
+}
 .sunscreen-header,
 .toggle-filter {
   display: flex;

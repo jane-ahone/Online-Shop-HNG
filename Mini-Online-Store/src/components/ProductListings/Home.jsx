@@ -36,6 +36,7 @@ import cartIcon from "../../assets/icons/icon-shopping-bag.svg";
 import cartFilledIcon from "../../assets/icons/icon-shopping-bag-filled.svg";
 import heartIcon from "../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../assets/icons/heart-filled-icon.svg";
+import filterSM from "../../assets/icons/filter-sm.svg";
 import "./Home.css";
 
 const Home = () => {
@@ -261,9 +262,12 @@ const Home = () => {
         <div className="productlistings-header">
           <p className="productlistings-title">All Products</p>
           <Link to="/sunscreens">
-            <div className="toggle-filter">
+            <div className="toggle-filter" id="toggle-filter-lg">
               <span>Filter by Category</span>
               <img src={toggleFilter} alt="Filter" />
+            </div>
+            <div className="toggle-filter" id="toggle-filter-sm">
+              <img src={filterSM} alt="Filter" />
             </div>
           </Link>
         </div>

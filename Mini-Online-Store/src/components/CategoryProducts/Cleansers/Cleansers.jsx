@@ -84,7 +84,9 @@ const Cleansers = () => {
     <div>
       <div className="sunscreen-main-content">
         <div className="sunscreen-header">
-          <p className="sunscreen-title">{selectedCategory}</p>
+          <p className="sunscreen-title">
+            {selectedCategory ? selectedCategory : "Cleansers"}
+          </p>
           <Link to="/all products">
             <div className="toggle-filter">
               <span className="">Filter by Category</span>

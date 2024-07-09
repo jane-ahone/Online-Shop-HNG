@@ -47,3 +47,7 @@ svg.search-icon:hover {
 .icon-group > * {
   margin-right: 2rem;
 }
+#menu-icon,
+.cart-icon-sm {
+  display: none;
+}

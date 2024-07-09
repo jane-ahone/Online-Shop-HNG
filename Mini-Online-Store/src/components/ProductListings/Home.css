@@ -92,3 +92,35 @@
   text-align: center;
   margin: 9rem 0;
 }
+#toggle-filter-sm {
+  display: none;
+}
+
+@media screen and (max-width: 769px) {
+  .headerMain {
+    display: flex;
+    justify-content: space-around;
+  }
+  #menu-icon,
+  .cart-icon-sm {
+    display: initial;
+  }
+  .productlisting-content {
+    grid-template-columns: repeat(2, 45%);
+  }
+  .productlistings-header {
+    grid-column-start: span 2;
+  }
+  .search-btn,
+  .cart-icon-bg {
+    display: none;
+  }
+
+  #toggle-filter-sm {
+    display: initial;
+    border: none;
+  }
+  #toggle-filter-lg {
+    display: none;
+  }
+}

@@ -35,3 +35,8 @@
   max-height: fit-content;
   /* overflow-y: scroll; */
 }
+@media screen and (max-width: 769px) {
+  .sidebarMain {
+    display: none;
+  }
+}
