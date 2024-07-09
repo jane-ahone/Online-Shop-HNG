@@ -1,30 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Checkout.css";
 import Header from "../CategoryProducts/Global/Header/Header";
 import arrowRightDouble from "../../assets/icons/arrow-right-double.svg";
 import blueProduct from "../../assets/images/image 4.svg";
 import "../CategoryProducts/Global/Cart/Cart.css";
 import Cart from "../CategoryProducts/Global/Cart/Cart";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import Overlay from "../CategoryProducts/Overlay/Overlay";
 
 const Checkout = () => {
   const location = useLocation();
   console.log(location.state);
   const products = location.state.products;
   const subtotal = location.state.subtotal;
+  const selectedCartProductState = location.state.selectedCartProductState;
+  const [cartVisibility, setCartVisibility] = useState(false);
+
+  const handleCartClick = () => {
+    setCartVisibility((prevState) => !prevState);
+  };
   return (
     <div className="checkout-page">
       <Header />
+      {cartVisibility ? (
+        <>
+          <Overlay />
+          <Cart
+            setCartVisibility={setCartVisibility}
+            selectedCartProductState={selectedCartProductState}
+          />
+        </>
+      ) : null}
       <div className="checkout-main">
         <div className="checkout-main-header">
-          <p>
-            Product
-            <img
-              src={arrowRightDouble}
-              alt="right-arrow-icon"
-              className="arrow-right-double"
-            />
-          </p>
+          <Link to="/all products">
+            <p>
+              Product
+              <img
+                src={arrowRightDouble}
+                alt="right-arrow-icon"
+                className="arrow-right-double"
+              />
+            </p>
+          </Link>
+
           <p>
             My Cart
             <img
@@ -33,6 +52,7 @@ const Checkout = () => {
               className="arrow-right-double"
             />
           </p>
+
           <p style={{ color: "#14335A" }}>
             Checkout
             <img

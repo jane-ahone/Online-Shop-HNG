@@ -111,9 +111,13 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
             <p>${subtotal + 0} </p>
           </div>
         </div>
+        {console.log(selectedCartProductState)}
         <Link
           to="/checkout"
-          state={{ products: products, subtotal: subtotal }}
+          state={{
+            products: products,
+            subtotal: subtotal,
+          }}
           className="checkout-link"
         >
           <button className="checkout-btn">Continue To Checkout</button>

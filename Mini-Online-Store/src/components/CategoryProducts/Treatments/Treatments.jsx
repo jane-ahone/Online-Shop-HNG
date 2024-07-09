@@ -24,6 +24,7 @@ const Treatments = ({ selectedCartProductState }) => {
       price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 2,
@@ -33,6 +34,7 @@ const Treatments = ({ selectedCartProductState }) => {
       price: 45,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 3,
@@ -42,6 +44,7 @@ const Treatments = ({ selectedCartProductState }) => {
       price: 87,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 4,
@@ -51,6 +54,7 @@ const Treatments = ({ selectedCartProductState }) => {
       price: 25,
       like: false,
       cart: false,
+      quantity: 1,
     },
   ];
 
@@ -118,7 +122,7 @@ const Treatments = ({ selectedCartProductState }) => {
               </div>
               <p className="prodDesc">{product.desc}</p>
               <p>{product.sold} sold</p>
-              <p className="prodPrice">{product.price}</p>
+              <p className="prodPrice">${product.price}</p>
             </div>
           ))}
         </div>

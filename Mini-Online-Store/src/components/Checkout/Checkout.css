@@ -97,6 +97,10 @@
 .payment-details-checkout-with-trans:hover {
   background-color: #cbcbcb;
 }
+.checkout-main-header p:hover {
+  color: #1b5fb7;
+}
+
 hr {
   /* border: solid #9f9c9c;
   border-width: 1px; */
