@@ -13,6 +13,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
 
+/*Wrong images*/
 const Masks = () => {
   const location = useLocation();
   const selectedCategory = location.state;

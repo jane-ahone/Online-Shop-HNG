@@ -35,9 +35,10 @@ const Cleansers = () => {
       like: false,
       cart: false,
     },
+
     {
-      id: 3,
-      img: product3,
+      id: 4,
+      img: product4,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
       price: "$75",
@@ -45,8 +46,8 @@ const Cleansers = () => {
       cart: false,
     },
     {
-      id: 4,
-      img: product4,
+      id: 3,
+      img: product3,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
       price: "$75",

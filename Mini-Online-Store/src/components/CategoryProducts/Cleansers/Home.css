@@ -4,6 +4,7 @@
   grid-template-columns: 16% 82%;
   column-gap: 2rem;
   /* justify-items: center; */
+  justify-content: center;
 }
 .homeMain-contents .page-number {
   grid-column-start: span 2;

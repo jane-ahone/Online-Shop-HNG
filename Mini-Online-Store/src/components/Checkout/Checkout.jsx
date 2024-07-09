@@ -13,7 +13,7 @@ const Checkout = () => {
   const products = location.state.products;
   const subtotal = location.state.subtotal;
   return (
-    <div>
+    <div className="checkout-page">
       <Header />
       <div className="checkout-main">
         <div className="checkout-main-header">
@@ -33,7 +33,7 @@ const Checkout = () => {
               className="arrow-right-double"
             />
           </p>
-          <p>
+          <p style={{ color: "#14335A" }}>
             Checkout
             <img
               src={arrowRightDouble}
@@ -52,11 +52,10 @@ const Checkout = () => {
         </div>
         <div className="checkout-main-contents">
           <div className="cart-main">
-            <div className="cart-header">
-              <p className="cart-title">My Order</p>
-            </div>
-            <hr></hr>
+            <p className="cart-title">My Order</p>
+
             <div className="cart-products">
+              <hr></hr>
               {products.map((product) => (
                 <div key={product.id} className="cart-product">
                   <img

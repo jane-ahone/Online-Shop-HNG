@@ -83,7 +83,7 @@
   z-index: 20;
   position: absolute;
   right: 0;
-  max-width: 34%;
+  max-width: 45%;
   max-height: fit-content;
   /* overflow-y: scroll; */
 }
