@@ -33,15 +33,15 @@ const Toners = () => {
       like: false,
       cart: false,
     },
-    {
-      id: 3,
-      img: product3,
-      desc: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
-      like: false,
-      cart: false,
-    },
+    // {
+    //   id: 3,
+    //   img: product3,
+    //   desc: "Banana Boat Light As Air SPF 50+",
+    //   sold: "13,000",
+    //   price: "$75",
+    //   like: false,
+    //   cart: false,
+    // },
   ];
 
   const [productsState, setProductsState] = useState(products);

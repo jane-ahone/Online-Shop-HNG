@@ -290,7 +290,7 @@ const Home = () => {
               />
             </div>
             <p className="prodDesc">{product.description}</p>
-            <p>{product.sold} sold</p>
+            <p className="prodSold">{product.sold} sold</p>
             <p className="prodPrice">{product.price}</p>
           </div>
         ))}

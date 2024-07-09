@@ -18,15 +18,15 @@ const Masks = () => {
   const selectedCategory = location.state;
 
   const products = [
-    {
-      id: 1,
-      img: product1,
-      desc: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
-      like: false,
-      cart: false,
-    },
+    // {
+    //   id: 1,
+    //   img: product1,
+    //   desc: "Banana Boat Light As Air SPF 50+",
+    //   sold: "13,000",
+    //   price: "$75",
+    //   like: false,
+    //   cart: false,
+    // },
     {
       id: 2,
       img: product2,

@@ -61,7 +61,7 @@ const Header = ({ setCartVisibility }) => {
               stroke="#fafafa"
               strokeWidth="1.5"
             />
-            <circle cx="40" cy="11" r="8" fill="#fafafa" />
+            {/* <circle cx="40" cy="11" r="8" fill="#fafafa" /> */}
           </svg>
           <svg
             className="cart-icon-sm"

@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import product1 from "../../../assets/images/product-listings/image 10.svg";
-import product2 from "../../../assets/images/product-listings/image 9.svg";
+import product1 from "../../../assets/images/product-listings/image 4.svg";
+import product2 from "../../../assets/images/product-listings/image 5.svg";
 import product3 from "../../../assets/images/product-listings/image 6.svg";
-import product4 from "../../../assets/images/product-listings/image 12.svg";
+import product4 from "../../../assets/images/product-listings/image 7.svg";
+import product5 from "../../../assets/images/product-listings/image 8.svg";
+import product6 from "../../../assets/images/product-listings/image 9.svg";
+import product7 from "../../../assets/images/product-listings/image 10.svg";
+import product8 from "../../../assets/images/product-listings/image 11.svg";
+import product9 from "../../../assets/images/product-listings/image 12.svg";
 
 import cartIcon from "../../../assets/icons/icon-shopping-bag.svg";
 import cartFilledIcon from "../../../assets/icons/icon-shopping-bag-filled.svg";
@@ -14,15 +19,6 @@ import { Link } from "react-router-dom";
 
 const Sunscreen = ({ selectedCategory }) => {
   const products = [
-    {
-      id: 1,
-      img: product1,
-      desc: "Banana Boat Light As Air SPF 50+",
-      sold: "13,000",
-      price: "$75",
-      like: false,
-      cart: false,
-    },
     {
       id: 2,
       img: product2,
@@ -44,6 +40,43 @@ const Sunscreen = ({ selectedCategory }) => {
     {
       id: 4,
       img: product4,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+
+    {
+      id: 5,
+      img: product5,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 6,
+      img: product6,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 7,
+      img: product7,
+      desc: "Banana Boat Light As Air SPF 50+",
+      sold: "13,000",
+      price: "$75",
+      like: false,
+      cart: false,
+    },
+    {
+      id: 8,
+      img: product8,
       desc: "Banana Boat Light As Air SPF 50+",
       sold: "13,000",
       price: "$75",
