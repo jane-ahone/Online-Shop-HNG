@@ -31,7 +31,6 @@ import product25 from "../../assets/images/Treatments/1.png";
 import product26 from "../../assets/images/Treatments/2.png";
 import product27 from "../../assets/images/Treatments/3.png";
 import product28 from "../../assets/images/Treatments/4.png";
-
 import toggleFilter from "../../assets/icons/filter-mail-square.svg";
 import "./Home.css";
 import Overlay from "../CategoryProducts/Overlay/Overlay";
