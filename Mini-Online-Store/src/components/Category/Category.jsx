@@ -15,7 +15,6 @@ const Category = () => {
       <div className="category-main-contents">
         {[
           "All Products",
-          "Cleansers",
           "Toners",
           "Moisturisers",
           "Masks",
