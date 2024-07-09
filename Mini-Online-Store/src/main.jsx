@@ -12,6 +12,9 @@ import Exfoliators from "./components/CategoryProducts/Exfoliators/Home.jsx";
 import Toners from "./components/CategoryProducts/Toners/Home.jsx";
 import Moisturizers from "./components/CategoryProducts/Moisturisers/Home.jsx";
 import Treatments from "./components/CategoryProducts/Treatments/Home.jsx";
+import Cart from "./components/CategoryProducts/Global/Cart/Cart.jsx";
+import Sidebar from "./components/CategoryProducts/Global/Sidebar/Sidebar.jsx";
+import Category from "./components/Category/Category.jsx";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +56,14 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <Checkout />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
+  },
+  {
+    path: "/category",
+    element: <Category />,
   },
 ]);
 
