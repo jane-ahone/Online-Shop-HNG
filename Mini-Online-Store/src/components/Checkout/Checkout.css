@@ -82,10 +82,17 @@
 }
 .save-select-cntr {
   margin: 1rem 0;
+  display: flex;
+  align-items: center;
 }
 .payment-details-checkout {
   background: var(--Primary-Primary, #14335a);
-  color: white;
+  color: #fafafa;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17.07px;
+  text-align: center;
 }
 .order-complete .payment-details-checkout {
   margin-left: auto;
