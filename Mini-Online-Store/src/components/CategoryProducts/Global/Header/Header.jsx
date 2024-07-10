@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import logo from "../../../../assets/icons/logo.svg";
@@ -60,9 +60,7 @@ const Header = ({ setCartVisibility, selectedCartProductState }) => {
             <svg
               className="cart-icon-sm"
               onClick={() => {
-                useEffect(() => {
-                  setfromTablet(true);
-                });
+                setfromTablet(true);
               }}
               width="20"
               height="20"

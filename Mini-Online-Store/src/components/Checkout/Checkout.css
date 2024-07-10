@@ -169,6 +169,9 @@ hr {
 .checkout-page .cart-page {
   display: none;
 }
+.return-btn {
+  filter: invert(100%) brightness(50%) saturate(0%) contrast(70%);
+}
 @media screen and (max-width: 1024px) {
   /* .cart-main {
     display: none;
@@ -189,14 +192,21 @@ hr {
     display: none;
   }
   .checkout-main-header-sm {
+    display: initial;
+    position: relative;
     text-align: center;
     font-family: Montserrat;
     font-size: 1.3rem;
     font-weight: 600;
     line-height: 24.38px;
-    display: flex;
+    /* display: grid;
     align-items: center;
     justify-content: center;
+  } */
+  }
+  .return-btn {
+    position: absolute;
+    left: 2rem;
   }
   .checkout-main-contents > * {
     margin-top: 0;
