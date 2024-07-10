@@ -86,7 +86,8 @@
 .payment-details-checkout {
   background: var(--Primary-Primary, #14335a);
   color: white;
-  display: block;
+}
+.order-complete .payment-details-checkout {
   margin-left: auto;
   margin-right: auto;
 }
