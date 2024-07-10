@@ -27,6 +27,7 @@ const Masks = ({ selectedCartProductState }) => {
       price: 77,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 2,
