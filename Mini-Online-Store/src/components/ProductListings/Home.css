@@ -121,14 +121,18 @@
 @media screen and (max-width: 769px) {
   .headerMain {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+  }
+  .logo-img {
+    margin-left: 1rem;
   }
   #menu-icon,
   .cart-icon-sm {
     display: initial;
   }
   .productlisting-content {
-    grid-template-columns: repeat(2, 45%);
+    grid-template-columns: repeat(2, 48%);
+    padding: 0 1rem;
   }
   .productlistings-header {
     grid-column-start: span 2;
