@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Checkout.css";
 import Header from "../CategoryProducts/Global/Header/Header";
 import arrowRightDouble from "../../assets/icons/arrow-right-double.svg";
@@ -15,12 +15,15 @@ const Checkout = () => {
   const products = location.state.products;
   const subtotal = location.state.subtotal;
   const fromTabletState = location.state.fromTablet;
+
   // const selectedCartProductState = location.state.selectedCartProductState;
   const [cartVisibility, setCartVisibility] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
   const [fromTablet, setfromTablet] = useState(true);
 
-  fromTabletState ? null : setfromTablet(false);
+  useEffect(() => {
+    fromTabletState ? null : setfromTablet(false);
+  }, []);
 
   const handleCartClick = () => {
     setCartVisibility((prevState) => !prevState);
@@ -32,7 +35,7 @@ const Checkout = () => {
 
   return (
     <div className="checkout-page">
-      {fromTablet ? null : <Header />}
+      {fromTablet ? null : <Header selectedCartProductState={products} />}
 
       {cartVisibility ? (
         <>

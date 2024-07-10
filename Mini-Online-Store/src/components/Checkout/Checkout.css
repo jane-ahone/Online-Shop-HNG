@@ -163,6 +163,9 @@ hr {
   border-width: 1px; */
   color: #9f9c9c;
 }
+.checkout-main-header-sm {
+  display: none;
+}
 .checkout-page .cart-page {
   display: none;
 }

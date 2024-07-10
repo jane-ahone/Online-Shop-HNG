@@ -66,13 +66,8 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
           alt="Close Cart"
         />
         {/* </Link> */}
-        <Link to="/all products">
-          <img
-            src={exit}
-            className="exit-icon"
-            id="exit-icon-sm"
-            alt="Close Cart"
-          />
+        <Link to="/all products" id="exit-icon-sm">
+          <img src={exit} className="exit-icon" alt="Close Cart" />
         </Link>
       </div>
       <div className="cart-products">

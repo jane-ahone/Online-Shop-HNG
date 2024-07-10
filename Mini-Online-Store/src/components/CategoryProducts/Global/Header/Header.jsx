@@ -5,7 +5,7 @@ import logo from "../../../../assets/icons/logo.svg";
 
 const Header = ({ setCartVisibility, selectedCartProductState }) => {
   {
-    console.log(selectedCartProductState.get());
+    console.log(selectedCartProductState);
   }
   const handleCartClick = () => {
     setCartVisibility((prevState) => !prevState);
@@ -48,7 +48,7 @@ const Header = ({ setCartVisibility, selectedCartProductState }) => {
       </div>
       <div className="header icon-group">
         <div className="cart-page">
-          <Link to="/cart" state={selectedCartProductState.get()}>
+          <Link to="/cart" state={selectedCartProductState}>
             <svg
               className="cart-icon-sm"
               // onClick={handleCartClick}

@@ -118,6 +118,7 @@
 #exit-icon-sm,
 #checkout-link-sm {
   display: none;
+  position: absolute;
 }
 @media screen and (max-width: 769px) {
   #exit-icon-bg {
