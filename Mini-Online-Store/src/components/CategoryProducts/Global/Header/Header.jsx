@@ -45,7 +45,7 @@ const Header = ({ setCartVisibility, selectedCartProductState }) => {
       </div>
       <div className="header icon-group">
         <div className="cart-page">
-          <Link to="/cart">
+          <Link to="/cart" state={selectedCartProductState.get()}>
             <svg
               className="cart-icon-sm"
               // onClick={handleCartClick}

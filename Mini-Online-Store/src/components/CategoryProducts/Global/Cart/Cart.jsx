@@ -15,6 +15,7 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
 
   const location = useLocation();
   const selectedCartProductStateSmall = location.state;
+  console.log(selectedCartProductStateSmall);
 
   const initialProducts = selectedCartProductState
     ? selectedCartProductState.get()
@@ -61,9 +62,19 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
           src={exit}
           onClick={handleDeleteClick}
           className="exit-icon"
+          id="exit-icon-bg"
           alt="Close Cart"
         />
         {/* </Link> */}
+        <Link to="/all products">
+          <img
+            src={exit}
+            onClick={handleDeleteClick}
+            className="exit-icon"
+            id="exit-icon-sm"
+            alt="Close Cart"
+          />
+        </Link>
       </div>
       <div className="cart-products">
         {products.map((product) => (

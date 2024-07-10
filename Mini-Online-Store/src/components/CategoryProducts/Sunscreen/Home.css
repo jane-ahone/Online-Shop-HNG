@@ -53,6 +53,7 @@
     /* justify-items: center; */
   }
   .toggle-filter {
+    display: none;
     color: #fafafa;
     padding: 0.5rem 0.8rem 0.5rem 0.8rem;
   }

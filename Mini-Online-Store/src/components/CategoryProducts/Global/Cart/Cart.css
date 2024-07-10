@@ -115,3 +115,14 @@
 .checkout-btn:active {
   background-color: #051b35;
 }
+#exit-icon-sm {
+  display: none;
+}
+@media screen and (max-width: 769px) {
+  #exit-icon-bg {
+    display: none;
+  }
+  #exit-icon-sm {
+    display: initial;
+  }
+}
