@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import logo from "../../../../assets/icons/logo.svg";
@@ -53,13 +53,17 @@ const Header = ({ setCartVisibility, selectedCartProductState }) => {
             to="/cart"
             state={
               fromTablet
-                ? selectedCartProductState
-                : selectedCartProductState.get()
+                ? selectedCartProductState.get()
+                : selectedCartProductState
             }
           >
             <svg
               className="cart-icon-sm"
-              onClick={() => setfromTablet(true)}
+              onClick={() => {
+                useEffect(() => {
+                  setfromTablet(true);
+                });
+              }}
               width="20"
               height="20"
               viewBox="0 0 20 20"

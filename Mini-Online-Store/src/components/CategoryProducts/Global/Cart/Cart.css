@@ -98,7 +98,7 @@
   line-height: 19.5px;
 }
 .checkout-btn {
-  padding: 1rem 12rem 1rem 12rem;
+  padding: 1rem 3rem 1rem 3rem;
   border-radius: 10px;
   background: var(--Primary-Primary, #14335a);
   /* font-size: 0.95rem; */
