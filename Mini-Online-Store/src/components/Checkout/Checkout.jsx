@@ -58,8 +58,8 @@ const Checkout = () => {
               />
               <p className="order-complete-text">Order Complete</p>
               <p>
-                You will be receiving an email with your order details and
-                shipping information soon.
+                You will be receiving an email with your order <br /> details
+                and shipping information soon.
               </p>
               <Link to="/all products">
                 <button
