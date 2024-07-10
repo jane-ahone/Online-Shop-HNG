@@ -178,6 +178,11 @@ hr {
     display: none;
   }
 }
+@media screen and (max-width: 768px) {
+  .headerMain {
+    display: none;
+  }
+}
 @media screen and (max-width: 375px) {
   body {
     font-size: 11px;

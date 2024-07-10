@@ -4,6 +4,9 @@ import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import logo from "../../../../assets/icons/logo.svg";
 
 const Header = ({ setCartVisibility, selectedCartProductState }) => {
+  {
+    console.log(selectedCartProductState.get());
+  }
   const handleCartClick = () => {
     setCartVisibility((prevState) => !prevState);
   };

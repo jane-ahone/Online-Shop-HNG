@@ -17,6 +17,7 @@ const Checkout = () => {
   // const selectedCartProductState = location.state.selectedCartProductState;
   const [cartVisibility, setCartVisibility] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
+  const [fromTablet, setfromTablet] = useState(true);
 
   const handleCartClick = () => {
     setCartVisibility((prevState) => !prevState);
@@ -28,7 +29,8 @@ const Checkout = () => {
 
   return (
     <div className="checkout-page">
-      <Header />
+      {fromTablet ? null : <Header />}
+
       {cartVisibility ? (
         <>
           <Overlay />

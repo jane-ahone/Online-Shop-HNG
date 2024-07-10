@@ -69,7 +69,6 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
         <Link to="/all products">
           <img
             src={exit}
-            onClick={handleDeleteClick}
             className="exit-icon"
             id="exit-icon-sm"
             alt="Close Cart"
@@ -129,7 +128,7 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
             <p>${subtotal + 0} </p>
           </div>
         </div>
-        {console.log(selectedCartProductState)}
+        {console.log(products)}
         <Link
           to="/checkout"
           state={{
