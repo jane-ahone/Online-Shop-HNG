@@ -120,17 +120,3 @@
   display: none;
   position: absolute;
 }
-@media screen and (max-width: 769px) {
-  #exit-icon-bg {
-    display: none;
-  }
-  #exit-icon-sm {
-    display: initial;
-  }
-  #checkout-link-bg {
-    display: none;
-  }
-  #checkout-link-sm {
-    display: initial;
-  }
-}

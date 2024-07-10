@@ -189,7 +189,6 @@ hr {
     display: none;
   }
   .checkout-main-header-sm {
-    padding: 1.5rem;
     text-align: center;
     font-family: Montserrat;
     font-size: 1.3rem;
@@ -199,9 +198,42 @@ hr {
     align-items: center;
     justify-content: center;
   }
+  .checkout-main-contents > * {
+    margin-top: 0;
+    border: none;
+  }
+  .checkout-main-contents,
+  .checkout-main-right {
+    padding: 0 1rem;
+  }
+
+  #exit-icon-bg,
+  #checkout-link-bg {
+    display: none;
+  }
+  #exit-icon-sm,
+  #checkout-link-sm {
+    display: initial;
+    position: relative;
+  }
+  .checkout-main-contents .cart-main {
+    display: none;
+  }
+  .checkout-main-contents {
+    border: none;
+  }
 }
+
 @media screen and (max-width: 375px) {
   body {
     font-size: 11px;
+  }
+}
+@media screen and (max-width: 425px) {
+  body {
+    font-size: 10px;
+  }
+  #card-number {
+    background-size: 20%;
   }
 }

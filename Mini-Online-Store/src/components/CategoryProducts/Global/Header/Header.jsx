@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import logo from "../../../../assets/icons/logo.svg";
 
 const Header = ({ setCartVisibility, selectedCartProductState }) => {
+  const [fromTablet, setfromTablet] = useState(false);
   {
     console.log(selectedCartProductState);
   }
@@ -48,10 +49,17 @@ const Header = ({ setCartVisibility, selectedCartProductState }) => {
       </div>
       <div className="header icon-group">
         <div className="cart-page">
-          <Link to="/cart" state={selectedCartProductState}>
+          <Link
+            to="/cart"
+            state={
+              fromTablet
+                ? selectedCartProductState
+                : selectedCartProductState.get()
+            }
+          >
             <svg
               className="cart-icon-sm"
-              // onClick={handleCartClick}
+              onClick={() => setfromTablet(true)}
               width="20"
               height="20"
               viewBox="0 0 20 20"
