@@ -174,13 +174,27 @@ hr {
     display: flex;
     flex-direction: column;
   }
+}
+@media screen and (max-width: 768px) {
+  /* .headerMain {
+    display: none;
+  } */
   .checkout-main-header {
     display: none;
   }
-}
-@media screen and (max-width: 768px) {
-  .headerMain {
+  .checkout-page.cart-main {
     display: none;
+  }
+  .checkout-main-header-sm {
+    padding: 1.5rem;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 24.38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 @media screen and (max-width: 375px) {

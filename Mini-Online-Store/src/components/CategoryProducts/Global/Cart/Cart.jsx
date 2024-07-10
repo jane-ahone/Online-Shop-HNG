@@ -136,7 +136,20 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
             subtotal: subtotal,
             // selectedCartProductState: products,
           }}
+          className="checkout-link "
+          id="checkout-link-bg"
+        >
+          <button className="checkout-btn">Continue To Checkout</button>
+        </Link>
+        <Link
+          to="/checkout"
+          state={{
+            products: products,
+            subtotal: subtotal,
+            fromTablet: true,
+          }}
           className="checkout-link"
+          id="checkout-link-sm"
         >
           <button className="checkout-btn">Continue To Checkout</button>
         </Link>
