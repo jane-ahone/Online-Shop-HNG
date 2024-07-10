@@ -5,7 +5,7 @@ import Toners from "./Toners";
 // import "./Home.css"
 import Header from "../Global/Header/Header";
 import Overlay from "../Overlay/Overlay";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function useSelectedCartProducts() {
   const [selectedCartProducts, set] = useState([]);
@@ -21,7 +21,10 @@ const Home = () => {
   const selectedCartProductState = useSelectedCartProducts();
   return (
     <div className="homeMain">
-      <Header setCartVisibility={setCartVisibility} />
+      <Header
+        setCartVisibility={setCartVisibility}
+        selectedCartProductState={selectedCartProductState}
+      />
       {cartVisibility ? (
         <>
           <Overlay />

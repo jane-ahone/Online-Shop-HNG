@@ -22,7 +22,10 @@ const Home = () => {
 
   return (
     <div className="homeMain">
-      <Header setCartVisibility={setCartVisibility} />
+      <Header
+        setCartVisibility={setCartVisibility}
+        selectedCartProductState={selectedCartProductState}
+      />
       {cartVisibility ? (
         <>
           <Overlay />
@@ -34,7 +37,7 @@ const Home = () => {
       ) : null}
 
       <div className="homeMain-contents">
-        <Sidebar />
+        <Sidebar selectedCartProducts={selectedCartProductState.get()} />
         <Sunscreen selectedCartProductState={selectedCartProductState} />
       </div>
     </div>

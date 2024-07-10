@@ -18,8 +18,8 @@ const Moisturizers = ({ selectedCartProductState }) => {
   const products = [
     {
       id: 1,
-      img: product1,
-      desc: "The Ordinary Natural Moisturizing Factors",
+      image: product1,
+      description: "The Ordinary Natural Moisturizing Factors",
       sold: "7,000",
       price: 52,
       like: false,
@@ -28,8 +28,8 @@ const Moisturizers = ({ selectedCartProductState }) => {
     },
     {
       id: 2,
-      img: product2,
-      desc: "L'Oréal Paris Collagen Moisture Filler",
+      image: product2,
+      description: "L'Oréal Paris Collagen Moisture Filler",
       sold: "16,030",
       price: 75,
       like: false,
@@ -38,8 +38,8 @@ const Moisturizers = ({ selectedCartProductState }) => {
     },
     {
       id: 3,
-      img: product3,
-      desc: "Vanicream Daily Facial Moisturizer.",
+      image: product3,
+      description: "Vanicream Daily Facial Moisturizer.",
       sold: "9,081",
       price: 25,
       like: false,
@@ -48,8 +48,8 @@ const Moisturizers = ({ selectedCartProductState }) => {
     },
     {
       id: 4,
-      img: product4,
-      desc: "Neutrogena Hydro Boost Gel Cream",
+      image: product4,
+      description: "Neutrogena Hydro Boost Gel Cream",
       sold: "4,670",
       price: 29,
       like: false,
@@ -106,7 +106,7 @@ const Moisturizers = ({ selectedCartProductState }) => {
           {productsState.map((product) => (
             <div className="product" key={product.id}>
               <div className="product-image">
-                <img src={product.img} alt="Product" />
+                <img src={product.image} alt="Product" />
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"
@@ -120,7 +120,7 @@ const Moisturizers = ({ selectedCartProductState }) => {
                   alt="Cart button"
                 />
               </div>
-              <p className="prodDesc">{product.desc}</p>
+              <p className="prodDesc">{product.description}</p>
               <p>{product.sold} sold</p>
               <p className="prodPrice">${product.price}</p>
             </div>

@@ -158,9 +158,9 @@
     font-size: 10px;
   }
 }
-@media screen and (max-width: 1700px) {
+/* @media screen and (max-width: 1700px) {
   .productlistings-home-main {
     max-width: 1500px;
     margin: auto;
   }
-}
+} */

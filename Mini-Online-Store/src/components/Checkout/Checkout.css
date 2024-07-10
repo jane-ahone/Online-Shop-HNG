@@ -163,9 +163,9 @@ hr {
   display: none;
 }
 @media screen and (max-width: 1024px) {
-  .cart-main {
+  /* .cart-main {
     display: none;
-  }
+  } */
   .checkout-main-contents {
     display: flex;
     flex-direction: column;

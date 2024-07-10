@@ -8,20 +8,11 @@ import product2 from "../../assets/images/product-listings/image 6.svg";
 import product3 from "../../assets/images/product-listings/image 12.svg";
 import product4 from "../../assets/images/product-listings/image 9.svg";
 import product5 from "../../assets/images/product-listings/image 10.svg";
-import product6 from "../../assets/images/Cleansers/1.png";
-import product7 from "../../assets/images/Cleansers/2.png";
-import product8 from "../../assets/images/Cleansers/3.png";
-import product9 from "../../assets/images/Cleansers/4.png";
 import product10 from "../../assets/images/Exfoliators/1.png";
 import product11 from "../../assets/images/Exfoliators/2.png";
 import product12 from "../../assets/images/Exfoliators/3.png";
 import product13 from "../../assets/images/Exfoliators/4.png";
 import product14 from "../../assets/images/Exfoliators/5.png";
-import product15 from "../../assets/images/Masks/1.png";
-import product16 from "../../assets/images/Masks/2.png";
-import product17 from "../../assets/images/Masks/3.png";
-import product18 from "../../assets/images/Masks/4.png";
-import product19 from "../../assets/images/Masks/5.png";
 import product20 from "../../assets/images/Moisturizers/1.png";
 import product21 from "../../assets/images/Moisturizers/2.png";
 import product22 from "../../assets/images/Toners/1.png";
@@ -61,6 +52,7 @@ const Home = () => {
       price: 25,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 3,
@@ -70,6 +62,7 @@ const Home = () => {
       price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 4,
@@ -79,6 +72,7 @@ const Home = () => {
       price: 12,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 5,
@@ -88,6 +82,7 @@ const Home = () => {
       price: 15,
       like: false,
       cart: false,
+      quantity: 1,
     },
 
     {
@@ -98,6 +93,7 @@ const Home = () => {
       price: 39,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 12,
@@ -107,6 +103,7 @@ const Home = () => {
       price: 33,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 13,
@@ -116,6 +113,7 @@ const Home = () => {
       price: 7,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 14,
@@ -125,6 +123,7 @@ const Home = () => {
       price: 50,
       like: false,
       cart: false,
+      quantity: 1,
     },
 
     {
@@ -135,6 +134,7 @@ const Home = () => {
       price: 17,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 21,
@@ -144,62 +144,69 @@ const Home = () => {
       price: 75,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 22,
       image: product22,
       description: "Renée Rouleau facial toner",
-      sold: "70,000",
-      price: 75,
+      sold: "578",
+      price: 79,
       like: false,
       cart: false,
+      quantity: 1,
     },
 
     {
       id: 23,
       image: product23,
       description: "The Rose & Hyaluronic Acid Deep Toner ",
-      sold: "70,000",
-      price: 75,
+      sold: "7890",
+      price: 32,
       like: false,
       cart: false,
+      quantity: 1,
     },
 
     {
       id: 25,
       image: product25,
       description: "Biossance Squalane + Probiotic Gel",
-      sold: "70,000",
-      price: 75,
+      sold: "700",
+      price: 18,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 26,
       image: product26,
       description: "Cleanse & Polish Hot Cloth Cleanser",
-      sold: "70,000",
-      price: 75,
+      sold: "495",
+      price: 5,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 24,
       image: product24,
       description: "This Freck Beauty face ",
-      sold: "70,000",
-      price: 75,
+      sold: "200",
+      price: 84,
       like: false,
       cart: false,
+      quantity: 1,
     },
     {
       id: 10,
       image: product10,
       description: "Acure Brightening Facial Scrub",
-      sold: "70,000",
-      price: 75,
+      sold: "31,000",
+      price: 15,
       like: false,
       cart: false,
+      quantity: 1,
     },
   ];
 
@@ -214,16 +221,32 @@ const Home = () => {
   };
 
   const toggleCart = (id) => {
-    setProducts(
-      products.map((product) =>
-        product.id === id ? { ...product, cart: !product.cart } : product
-      )
-    );
+    const newProducts = products.map((product) => {
+      if (product.id === id) {
+        const updatedProduct = { ...product, cart: !product.cart };
+        if (updatedProduct.cart) {
+          selectedCartProductState.set((prevCartProducts) => [
+            ...prevCartProducts,
+            updatedProduct,
+          ]);
+        } else {
+          selectedCartProductState.set((prevCartProducts) =>
+            prevCartProducts.filter((item) => item.id !== id)
+          );
+        }
+        return updatedProduct;
+      }
+      return product;
+    });
+    setProducts(newProducts);
   };
 
   return (
     <div className="productlistings-home-main">
-      <Header setCartVisibility={setCartVisibility} />
+      <Header
+        setCartVisibility={setCartVisibility}
+        selectedCartProductState={selectedCartProductState}
+      />
 
       <div className="productlisting-content">
         {cartVisibility && (

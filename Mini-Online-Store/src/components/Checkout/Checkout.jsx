@@ -14,7 +14,7 @@ const Checkout = () => {
   console.log(location.state);
   const products = location.state.products;
   const subtotal = location.state.subtotal;
-  const selectedCartProductState = location.state.selectedCartProductState;
+  // const selectedCartProductState = location.state.selectedCartProductState;
   const [cartVisibility, setCartVisibility] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
 

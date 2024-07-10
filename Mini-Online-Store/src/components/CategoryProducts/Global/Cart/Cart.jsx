@@ -6,14 +6,19 @@ import plusIcon from "../../../../assets/icons/plus-sign.svg";
 import minusIcon from "../../../../assets/icons/minus-icon.svg";
 import deleteIcon from "../../../../assets/icons/delete-icon.svg";
 import "./Cart.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Cart = ({ setCartVisibility, selectedCartProductState }) => {
   const handleDeleteClick = () => {
     setCartVisibility((prevState) => !prevState);
   };
 
-  const initialProducts = selectedCartProductState.get();
+  const location = useLocation();
+  const selectedCartProductStateSmall = location.state;
+
+  const initialProducts = selectedCartProductState
+    ? selectedCartProductState.get()
+    : selectedCartProductStateSmall;
   console.log(initialProducts);
 
   const [products, setProducts] = useState(initialProducts);
@@ -51,20 +56,22 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
     <div className="cart-main">
       <div className="cart-header">
         <p className="cart-title">My Cart</p>
+        {/* <Link to="/all products"> */}
         <img
           src={exit}
           onClick={handleDeleteClick}
           className="exit-icon"
           alt="Close Cart"
         />
+        {/* </Link> */}
       </div>
       <div className="cart-products">
         {products.map((product) => (
           <div key={product.id} className="cart-product">
             <img src={checkedIcon} className="checked-icon" alt="Checked" />
-            <img src={product.img} className="blue-product" alt="Product" />
+            <img src={product.image} className="blue-product" alt="Product" />
             <div className="product-details">
-              <p className="product-desc">{product.desc}</p>
+              <p className="product-desc">{product.description}</p>
               <p className="product-price">${product.price}</p>
               <div className="action-icons">
                 <div className="numerical-icons">
@@ -82,14 +89,14 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
                     onClick={() => handleDecrement(product.id)}
                   />
                 </div>
-                <img
-                  src={deleteIcon}
-                  alt="Delete Product"
-                  className="delete-icon"
-                  onClick={() => handleDelete(product.id)}
-                />
               </div>
             </div>
+            <img
+              src={deleteIcon}
+              alt="Delete Product"
+              className="delete-icon"
+              onClick={() => handleDelete(product.id)}
+            />
           </div>
         ))}
         {/* <div className="all-btn">
@@ -117,6 +124,7 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
           state={{
             products: products,
             subtotal: subtotal,
+            // selectedCartProductState: products,
           }}
           className="checkout-link"
         >

@@ -21,8 +21,8 @@ const Masks = ({ selectedCartProductState }) => {
   const products = [
     {
       id: 1,
-      img: product1,
-      desc: "TONYMOLY Pureness 100 Mask",
+      image: product1,
+      description: "TONYMOLY Pureness 100 Mask",
       sold: "13,257",
       price: 77,
       like: false,
@@ -30,8 +30,8 @@ const Masks = ({ selectedCartProductState }) => {
     },
     {
       id: 2,
-      img: product2,
-      desc: "The Face Shop Real Nature Face Mask",
+      image: product2,
+      description: "The Face Shop Real Nature Face Mask",
       sold: "770",
       price: 95,
       like: false,
@@ -88,7 +88,7 @@ const Masks = ({ selectedCartProductState }) => {
           {productsState.map((product) => (
             <div className="product" key={product.id}>
               <div className="product-image">
-                <img src={product.img} alt="Product" />
+                <img src={product.image} alt="Product" />
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"
@@ -102,9 +102,9 @@ const Masks = ({ selectedCartProductState }) => {
                   alt="Cart button"
                 />
               </div>
-              <p className="prodDesc">{product.desc}</p>
+              <p className="prodDesc">{product.description}</p>
               <p>{product.sold} sold</p>
-              <p className="prodPrice">{product.price}</p>
+              <p className="prodPrice">${product.price}</p>
             </div>
           ))}
         </div>

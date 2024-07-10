@@ -21,8 +21,8 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
   const products = [
     {
       id: 2,
-      img: product2,
-      desc: "Black Girl Sunscreen SPF 30",
+      image: product2,
+      description: "Black Girl Sunscreen SPF 30",
       sold: "4700",
       price: 90,
       quantity: 1,
@@ -31,8 +31,8 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
     },
     {
       id: 3,
-      img: product3,
-      desc: "Coola Refreshing Water Plumping Gel Serum SPF 30",
+      image: product3,
+      description: "Coola Refreshing Water Plumping Gel Serum SPF 30",
       sold: "9000",
       price: 15,
       quantity: 1,
@@ -41,8 +41,8 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
     },
     {
       id: 4,
-      img: product4,
-      desc: "Supergoop Play Everyday Lotion SPF 50",
+      image: product4,
+      description: "Supergoop Play Everyday Lotion SPF 50",
       sold: "200",
       price: 785,
       quantity: 1,
@@ -52,8 +52,8 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
 
     {
       id: 5,
-      img: product5,
-      desc: "Dr. Jart+ Mineral Sunscreen SPF 50+",
+      image: product5,
+      description: "Dr. Jart+ Mineral Sunscreen SPF 50+",
       sold: "8,100",
       price: 12,
       quantity: 1,
@@ -62,8 +62,8 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
     },
     {
       id: 6,
-      img: product6,
-      desc: "Trader Joe’s Daily Facial Sunscreen SPF 40",
+      image: product6,
+      description: "Trader Joe’s Daily Facial Sunscreen SPF 40",
       sold: "1380",
       price: 53,
       quantity: 1,
@@ -72,8 +72,8 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
     },
     {
       id: 7,
-      img: product7,
-      desc: "Dr. M Mineral Sunscreen SPF 50+",
+      image: product7,
+      description: "Dr. M Mineral Sunscreen SPF 50+",
       sold: "653",
       price: 87,
       quantity: 1,
@@ -82,8 +82,8 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
     },
     {
       id: 8,
-      img: product8,
-      desc: "Dr. Jart+ Mineral Sunscreen SPF 50+",
+      image: product8,
+      description: "Dr. Jart+ Mineral Sunscreen SPF 50+",
       sold: "21,000",
       price: 75,
       quantity: 1,
@@ -140,7 +140,7 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
           {productsState.map((product, index) => (
             <div className="product" key={index}>
               <div className="product-image">
-                <img src={product.img} alt="Product" />
+                <img src={product.image} alt="Product" />
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"
@@ -154,7 +154,7 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
                   alt="Cart button"
                 />
               </div>
-              <p className="prodDesc">{product.desc}</p>
+              <p className="prodDesc">{product.description}</p>
               <p>{product.sold} sold</p>
               <p className="prodPrice">${product.price}</p>
             </div>

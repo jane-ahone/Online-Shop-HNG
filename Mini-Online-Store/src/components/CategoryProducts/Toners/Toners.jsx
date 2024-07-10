@@ -17,8 +17,8 @@ const Toners = ({ selectedCartProductState }) => {
   const products = [
     {
       id: 1,
-      img: product1,
-      desc: "Renée Rouleau Facial Toner",
+      image: product1,
+      description: "Renée Rouleau Facial Toner",
       sold: "3,700",
       price: 12,
       like: false,
@@ -27,8 +27,8 @@ const Toners = ({ selectedCartProductState }) => {
     },
     {
       id: 2,
-      img: product2,
-      desc: "The Rose & Hyaluronic Acid Deep Toner ",
+      image: product2,
+      description: "The Rose & Hyaluronic Acid Deep Toner ",
       sold: "4,000",
       price: 86,
       like: false,
@@ -94,7 +94,7 @@ const Toners = ({ selectedCartProductState }) => {
           {productsState.map((product) => (
             <div className="product" key={product.id}>
               <div className="product-image">
-                <img src={product.img} alt="Product" />
+                <img src={product.image} alt="Product" />
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"
@@ -108,9 +108,9 @@ const Toners = ({ selectedCartProductState }) => {
                   alt="Cart button"
                 />
               </div>
-              <p className="prodDesc">{product.desc}</p>
+              <p className="prodDesc">{product.description}</p>
               <p>{product.sold} sold</p>
-              <p className="prodPrice">{product.price}</p>
+              <p className="prodPrice">${product.price}</p>
             </div>
           ))}
         </div>

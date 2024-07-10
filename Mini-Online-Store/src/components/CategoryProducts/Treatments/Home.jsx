@@ -21,7 +21,10 @@ const Home = () => {
   const selectedCartProductState = useSelectedCartProducts();
   return (
     <div className="homeMain">
-      <Header setCartVisibility={setCartVisibility} />
+      <Header
+        setCartVisibility={setCartVisibility}
+        selectedCartProductState={selectedCartProductState}
+      />
       {cartVisibility ? (
         <>
           <Overlay />

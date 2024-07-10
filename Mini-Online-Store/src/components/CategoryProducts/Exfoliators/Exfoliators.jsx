@@ -19,8 +19,8 @@ const Exfoliators = ({ selectedCartProductState }) => {
   const products = [
     {
       id: 2,
-      img: product2,
-      desc: "Origins Ginzing Refreshing Scrub",
+      image: product2,
+      description: "Origins Ginzing Refreshing Scrub",
       sold: "1,001",
       price: 15,
       like: false,
@@ -29,8 +29,8 @@ const Exfoliators = ({ selectedCartProductState }) => {
     },
     {
       id: 3,
-      img: product3,
-      desc: "Zo Skin Health Exfoliating Polish",
+      image: product3,
+      description: "Zo Skin Health Exfoliating Polish",
       sold: "3,023",
       price: 63,
       like: false,
@@ -39,8 +39,8 @@ const Exfoliators = ({ selectedCartProductState }) => {
     },
     {
       id: 4,
-      img: product4,
-      desc: "Fresh Sugar Face Polish",
+      image: product4,
+      description: "Fresh Sugar Face Polish",
       sold: "13,000",
       price: 10,
       like: false,
@@ -49,8 +49,8 @@ const Exfoliators = ({ selectedCartProductState }) => {
     },
     {
       id: 5,
-      img: product5,
-      desc: "SkinMedica Exfoliating Cleanse",
+      image: product5,
+      description: "SkinMedica Exfoliating Cleanse",
       sold: "2967",
       price: 91,
       like: false,
@@ -106,7 +106,7 @@ const Exfoliators = ({ selectedCartProductState }) => {
           {productsState.map((product) => (
             <div className="product" key={product.id}>
               <div className="product-image">
-                <img src={product.img} alt="Product" />
+                <img src={product.image} alt="Product" />
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"
@@ -120,7 +120,7 @@ const Exfoliators = ({ selectedCartProductState }) => {
                   alt="Cart button"
                 />
               </div>
-              <p className="prodDesc">{product.desc}</p>
+              <p className="prodDesc">{product.description}</p>
               <p>{product.sold} sold</p>
               <p className="prodPrice">${product.price}</p>
             </div>

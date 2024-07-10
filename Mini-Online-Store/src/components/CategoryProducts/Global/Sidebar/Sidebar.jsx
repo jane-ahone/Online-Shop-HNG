@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
-const Sidebar = ({ selectedCategoryState }) => {
+const Sidebar = ({ selectedCategoryState, selectedCartProducts }) => {
   const handleCategoryClick = (category) => {
     selectedCategoryState.set(category);
   };
@@ -25,6 +25,7 @@ const Sidebar = ({ selectedCategoryState }) => {
             <Link
               to={`/${category.toLowerCase()}`}
               state={category}
+              cartproducts={selectedCartProducts}
               key={category}
             >
               <p>{category}</p>
