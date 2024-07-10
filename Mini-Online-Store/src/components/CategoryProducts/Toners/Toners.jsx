@@ -77,7 +77,7 @@ const Toners = ({ selectedCartProductState }) => {
   };
 
   return (
-    <div>
+    <div className="product-display-main">
       <div className="sunscreen-main-content">
         <div className="sunscreen-header">
           <p className="sunscreen-title">

@@ -50,6 +50,9 @@
   filter: invert(27%) sepia(89%) saturate(6354%) hue-rotate(357deg)
     brightness(95%) contrast(107%);
 }
+.product-display-main {
+  max-width: 1700px;
+}
 
 @media screen and (max-width: 375px) {
   body {
