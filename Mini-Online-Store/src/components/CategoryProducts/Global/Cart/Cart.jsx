@@ -7,18 +7,22 @@ import minusIcon from "../../../../assets/icons/minus-icon.svg";
 import deleteIcon from "../../../../assets/icons/delete-icon.svg";
 import "./Cart.css";
 import { Link, useLocation } from "react-router-dom";
+import { useCart } from "../../../../Context/CartContext";
 
 const Cart = ({ setCartVisibility, selectedCartProductState, category }) => {
+  const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
   const handleDeleteClick = () => {
     setCartVisibility((prevState) => !prevState);
   };
 
-  const location = useLocation();
-  const selectedCartProductStateSmall = location.state;
+  // const location = useLocation();
+  // const selectedCartProductStateSmall = location.state;
 
-  const initialProducts = selectedCartProductState
-    ? selectedCartProductState.get()
-    : selectedCartProductStateSmall;
+  // const initialProducts = selectedCartProductState
+  //   ? selectedCartProductState.get()
+  //   : selectedCartProductStateSmall;
+
+  const initialProducts = cartProducts;
 
   const [products, setProducts] = useState(initialProducts);
 
@@ -47,7 +51,8 @@ const Cart = ({ setCartVisibility, selectedCartProductState, category }) => {
   };
 
   const subtotal = products.reduce(
-    (total, product) => total + product.price * product.quantity,
+    (total, product) =>
+      total + product.current_price[0].CAD[0] * product.quantity,
     0
   );
 
@@ -79,7 +84,9 @@ const Cart = ({ setCartVisibility, selectedCartProductState, category }) => {
             />
             <div className="product-details">
               <p className="product-desc">{product.name}</p>
-              <p className="product-price">${product.price}</p>
+              <p className="product-price">
+                ${product.current_price[0].CAD[0]}
+              </p>
               <div className="action-icons">
                 <div className="numerical-icons">
                   <img
@@ -125,7 +132,7 @@ const Cart = ({ setCartVisibility, selectedCartProductState, category }) => {
             <p>${subtotal + 0} </p>
           </div>
         </div>
-        {console.log(products)}
+
         <Link
           to="/checkout"
           state={{

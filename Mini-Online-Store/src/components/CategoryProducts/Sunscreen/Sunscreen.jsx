@@ -16,81 +16,92 @@ import heartFilledIcon from "../../../assets/icons/heart-filled-icon.svg";
 import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
 import "./Sunscreen.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../../Context/CartContext";
 
 const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
-  const products = [
-    {
-      id: 2,
-      image: product2,
-      description: "Black Girl Sunscreen SPF 30",
-      sold: "4700",
-      price: 90,
-      quantity: 1,
-      like: false,
-      cart: false,
-    },
-    {
-      id: 3,
-      image: product3,
-      description: "Coola Refreshing Water Plumping Gel Serum SPF 30",
-      sold: "9000",
-      price: 15,
-      quantity: 1,
-      like: false,
-      cart: false,
-    },
-    {
-      id: 4,
-      image: product4,
-      description: "Supergoop Play Everyday Lotion SPF 50",
-      sold: "200",
-      price: 785,
-      quantity: 1,
-      like: false,
-      cart: false,
-    },
+  const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
 
-    {
-      id: 5,
-      image: product5,
-      description: "Dr. Jart+ Mineral Sunscreen SPF 50+",
-      sold: "8,100",
-      price: 12,
-      quantity: 1,
-      like: false,
-      cart: false,
-    },
-    {
-      id: 6,
-      image: product6,
-      description: "Trader Joe’s Daily Facial Sunscreen SPF 40",
-      sold: "1380",
-      price: 53,
-      quantity: 1,
-      like: false,
-      cart: false,
-    },
-    {
-      id: 7,
-      image: product7,
-      description: "Dr. M Mineral Sunscreen SPF 50+",
-      sold: "653",
-      price: 87,
-      quantity: 1,
-      like: false,
-      cart: false,
-    },
-    {
-      id: 8,
-      image: product8,
-      description: "Dr. Jart+ Mineral Sunscreen SPF 50+",
-      sold: "21,000",
-      price: 75,
-      quantity: 1,
-      like: false,
-      cart: false,
-    },
-  ];
+  console.log(cartProducts);
+
+  const products = cartProducts.filter((product) => {
+    product.categories[0].name !== "sunscreens";
+  });
+
+  console.log(products);
+
+  // const products = [
+  //   {
+  //     id: 2,
+  //     image: product2,
+  //     description: "Black Girl Sunscreen SPF 30",
+  //     sold: "4700",
+  //     price: 90,
+  //     quantity: 1,
+  //     like: false,
+  //     cart: false,
+  //   },
+  //   {
+  //     id: 3,
+  //     image: product3,
+  //     description: "Coola Refreshing Water Plumping Gel Serum SPF 30",
+  //     sold: "9000",
+  //     price: 15,
+  //     quantity: 1,
+  //     like: false,
+  //     cart: false,
+  //   },
+  //   {
+  //     id: 4,
+  //     image: product4,
+  //     description: "Supergoop Play Everyday Lotion SPF 50",
+  //     sold: "200",
+  //     price: 785,
+  //     quantity: 1,
+  //     like: false,
+  //     cart: false,
+  //   },
+
+  //   {
+  //     id: 5,
+  //     image: product5,
+  //     description: "Dr. Jart+ Mineral Sunscreen SPF 50+",
+  //     sold: "8,100",
+  //     price: 12,
+  //     quantity: 1,
+  //     like: false,
+  //     cart: false,
+  //   },
+  //   {
+  //     id: 6,
+  //     image: product6,
+  //     description: "Trader Joe’s Daily Facial Sunscreen SPF 40",
+  //     sold: "1380",
+  //     price: 53,
+  //     quantity: 1,
+  //     like: false,
+  //     cart: false,
+  //   },
+  //   {
+  //     id: 7,
+  //     image: product7,
+  //     description: "Dr. M Mineral Sunscreen SPF 50+",
+  //     sold: "653",
+  //     price: 87,
+  //     quantity: 1,
+  //     like: false,
+  //     cart: false,
+  //   },
+  //   {
+  //     id: 8,
+  //     image: product8,
+  //     description: "Dr. Jart+ Mineral Sunscreen SPF 50+",
+  //     sold: "21,000",
+  //     price: 75,
+  //     quantity: 1,
+  //     like: false,
+  //     cart: false,
+  //   },
+  // ];
 
   const [productsState, setProductsState] = useState(products);
 

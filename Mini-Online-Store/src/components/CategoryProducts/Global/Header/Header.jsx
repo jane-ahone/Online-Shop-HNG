@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./Header.css";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+import { useCart } from "../../../../Context/CartContext";
 import logo from "../../../../assets/icons/logo.svg";
 
 const Header = ({ setCartVisibility, selectedCartProductState }) => {
+  // const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
+
   const [fromTablet, setfromTablet] = useState(false);
-  {
-    console.log(selectedCartProductState);
-  }
   const handleCartClick = () => {
     setCartVisibility((prevState) => !prevState);
   };
@@ -51,11 +51,11 @@ const Header = ({ setCartVisibility, selectedCartProductState }) => {
         <div className="cart-page">
           <Link
             to="/cart"
-            state={
-              fromTablet
-                ? selectedCartProductState.get()
-                : selectedCartProductState
-            }
+            // state={
+            //   fromTablet
+            //     ? selectedCartProductState.get()
+            //     : selectedCartProductState
+            // }
           >
             <svg
               className="cart-icon-sm"

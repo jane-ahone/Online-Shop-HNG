@@ -6,6 +6,7 @@ import Exfoliators from "./Exfoliators";
 import Header from "../Global/Header/Header";
 import Overlay from "../Overlay/Overlay";
 import { Link } from "react-router-dom";
+import { useCart } from "../../../Context/CartContext";
 
 function useSelectedCartProducts() {
   const [selectedCartProducts, set] = useState([]);
@@ -28,10 +29,7 @@ const Home = () => {
       {cartVisibility ? (
         <>
           <Overlay />
-          <Cart
-            setCartVisibility={setCartVisibility}
-            selectedCartProductState={selectedCartProductState}
-          />
+          <Cart setCartVisibility={setCartVisibility} />
         </>
       ) : null}
 
