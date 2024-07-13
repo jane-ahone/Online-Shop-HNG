@@ -65,6 +65,12 @@ const ProductDetails = () => {
       )}
       {product && (
         <div className="product-details">
+          <div className="product-info">
+            <h1>{product.name}</h1>
+            <p className="category">{product.categories[0].name}</p>
+            <p className="desc">{product.description}</p>
+            <p className="prodPrice">$40</p>
+          </div>
           <div className="product-image">
             <img
               src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
@@ -84,12 +90,7 @@ const ProductDetails = () => {
               alt="Cart button"
             />
           </div>
-          <div className="product-info">
-            <h1>{product.name}</h1>
-            <p className="category">{product.categories[0].name}</p>
-            <p className="desc">{product.description}</p>
-            <p className="prodPrice">$40</p>
-          </div>
+
           <Link
             to="/"
             style={{ marginBottom: "0.5rem" }}

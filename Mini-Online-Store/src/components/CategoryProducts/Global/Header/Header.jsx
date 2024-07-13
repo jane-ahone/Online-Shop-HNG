@@ -7,13 +7,16 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { useCart } from "../../../../Context/CartContext";
+import { useProducts } from "../../../../Context/ProductsContext";
 import logo from "../../../../assets/icons/logo.svg";
 
 const Header = ({ setCartVisibility, selectedCartProductState }) => {
   // const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
+  const { allProducts, setAllProducts } = useProducts();
 
   const [fromTablet, setfromTablet] = useState(false);
   const [searchTerm, setSearchTerm] = useState(null);
+  const navigate = useNavigate();
 
   const handleCartClick = () => {
     setCartVisibility((prevState) => !prevState);
