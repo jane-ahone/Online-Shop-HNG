@@ -13,22 +13,13 @@ import heartIcon from "../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../assets/icons/heart-filled-icon.svg";
 import "./Home.css";
 
-function useSelectedCartProducts() {
-  const [selectedCartProducts, set] = useState([]);
-  const get = () => {
-    return selectedCartProducts;
-  };
-
-  return { get, set };
-}
-
 const Home = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 10; // Number of products per page
+  const productsPerPage = 10;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,7 +55,7 @@ const Home = () => {
   }, []);
 
   const [cartVisibility, setCartVisibility] = useState(false);
-  const selectedCartProductState = useSelectedCartProducts();
+
   const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
 
   const toggleLike = (id) => {

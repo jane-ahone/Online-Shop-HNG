@@ -117,12 +117,15 @@
 }
 .pagination button {
   font-weight: 700;
-  color: #14335a;
+  color: black;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   border: none;
   background: #c9ddd8;
   margin: 0.5rem;
+}
+.pagination span {
+  color: #14335a;
 }
 
 @media screen and (max-width: 1100px) {

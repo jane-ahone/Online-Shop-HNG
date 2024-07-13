@@ -75,8 +75,6 @@ const Sunscreen = ({ selectedCategory }) => {
   };
 
   const toggleCart = (id) => {
-    console.log("Cart Products", cartProducts);
-    console.log(id);
     const alreadyInCart = cartProducts.some((product) => product.id === id);
 
     const newProducts = productsState.map((product) => {

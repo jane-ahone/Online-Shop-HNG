@@ -72,7 +72,7 @@ const Cart = ({ setCartVisibility }) => {
     0
   );
 
-  return (
+  return cartProducts ? (
     <div className="cart-main">
       <div className="cart-header">
         <p className="cart-title">My Cart</p>
@@ -176,6 +176,8 @@ const Cart = ({ setCartVisibility }) => {
         </Link>
       </div>
     </div>
+  ) : (
+    <p>Cart is Empty</p>
   );
 };
 

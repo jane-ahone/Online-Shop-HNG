@@ -5,6 +5,7 @@ import CircularIndeterminate from "../CategoryProducts/Global/CircularProgress/C
 import Overlay from "../CategoryProducts/Overlay/Overlay";
 import Cart from "../CategoryProducts/Global/Cart/Cart";
 import { useCart } from "../../Context/CartContext";
+import { useProducts } from "../../Context/ProductsContext";
 import heartIcon from "../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../assets/icons/heart-filled-icon.svg";
 import cartIcon from "../../assets/icons/icon-shopping-bag.svg";
@@ -17,39 +18,24 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [cartVisibility, setCartVisibility] = useState(false);
-  const { addToCart, removeFromCart } = useCart();
+
+  const { addToCart, removeFromCart, cartProducts } = useCart();
+  const { allProducts } = useProducts();
 
   const location = useLocation();
   const productId = location.state;
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(
-          `https://timbu-get-single-product.reavdev.workers.dev/${productId}?organization_id=0a36d850c31a45d39133b32a2fd057a7&Appid=SR2T6ZLOZN05508&Apikey=a8215cad7cfc4b2e93d320a64b03587d20240712233833515464`
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const result = await response.json();
-        const enhancedProduct = {
-          ...result,
-          quantity: 1,
-          like: false,
-          cart: false,
-        };
-        setProduct(enhancedProduct);
-      } catch (error) {
-        setError(error);
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProduct();
-  }, [productId]);
+    setLoading(true);
+    const foundProduct = allProducts.find((prod) => prod.id === productId);
+    if (foundProduct) {
+      setProduct({ ...foundProduct, like: false, cart: false });
+      setLoading(false);
+    } else {
+      setError(new Error("Product not found"));
+      setLoading(false);
+    }
+  }, [productId, allProducts]);
 
   const toggleLike = () => {
     setProduct((prevProduct) => ({
@@ -59,15 +45,13 @@ const ProductDetails = () => {
   };
 
   const toggleCart = () => {
-    setProduct((prevProduct) => {
-      const updatedProduct = { ...prevProduct, cart: !prevProduct.cart };
-      if (updatedProduct.cart) {
-        addToCart(updatedProduct);
-      } else {
-        removeFromCart(productId);
-      }
-      return updatedProduct;
-    });
+    const updatedProduct = { ...product, cart: !product.cart };
+    if (updatedProduct.cart) {
+      addToCart(updatedProduct);
+    } else {
+      removeFromCart(updatedProduct.id);
+    }
+    setProduct(updatedProduct);
   };
 
   return !loading ? (

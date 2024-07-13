@@ -119,8 +119,8 @@
 #card-cvv {
   display: inline-block;
   gap: 10px;
-  width: 42% !important;
-  padding: 1rem;
+  width: 44% !important;
+  padding: 1rem 0.5rem;
   border: 1px solid #cbcbcb;
   border-radius: 5px;
   margin-top: 0.5rem;
