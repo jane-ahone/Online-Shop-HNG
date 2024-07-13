@@ -38,6 +38,10 @@
   font-weight: 600;
   line-height: 19.5px;
 }
+.products .prodDesc {
+  width: 80%;
+  line-height: 1.4rem;
+}
 
 .products img {
   border-radius: 10px;
