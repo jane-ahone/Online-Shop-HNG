@@ -1,11 +1,5 @@
-/* .cart-main {
-  position: absolute;
-  right: 0;
-} */
-
 .cart-main > * {
   padding: 0 1.2rem;
-  /* overflow-y: scroll; */
 }
 .cart-header {
   display: flex;

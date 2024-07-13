@@ -15,10 +15,7 @@
   justify-items: center;
   align-items: start;
 }
-/* .productlisting-content > * {
-  display: grid;
-  grid-template-rows: min-content 0.3fr 0.3fr 0.3fr;
-} */
+
 .productlistings-header .toggle-filter img {
   filter: invert(18%) sepia(92%) saturate(431%) hue-rotate(185deg)
     brightness(50%) contrast(125%);
@@ -73,15 +70,7 @@
   font-weight: 600;
   line-height: 19.5px;
 }
-/* .overlay-main {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 10;
-} */
+
 .productlistings-home-main .cart-main {
   border: 1px solid #ffffff;
   background: #ffffff;

@@ -18,8 +18,6 @@ const Masks = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Set productsState when allProducts changes
-
     if (allProducts.length > 0) {
       setProductsState(
         allProducts.filter((product) => product.categories[0].name === "masks")
@@ -43,7 +41,6 @@ const Masks = () => {
 
     const newProducts = productsState.map((product) => {
       if (product.id === id) {
-        // If the product is already in the cart, we don't add it again
         const updatedProduct = { ...product, cart: !product.cart };
         if (alreadyInCart) {
           return { ...product, cart: true };

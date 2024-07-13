@@ -16,22 +16,3 @@
   position: relative;
   z-index: 20;
 }
-
-/* .overlay-main {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10; 
-} */
-/* .homeMain .cart-main {
-  border: 1px solid #ffffff;
-  background: #ffffff;
-  z-index: 20;
-  position: absolute;
-  right: 0;
-  max-width: 34%;
-  max-height: 70vh;
-  overflow-y: scroll;
-} */
