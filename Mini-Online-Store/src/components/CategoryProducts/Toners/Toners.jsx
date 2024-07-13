@@ -1,52 +1,36 @@
-import React, { useState } from "react";
-import product1 from "../../../assets/images/Toners/1.png";
-import product2 from "../../../assets/images/Toners/2.png";
-import product3 from "../../../assets/images/Toners/3.png";
+import React, { useState, useEffect } from "react";
 import cartIcon from "../../../assets/icons/icon-shopping-bag.svg";
 import cartFilledIcon from "../../../assets/icons/icon-shopping-bag-filled.svg";
 import heartIcon from "../../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../../assets/icons/heart-filled-icon.svg";
 // import "./Toners.css";
 import { useLocation } from "react-router-dom";
+import CircularIndeterminate from "../Global/CircularProgress/CircularIndeterminate";
 import { Link } from "react-router-dom";
 import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
+import { useCart } from "../../../Context/CartContext";
+import { useProducts } from "../../../Context/ProductsContext";
 
-const Toners = ({ selectedCartProductState }) => {
+const Toners = () => {
   const location = useLocation();
   const selectedCategory = location.state;
-  const products = [
-    {
-      id: 1,
-      image: product1,
-      description: "Renée Rouleau Facial Toner",
-      sold: "3,700",
-      price: 12,
-      like: false,
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      image: product2,
-      description: "The Rose & Hyaluronic Acid Deep Toner ",
-      sold: "4,000",
-      price: 86,
-      like: false,
-      cart: false,
-      quantity: 1,
-    },
-    // {
-    //   id: 3,
-    //   img: product3,
-    //   desc: "Banana Boat Light As Air SPF 50+",
-    //   sold: "13,000",
-    //   price: 75,
-    //   like: false,
-    //   cart: false,
-    // },
-  ];
 
-  const [productsState, setProductsState] = useState(products);
+  const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
+  const { allProducts } = useProducts();
+
+  const [productsState, setProductsState] = useState();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Set productsState when allProducts changes
+
+    if (allProducts.length > 0) {
+      setProductsState(
+        allProducts.filter((product) => product.categories[0].name === "toners")
+      );
+      setLoading(false);
+    }
+  }, [allProducts]);
 
   const toggleLike = (id) => {
     const newProducts = productsState.map((product) =>
@@ -76,12 +60,12 @@ const Toners = ({ selectedCartProductState }) => {
     setProductsState(newProducts);
   };
 
-  return (
+  return !loading ? (
     <div className="product-display-main">
       <div className="sunscreen-main-content">
         <div className="sunscreen-header">
           <p className="sunscreen-title">
-            {selectedCategory ? selectedCategory : "Cleansers"}
+            {selectedCategory ? selectedCategory : "Toners"}
           </p>
           <Link to="/all products">
             <div className="toggle-filter">
@@ -94,7 +78,10 @@ const Toners = ({ selectedCartProductState }) => {
           {productsState.map((product) => (
             <div className="product" key={product.id}>
               <div className="product-image">
-                <img src={product.image} alt="Product" />
+                <img
+                  src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+                  alt="Product"
+                />
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"
@@ -108,14 +95,16 @@ const Toners = ({ selectedCartProductState }) => {
                   alt="Cart button"
                 />
               </div>
-              <p className="prodDesc">{product.description}</p>
+              <p className="prodDesc">{product.name}</p>
               <p>{product.sold} sold</p>
-              <p className="prodPrice">${product.price}</p>
+              <p className="prodPrice">${product.current_price[0].CAD[0]}</p>
             </div>
           ))}
         </div>
       </div>
     </div>
+  ) : (
+    <CircularIndeterminate />
   );
 };
 

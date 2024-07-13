@@ -7,38 +7,22 @@ import Header from "../Global/Header/Header";
 import Overlay from "../Overlay/Overlay";
 import { Link } from "react-router-dom";
 
-function useSelectedCartProducts() {
-  const [selectedCartProducts, set] = useState([]);
-  const get = () => {
-    return selectedCartProducts;
-  };
-
-  return { get, set };
-}
-
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
-  const selectedCartProductState = useSelectedCartProducts();
 
   return (
     <div className="homeMain">
-      <Header
-        setCartVisibility={setCartVisibility}
-        selectedCartProductState={selectedCartProductState}
-      />
+      <Header setCartVisibility={setCartVisibility} />
       {cartVisibility ? (
         <>
           <Overlay />
-          <Cart
-            setCartVisibility={setCartVisibility}
-            selectedCartProductState={selectedCartProductState}
-          />
+          <Cart setCartVisibility={setCartVisibility} />
         </>
       ) : null}
 
       <div className="homeMain-contents">
-        <Sidebar selectedCartProducts={selectedCartProductState.get()} />
-        <Sunscreen selectedCartProductState={selectedCartProductState} />
+        <Sidebar />
+        <Sunscreen />
       </div>
     </div>
   );

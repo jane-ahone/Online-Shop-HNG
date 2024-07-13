@@ -1,47 +1,35 @@
-import React, { useState } from "react";
-import product1 from "../../../assets/images/Masks/1.png";
-import product2 from "../../../assets/images/Masks/2.png";
-import product3 from "../../../assets/images/Masks/3.png";
-import product4 from "../../../assets/images/Masks/4.png";
-import product5 from "../../../assets/images/Masks/5.png";
+import React, { useState, useEffect } from "react";
 import cartIcon from "../../../assets/icons/icon-shopping-bag.svg";
 import cartFilledIcon from "../../../assets/icons/icon-shopping-bag-filled.svg";
 import heartIcon from "../../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../../assets/icons/heart-filled-icon.svg";
-// import "./Masks.css";
+import CircularIndeterminate from "../Global/CircularProgress/CircularIndeterminate";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useCart } from "../../../Context/CartContext";
+import { useProducts } from "../../../Context/ProductsContext";
 import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
 
-/*Wrong images*/
-const Masks = ({ selectedCartProductState }) => {
+const Masks = () => {
+  const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
+  const { allProducts } = useProducts();
+
+  const [productsState, setProductsState] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Set productsState when allProducts changes
+
+    if (allProducts.length > 0) {
+      setProductsState(
+        allProducts.filter((product) => product.categories[0].name === "masks")
+      );
+      setLoading(false);
+    }
+  }, [allProducts]);
+
   const location = useLocation();
   const selectedCategory = location.state;
-
-  const products = [
-    {
-      id: 1,
-      image: product1,
-      description: "TONYMOLY Pureness 100 Mask",
-      sold: "13,257",
-      price: 77,
-      like: false,
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      image: product2,
-      description: "The Face Shop Real Nature Face Mask",
-      sold: "770",
-      price: 95,
-      like: false,
-      cart: false,
-      quantity: 1,
-    },
-  ];
-
-  const [productsState, setProductsState] = useState(products);
 
   const toggleLike = (id) => {
     const newProducts = productsState.map((product) =>
@@ -55,14 +43,9 @@ const Masks = ({ selectedCartProductState }) => {
       if (product.id === id) {
         const updatedProduct = { ...product, cart: !product.cart };
         if (updatedProduct.cart) {
-          selectedCartProductState.set((prevCartProducts) => [
-            ...prevCartProducts,
-            updatedProduct,
-          ]);
+          addToCart(updatedProduct);
         } else {
-          selectedCartProductState.set((prevCartProducts) =>
-            prevCartProducts.filter((item) => item.id !== id)
-          );
+          removeFromCart(id);
         }
         return updatedProduct;
       }
@@ -71,7 +54,7 @@ const Masks = ({ selectedCartProductState }) => {
     setProductsState(newProducts);
   };
 
-  return (
+  return !loading ? (
     <div className="product-display-main">
       <div className="sunscreen-main-content">
         <div className="sunscreen-header">
@@ -89,7 +72,10 @@ const Masks = ({ selectedCartProductState }) => {
           {productsState.map((product) => (
             <div className="product" key={product.id}>
               <div className="product-image">
-                <img src={product.image} alt="Product" />
+                <img
+                  src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+                  alt="Product"
+                />
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"
@@ -103,14 +89,16 @@ const Masks = ({ selectedCartProductState }) => {
                   alt="Cart button"
                 />
               </div>
-              <p className="prodDesc">{product.description}</p>
+              <p className="prodDesc">{product.name}</p>
               <p>{product.sold} sold</p>
-              <p className="prodPrice">${product.price}</p>
+              <p className="prodPrice">${product.current_price[0].CAD[0]}</p>
             </div>
           ))}
         </div>
       </div>
     </div>
+  ) : (
+    <CircularIndeterminate />
   );
 };
 

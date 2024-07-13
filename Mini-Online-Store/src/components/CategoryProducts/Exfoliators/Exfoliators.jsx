@@ -1,64 +1,46 @@
-import React, { useState } from "react";
-import product1 from "../../../assets/images/Exfoliators/1.png";
-import product2 from "../../../assets/images/Exfoliators/2.png";
-import product3 from "../../../assets/images/Exfoliators/3.png";
-import product4 from "../../../assets/images/Exfoliators/4.png";
-import product5 from "../../../assets/images/Exfoliators/5.png";
+import React, { useState, useEffect } from "react";
 import cartIcon from "../../../assets/icons/icon-shopping-bag.svg";
 import cartFilledIcon from "../../../assets/icons/icon-shopping-bag-filled.svg";
 import heartIcon from "../../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../../assets/icons/heart-filled-icon.svg";
-// import "./Exfoliators.css";
+
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useCart } from "../../../Context/CartContext";
+import { useProducts } from "../../../Context/ProductsContext";
 import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
+import CircularIndeterminate from "../Global/CircularProgress/CircularIndeterminate";
 
-const Exfoliators = ({ selectedCartProductState }) => {
+const Exfoliators = () => {
+  const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
+  const {
+    allProducts,
+    setAllProducts,
+    addProduct,
+    updateProduct,
+    removeProduct,
+    clearProducts,
+  } = useProducts();
+
+  const [productsState, setProductsState] = useState(null);
+  const [loading, setLoading] = useState(true);
+  console.log(allProducts);
+
+  useEffect(() => {
+    // Set productsState when allProducts changes
+
+    if (allProducts.length > 0) {
+      setProductsState(
+        allProducts.filter(
+          (product) => product.categories[0].name === "exfoliators"
+        )
+      );
+      setLoading(false);
+    }
+  }, [allProducts]);
+
   const location = useLocation();
   const selectedCategory = location.state;
-  const products = [
-    {
-      id: 2,
-      image: product2,
-      description: "Origins Ginzing Refreshing Scrub",
-      sold: "1,001",
-      price: 15,
-      like: false,
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 3,
-      image: product3,
-      description: "Zo Skin Health Exfoliating Polish",
-      sold: "3,023",
-      price: 63,
-      like: false,
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 4,
-      image: product4,
-      description: "Fresh Sugar Face Polish",
-      sold: "13,000",
-      price: 10,
-      like: false,
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 5,
-      image: product5,
-      description: "SkinMedica Exfoliating Cleanse",
-      sold: "2967",
-      price: 91,
-      like: false,
-      cart: false,
-    },
-  ];
-
-  const [productsState, setProductsState] = useState(products);
 
   const toggleLike = (id) => {
     const newProducts = productsState.map((product) =>
@@ -72,14 +54,9 @@ const Exfoliators = ({ selectedCartProductState }) => {
       if (product.id === id) {
         const updatedProduct = { ...product, cart: !product.cart };
         if (updatedProduct.cart) {
-          selectedCartProductState.set((prevCartProducts) => [
-            ...prevCartProducts,
-            updatedProduct,
-          ]);
+          addToCart(updatedProduct);
         } else {
-          selectedCartProductState.set((prevCartProducts) =>
-            prevCartProducts.filter((item) => item.id !== id)
-          );
+          removeFromCart(id);
         }
         return updatedProduct;
       }
@@ -88,12 +65,12 @@ const Exfoliators = ({ selectedCartProductState }) => {
     setProductsState(newProducts);
   };
 
-  return (
+  return !loading ? (
     <div className="product-display-main">
       <div className="sunscreen-main-content">
         <div className="sunscreen-header">
           <p className="sunscreen-title">
-            {selectedCategory ? selectedCategory : "Cleansers"}
+            {selectedCategory ? selectedCategory : "Exfoliators"}
           </p>
           <Link to="/all products">
             <div className="toggle-filter">
@@ -106,7 +83,10 @@ const Exfoliators = ({ selectedCartProductState }) => {
           {productsState.map((product) => (
             <div className="product" key={product.id}>
               <div className="product-image">
-                <img src={product.image} alt="Product" />
+                <img
+                  src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+                  alt="Product"
+                />
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"
@@ -120,14 +100,16 @@ const Exfoliators = ({ selectedCartProductState }) => {
                   alt="Cart button"
                 />
               </div>
-              <p className="prodDesc">{product.description}</p>
+              <p className="prodDesc">{product.name}</p>
               <p>{product.sold} sold</p>
-              <p className="prodPrice">${product.price}</p>
+              <p className="prodPrice">${product.current_price[0].CAD[0]}</p>
             </div>
           ))}
         </div>
       </div>
     </div>
+  ) : (
+    <CircularIndeterminate />
   );
 };
 

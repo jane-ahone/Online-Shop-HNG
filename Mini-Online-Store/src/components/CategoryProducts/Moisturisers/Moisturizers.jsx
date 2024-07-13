@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import product1 from "../../../assets/images/Moisturizers/1.png";
-import product2 from "../../../assets/images/Moisturizers/2.png";
-import product3 from "../../../assets/images/Moisturizers/3.png";
-import product4 from "../../../assets/images/Moisturizers/4.png";
+import React, { useState, useEffect } from "react";
 import cartIcon from "../../../assets/icons/icon-shopping-bag.svg";
 import cartFilledIcon from "../../../assets/icons/icon-shopping-bag-filled.svg";
 import heartIcon from "../../../assets/icons/heart-icon.svg";
@@ -10,55 +6,34 @@ import heartFilledIcon from "../../../assets/icons/heart-filled-icon.svg";
 // import "./Moisturizers.css";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useCart } from "../../../Context/CartContext";
+import { useProducts } from "../../../Context/ProductsContext";
+
 import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
+import CircularIndeterminate from "../Global/CircularProgress/CircularIndeterminate";
 
 const Moisturizers = ({ selectedCartProductState }) => {
+  const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
+  const { allProducts } = useProducts();
+
   const location = useLocation();
   const selectedCategory = location.state;
-  const products = [
-    {
-      id: 1,
-      image: product1,
-      description: "The Ordinary Natural Moisturizing Factors",
-      sold: "7,000",
-      price: 52,
-      like: false,
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      image: product2,
-      description: "L'Oréal Paris Collagen Moisture Filler",
-      sold: "16,030",
-      price: 75,
-      like: false,
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 3,
-      image: product3,
-      description: "Vanicream Daily Facial Moisturizer.",
-      sold: "9,081",
-      price: 25,
-      like: false,
-      cart: false,
-      quantity: 1,
-    },
-    {
-      id: 4,
-      image: product4,
-      description: "Neutrogena Hydro Boost Gel Cream",
-      sold: "4,670",
-      price: 29,
-      like: false,
-      cart: false,
-      quantity: 1,
-    },
-  ];
 
-  const [productsState, setProductsState] = useState(products);
+  const [productsState, setProductsState] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Set productsState when allProducts changes
+
+    if (allProducts.length > 0) {
+      setProductsState(
+        allProducts.filter(
+          (product) => product.categories[0].name === "moisturizers"
+        )
+      );
+      setLoading(false);
+    }
+  }, [allProducts]);
 
   const toggleLike = (id) => {
     const newProducts = productsState.map((product) =>
@@ -88,12 +63,12 @@ const Moisturizers = ({ selectedCartProductState }) => {
     setProductsState(newProducts);
   };
 
-  return (
+  return !loading ? (
     <div className="product-display-main">
       <div className="sunscreen-main-content">
         <div className="sunscreen-header">
           <p className="sunscreen-title">
-            {selectedCategory ? selectedCategory : "Cleansers"}
+            {selectedCategory ? selectedCategory : "Moisturizers"}
           </p>
           <Link to="/all products">
             <div className="toggle-filter">
@@ -106,7 +81,10 @@ const Moisturizers = ({ selectedCartProductState }) => {
           {productsState.map((product) => (
             <div className="product" key={product.id}>
               <div className="product-image">
-                <img src={product.image} alt="Product" />
+                <img
+                  src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+                  alt="Product"
+                />
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"
@@ -120,14 +98,16 @@ const Moisturizers = ({ selectedCartProductState }) => {
                   alt="Cart button"
                 />
               </div>
-              <p className="prodDesc">{product.description}</p>
+              <p className="prodDesc">{product.name}</p>
               <p>{product.sold} sold</p>
-              <p className="prodPrice">${product.price}</p>
+              <p className="prodPrice">${product.current_price[0].CAD[0]}</p>
             </div>
           ))}
         </div>
       </div>
     </div>
+  ) : (
+    <CircularIndeterminate />
   );
 };
 

@@ -1,14 +1,4 @@
 import React, { useState, useEffect } from "react";
-import product1 from "../../../assets/images/product-listings/image 4.svg";
-import product2 from "../../../assets/images/product-listings/image 5.svg";
-import product3 from "../../../assets/images/product-listings/image 6.svg";
-import product4 from "../../../assets/images/product-listings/image 7.svg";
-import product5 from "../../../assets/images/product-listings/image 8.svg";
-import product6 from "../../../assets/images/product-listings/image 9.svg";
-import product7 from "../../../assets/images/product-listings/image 10.svg";
-import product8 from "../../../assets/images/product-listings/image 11.svg";
-import product9 from "../../../assets/images/product-listings/image 12.svg";
-
 import cartIcon from "../../../assets/icons/icon-shopping-bag.svg";
 import cartFilledIcon from "../../../assets/icons/icon-shopping-bag-filled.svg";
 import heartIcon from "../../../assets/icons/heart-icon.svg";
@@ -20,21 +10,13 @@ import { useCart } from "../../../Context/CartContext";
 import { useProducts } from "../../../Context/ProductsContext";
 import CircularIndeterminate from "../Global/CircularProgress/CircularIndeterminate";
 
-const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
-  const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
-  const {
-    allProducts,
-    setAllProducts,
-    addProduct,
-    updateProduct,
-    removeProduct,
-    clearProducts,
-  } = useProducts();
+const Sunscreen = ({ selectedCategory }) => {
+  const { addToCart, removeFromCart } = useCart();
+  const { allProducts, setAllProducts } = useProducts();
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [productsState, setProductsState] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,35 +30,44 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
         }
         const result = await response.json();
         setData(result);
-        const initialProduct = result.items;
+        return result;
+      } catch (error) {
+        setError(error);
+        console.log(error);
+      }
+    };
 
+    fetchData()
+      .then((result) => {
+        const initialProduct = result.items;
         const enhancedProducts = initialProduct.map((product) => ({
           ...product,
           quantity: 1,
           like: false,
           cart: false,
         }));
-
         setAllProducts(enhancedProducts);
-        setProductsState(
-          allProducts.filter(
-            (product) => product.categories[0].name === "sunscreens"
-          )
-        );
-      } catch (error) {
-        setError(error);
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+      })
+      .catch((error) => {
+        console.error("Error during fetching and setting products:", error);
+      })
+      .finally(() => {});
   }, []);
 
-  // console.log(productsPerCat);
+  const [productsState, setProductsState] = useState(null);
 
-  console.log(productsState);
+  useEffect(() => {
+    // Set productsState when allProducts changes
+
+    if (allProducts.length > 0) {
+      setProductsState(
+        allProducts.filter(
+          (product) => product.categories[0].name === "sunscreens"
+        )
+      );
+      setLoading(false);
+    }
+  }, [allProducts]);
 
   const toggleLike = (id) => {
     const newProducts = productsState.map((product) =>
