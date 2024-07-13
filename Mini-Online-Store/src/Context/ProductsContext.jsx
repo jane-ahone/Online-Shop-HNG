@@ -8,18 +8,18 @@ export const useProducts = () => {
   return useContext(ProductsContext);
 };
 
-// Define the Products Provider component
-export const ProductsProvider = ({ children }) => {
-  const [products, setProducts] = useState([]);
+// Define the AllProducts Provider component
+export const AllProductsProvider = ({ children }) => {
+  const [allProducts, setAllProducts] = useState([]);
 
   // Add a product to the list
   const addProduct = (product) => {
-    setProducts((prevProducts) => [...prevProducts, product]);
+    setAllProducts((prevProducts) => [...prevProducts, product]);
   };
 
   // Update a product in the list
   const updateProduct = (updatedProduct) => {
-    setProducts((prevProducts) =>
+    setAllProducts((prevProducts) =>
       prevProducts.map((product) =>
         product.id === updatedProduct.id ? updatedProduct : product
       )
@@ -28,20 +28,21 @@ export const ProductsProvider = ({ children }) => {
 
   // Remove a product from the list
   const removeProduct = (productId) => {
-    setProducts((prevProducts) =>
+    setAllProducts((prevProducts) =>
       prevProducts.filter((product) => product.id !== productId)
     );
   };
 
   // Clear the entire product list
   const clearProducts = () => {
-    setProducts([]);
+    setAllProducts([]);
   };
 
   return (
     <ProductsContext.Provider
       value={{
-        products,
+        allProducts,
+        setAllProducts,
         addProduct,
         updateProduct,
         removeProduct,

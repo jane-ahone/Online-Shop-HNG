@@ -16,7 +16,7 @@ import Cart from "./components/CategoryProducts/Global/Cart/Cart.jsx";
 import Sidebar from "./components/CategoryProducts/Global/Sidebar/Sidebar.jsx";
 import Category from "./components/Category/Category.jsx";
 import { CartProvider } from "./Context/CartContext.jsx";
-import { ProductsProvider } from "./Context/ProductsContext.jsx";
+import { AllProductsProvider } from "./Context/ProductsContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -68,10 +68,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ProductsProvider>
+    <AllProductsProvider>
       <CartProvider>
         <RouterProvider router={router} />
       </CartProvider>
-    </ProductsProvider>
+    </AllProductsProvider>
   </React.StrictMode>
 );

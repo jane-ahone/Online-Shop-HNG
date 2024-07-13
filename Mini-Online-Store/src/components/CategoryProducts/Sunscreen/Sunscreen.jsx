@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import product1 from "../../../assets/images/product-listings/image 4.svg";
 import product2 from "../../../assets/images/product-listings/image 5.svg";
 import product3 from "../../../assets/images/product-listings/image 6.svg";
@@ -17,93 +17,66 @@ import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
 import "./Sunscreen.css";
 import { Link } from "react-router-dom";
 import { useCart } from "../../../Context/CartContext";
+import { useProducts } from "../../../Context/ProductsContext";
+import CircularIndeterminate from "../Global/CircularProgress/CircularIndeterminate";
 
 const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
   const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
+  const {
+    allProducts,
+    setAllProducts,
+    addProduct,
+    updateProduct,
+    removeProduct,
+    clearProducts,
+  } = useProducts();
 
-  console.log(cartProducts);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [productsState, setProductsState] = useState(null);
 
-  const products = cartProducts.filter((product) => {
-    product.categories[0].name !== "sunscreens";
-  });
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(
+          "/api/products?organization_id=0a36d850c31a45d39133b32a2fd057a7&reverse_sort=false&Appid=SR2T6ZLOZN05508&Apikey=a8215cad7cfc4b2e93d320a64b03587d20240712233833515464"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const result = await response.json();
+        setData(result);
+        const initialProduct = result.items;
 
-  console.log(products);
+        const enhancedProducts = initialProduct.map((product) => ({
+          ...product,
+          quantity: 1,
+          like: false,
+          cart: false,
+        }));
 
-  // const products = [
-  //   {
-  //     id: 2,
-  //     image: product2,
-  //     description: "Black Girl Sunscreen SPF 30",
-  //     sold: "4700",
-  //     price: 90,
-  //     quantity: 1,
-  //     like: false,
-  //     cart: false,
-  //   },
-  //   {
-  //     id: 3,
-  //     image: product3,
-  //     description: "Coola Refreshing Water Plumping Gel Serum SPF 30",
-  //     sold: "9000",
-  //     price: 15,
-  //     quantity: 1,
-  //     like: false,
-  //     cart: false,
-  //   },
-  //   {
-  //     id: 4,
-  //     image: product4,
-  //     description: "Supergoop Play Everyday Lotion SPF 50",
-  //     sold: "200",
-  //     price: 785,
-  //     quantity: 1,
-  //     like: false,
-  //     cart: false,
-  //   },
+        setAllProducts(enhancedProducts);
+        setProductsState(
+          allProducts.filter(
+            (product) => product.categories[0].name === "sunscreens"
+          )
+        );
+      } catch (error) {
+        setError(error);
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //   {
-  //     id: 5,
-  //     image: product5,
-  //     description: "Dr. Jart+ Mineral Sunscreen SPF 50+",
-  //     sold: "8,100",
-  //     price: 12,
-  //     quantity: 1,
-  //     like: false,
-  //     cart: false,
-  //   },
-  //   {
-  //     id: 6,
-  //     image: product6,
-  //     description: "Trader Joe’s Daily Facial Sunscreen SPF 40",
-  //     sold: "1380",
-  //     price: 53,
-  //     quantity: 1,
-  //     like: false,
-  //     cart: false,
-  //   },
-  //   {
-  //     id: 7,
-  //     image: product7,
-  //     description: "Dr. M Mineral Sunscreen SPF 50+",
-  //     sold: "653",
-  //     price: 87,
-  //     quantity: 1,
-  //     like: false,
-  //     cart: false,
-  //   },
-  //   {
-  //     id: 8,
-  //     image: product8,
-  //     description: "Dr. Jart+ Mineral Sunscreen SPF 50+",
-  //     sold: "21,000",
-  //     price: 75,
-  //     quantity: 1,
-  //     like: false,
-  //     cart: false,
-  //   },
-  // ];
+    fetchData();
+  }, []);
 
-  const [productsState, setProductsState] = useState(products);
+  // console.log(productsPerCat);
+
+  console.log(productsState);
 
   const toggleLike = (id) => {
     const newProducts = productsState.map((product) =>
@@ -117,14 +90,9 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
       if (product.id === id) {
         const updatedProduct = { ...product, cart: !product.cart };
         if (updatedProduct.cart) {
-          selectedCartProductState.set((prevCartProducts) => [
-            ...prevCartProducts,
-            updatedProduct,
-          ]);
+          addToCart(updatedProduct);
         } else {
-          selectedCartProductState.set((prevCartProducts) =>
-            prevCartProducts.filter((item) => item.id !== id)
-          );
+          removeFromCart(id);
         }
         return updatedProduct;
       }
@@ -133,7 +101,7 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
     setProductsState(newProducts);
   };
 
-  return (
+  return !loading ? (
     <div className="product-display-main">
       <div className="sunscreen-main-content">
         <div className="sunscreen-header">
@@ -151,7 +119,10 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
           {productsState.map((product, index) => (
             <div className="product" key={index}>
               <div className="product-image">
-                <img src={product.image} alt="Product" />
+                <img
+                  src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+                  alt="Product"
+                />
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"
@@ -165,14 +136,16 @@ const Sunscreen = ({ selectedCategory, selectedCartProductState }) => {
                   alt="Cart button"
                 />
               </div>
-              <p className="prodDesc">{product.description}</p>
+              <p className="prodDesc">{product.name}</p>
               <p>{product.sold} sold</p>
-              <p className="prodPrice">${product.price}</p>
+              <p className="prodPrice">${product.current_price[0].CAD[0]}</p>
             </div>
           ))}
         </div>
       </div>
     </div>
+  ) : (
+    <CircularIndeterminate />
   );
 };
 
