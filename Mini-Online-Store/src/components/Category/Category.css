@@ -34,6 +34,10 @@
   background-color: #14335a;
   color: #fafafa;
 }
+.category-main-contents p:active {
+  background-color: #14335a;
+  color: #fafafa;
+}
 .category-main-active-category {
   font-weight: 600 !important;
 }

@@ -120,3 +120,9 @@
   display: none;
   position: absolute;
 }
+
+@media screen and (max-width: 375px) {
+  .cart-products > *:not(.order-summary, .checkout-link) {
+    grid-template-columns: 5% min-content 1.5fr 0.2fr;
+  }
+}

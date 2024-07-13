@@ -8,19 +8,17 @@ import deleteIcon from "../../../../assets/icons/delete-icon.svg";
 import "./Cart.css";
 import { Link, useLocation } from "react-router-dom";
 
-const Cart = ({ setCartVisibility, selectedCartProductState }) => {
+const Cart = ({ setCartVisibility, selectedCartProductState, category }) => {
   const handleDeleteClick = () => {
     setCartVisibility((prevState) => !prevState);
   };
 
   const location = useLocation();
   const selectedCartProductStateSmall = location.state;
-  console.log(selectedCartProductStateSmall);
 
   const initialProducts = selectedCartProductState
     ? selectedCartProductState.get()
     : selectedCartProductStateSmall;
-  console.log(initialProducts);
 
   const [products, setProducts] = useState(initialProducts);
 
@@ -74,9 +72,13 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
         {products.map((product) => (
           <div key={product.id} className="cart-product">
             <img src={checkedIcon} className="checked-icon" alt="Checked" />
-            <img src={product.image} className="blue-product" alt="Product" />
+            <img
+              src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+              className="blue-product"
+              alt="Product"
+            />
             <div className="product-details">
-              <p className="product-desc">{product.description}</p>
+              <p className="product-desc">{product.name}</p>
               <p className="product-price">${product.price}</p>
               <div className="action-icons">
                 <div className="numerical-icons">

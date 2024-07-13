@@ -19,6 +19,7 @@ function useSelectedCartProducts() {
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
   const selectedCartProductState = useSelectedCartProducts();
+  const category = "Mask";
   return (
     <div className="homeMain">
       <Header
@@ -31,6 +32,7 @@ const Home = () => {
           <Cart
             setCartVisibility={setCartVisibility}
             selectedCartProductState={selectedCartProductState}
+            category={category}
           />
         </>
       ) : null}

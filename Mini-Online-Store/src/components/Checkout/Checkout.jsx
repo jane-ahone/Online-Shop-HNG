@@ -123,9 +123,9 @@ const Checkout = () => {
               <path
                 d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18"
                 stroke="#141B34"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </Link>
@@ -140,12 +140,12 @@ const Checkout = () => {
               {products.map((product) => (
                 <div key={product.id} className="cart-product">
                   <img
-                    src={product.image}
+                    src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
                     className="blue-product"
                     alt="Product"
                   />
                   <div className="product-details">
-                    <p className="product-desc">{product.description}</p>
+                    <p className="product-desc">{product.name}</p>
                     <p className="product-price">Qty {product.quantity}</p>
                   </div>
                 </div>
