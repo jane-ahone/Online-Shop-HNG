@@ -81,6 +81,7 @@ const ProductDetails = () => {
             <img
               src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
               alt={product.name}
+              className="timbu-image"
             />
             <img
               src={product.like ? heartFilledIcon : heartIcon}
@@ -98,11 +99,15 @@ const ProductDetails = () => {
           <div className="product-info">
             <h1>{product.name}</h1>
             {/* API wasn't working here */}
+            <p className="category">{product.categories[0].name}</p>
+            <p className="desc">{product.description}</p>
             <p className="prodPrice">$40</p>
-            <p>{product.description}</p>
-            <p>{product.categories[0].name}</p>
           </div>
-          <Link to="/" style={{ marginBottom: "2rem" }}>
+          <Link
+            to="/"
+            style={{ marginBottom: "2rem" }}
+            className="back-products"
+          >
             Back to Products
           </Link>
         </div>

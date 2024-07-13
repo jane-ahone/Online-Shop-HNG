@@ -43,20 +43,25 @@ const Moisturizers = ({ selectedCartProductState }) => {
   };
 
   const toggleCart = (id) => {
+    console.log("Cart Products", cartProducts);
+    console.log(id);
+    const alreadyInCart = cartProducts.some((product) => product.id === id);
+
     const newProducts = productsState.map((product) => {
       if (product.id === id) {
+        // If the product is already in the cart, we don't add it again
         const updatedProduct = { ...product, cart: !product.cart };
-        if (updatedProduct.cart) {
-          selectedCartProductState.set((prevCartProducts) => [
-            ...prevCartProducts,
-            updatedProduct,
-          ]);
+        if (alreadyInCart) {
+          return { ...product, cart: true };
         } else {
-          selectedCartProductState.set((prevCartProducts) =>
-            prevCartProducts.filter((item) => item.id !== id)
-          );
+          if (updatedProduct.cart) {
+            addToCart(updatedProduct);
+          } else {
+            removeFromCart(id);
+          }
+
+          return updatedProduct;
         }
-        return updatedProduct;
       }
       return product;
     });
@@ -81,10 +86,12 @@ const Moisturizers = ({ selectedCartProductState }) => {
           {productsState.map((product) => (
             <div className="product" key={product.id}>
               <div className="product-image">
-                <img
-                  src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
-                  alt="Product"
-                />
+                <Link to="/product" state={product.id}>
+                  <img
+                    src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+                    alt="Product"
+                  />
+                </Link>
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"

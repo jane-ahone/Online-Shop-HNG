@@ -19,6 +19,13 @@
   margin-bottom: 2.5rem;
   text-align: left;
 }
+.clear-cart-icon:hover {
+  filter: grayscale(100%) brightness(0%) contrast(100%) sepia(72%);
+}
+.clear-cart span {
+  font-weight: 500;
+  grid-column-start: span 2;
+}
 .blue-product {
   max-width: 10rem;
   border-radius: 10px;

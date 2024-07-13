@@ -35,7 +35,7 @@ const Home = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          "/api/products?organization_id=0a36d850c31a45d39133b32a2fd057a7&reverse_sort=false&Appid=SR2T6ZLOZN05508&Apikey=a8215cad7cfc4b2e93d320a64b03587d20240712233833515464"
+          "https://timbu-get-all-products.reavdev.workers.dev/?organization_id=0a36d850c31a45d39133b32a2fd057a7&reverse_sort=false&Appid=SR2T6ZLOZN05508&Apikey=a8215cad7cfc4b2e93d320a64b03587d20240712233833515464"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -79,21 +79,30 @@ const Home = () => {
   };
 
   const toggleCart = (id) => {
+    console.log("Cart Products", cartProducts);
+    console.log(id);
+    const alreadyInCart = cartProducts.some((product) => product.id === id);
+
     const newProducts = products.map((product) => {
       if (product.id === id) {
+        // If the product is already in the cart, we don't add it again
         const updatedProduct = { ...product, cart: !product.cart };
-        if (updatedProduct.cart) {
-          addToCart(updatedProduct);
+        if (alreadyInCart) {
+          return { ...product, cart: true };
         } else {
-          removeFromCart(id);
+          if (updatedProduct.cart) {
+            addToCart(updatedProduct);
+          } else {
+            removeFromCart(id);
+          }
+
+          return updatedProduct;
         }
-        return updatedProduct;
       }
       return product;
     });
     setProducts(newProducts);
   };
-  const handleCurrSelectedProduct = (id) => {};
 
   return !loading ? (
     <div className="productlistings-home-main">
@@ -125,28 +134,29 @@ const Home = () => {
 
         {products.map((product, index) => (
           <div key={product.id} className="product">
-            <Link to="/product" state={product.id}>
-              <div className="product-image">
+            <div className="product-image">
+              <Link to="/product" state={product.id}>
                 <img
                   src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
                   alt={product.name}
                   className="link-images"
                 />
+              </Link>
 
-                <img
-                  src={product.like ? heartFilledIcon : heartIcon}
-                  className="heart-icon"
-                  onClick={() => toggleLike(product.id)}
-                  alt="Like button"
-                />
-                <img
-                  src={product.cart ? cartFilledIcon : cartIcon}
-                  className="cart-icon"
-                  onClick={() => toggleCart(product.id)}
-                  alt="Cart button"
-                />
-              </div>
-            </Link>
+              <img
+                src={product.like ? heartFilledIcon : heartIcon}
+                className="heart-icon"
+                onClick={() => toggleLike(product.id)}
+                alt="Like button"
+              />
+              <img
+                src={product.cart ? cartFilledIcon : cartIcon}
+                className="cart-icon"
+                onClick={() => toggleCart(product.id)}
+                alt="Cart button"
+              />
+            </div>
+
             {/* {console.log(product.photos[0].url)} */}
             <p className="prodDesc">{product.name}</p>
             <p className="prodSold">{10000} sold</p>

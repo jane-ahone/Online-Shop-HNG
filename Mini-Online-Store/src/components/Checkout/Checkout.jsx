@@ -76,39 +76,11 @@ const Checkout = () => {
       <div className="checkout-main">
         <div className="checkout-main-header">
           <Link to="/all products">
-            <p>
-              Product
-              <img
-                src={arrowRightDouble}
-                alt="right-arrow-icon"
-                className="arrow-right-double"
-              />
-            </p>
+            <p style={{ cursor: "pointer" }}>Product</p>
           </Link>
-          <p>
-            My Cart
-            <img
-              src={arrowRightDouble}
-              alt="right-arrow-icon"
-              className="arrow-right-double"
-            />
-          </p>
-          <p style={{ color: "#14335A" }}>
-            Checkout
-            <img
-              src={arrowRightDouble}
-              alt="right-arrow-icon"
-              className="arrow-right-double"
-            />
-          </p>
-          <p>
-            Order Complete
-            <img
-              src={arrowRightDouble}
-              alt="right-arrow-icon"
-              className="arrow-right-double"
-            />
-          </p>
+          <p style={{ cursor: "pointer" }}>My Cart</p>
+          <p style={{ color: "#14335A" }}>Checkout</p>
+          <p style={{ color: "grey", cursor: "not-allowed" }}>Order Complete</p>
         </div>
         <div className="checkout-main-header-sm">
           <Link to="/cart" state={products}>

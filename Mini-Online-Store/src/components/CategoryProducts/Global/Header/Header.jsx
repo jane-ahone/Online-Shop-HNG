@@ -8,11 +8,16 @@ const Header = ({ setCartVisibility, selectedCartProductState }) => {
   // const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
 
   const [fromTablet, setfromTablet] = useState(false);
+  const [searchWord, setSearchWord] = useState(null);
+
   const handleCartClick = () => {
     setCartVisibility((prevState) => !prevState);
   };
   const handleSmallCartClick = () => {
     setCartVisibility((prevState) => !prevState);
+  };
+  const handleSearch = (e) => {
+    searchWord(...searchWord, e);
   };
 
   return (
@@ -21,42 +26,44 @@ const Header = ({ setCartVisibility, selectedCartProductState }) => {
         <img className="logo-img" src={logo} />
       </Link>
       <div className="search-btn">
-        <input type="text" placeholder="Search" className="search-btn-input" />
-        <span>
-          <svg
-            className="search-icon"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M17.5 17.5L22 22"
-              stroke="#fafafa"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
-              stroke="#fafafa"
-              strokeWidth="1.5"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </span>
+        <input
+          type="text"
+          placeholder="Search"
+          className="search-btn-input"
+          onChange={(e) => {
+            handleSearch(e);
+          }}
+        />
+        <Link to="/product">
+          <span>
+            <svg
+              className="search-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.5 17.5L22 22"
+                stroke="#fafafa"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
+                stroke="#fafafa"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </Link>
       </div>
       <div className="header icon-group">
         <div className="cart-page">
-          <Link
-            to="/cart"
-            // state={
-            //   fromTablet
-            //     ? selectedCartProductState.get()
-            //     : selectedCartProductState
-            // }
-          >
+          <Link to="/cart">
             <svg
               className="cart-icon-sm"
               onClick={() => {

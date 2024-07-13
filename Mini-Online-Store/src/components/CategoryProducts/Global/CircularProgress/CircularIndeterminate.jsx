@@ -7,6 +7,8 @@ export default function CircularIndeterminate() {
     <Box
       sx={{
         display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         position: "fixed",
         top: "0",
         bottom: "0",

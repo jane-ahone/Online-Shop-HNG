@@ -41,7 +41,7 @@
   border-radius: 10px;
   max-width: 100%;
 }
-.product-image:hover {
+.product-image img:hover {
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
@@ -70,6 +70,7 @@
 }
 .productlistings-header .toggle-filter:hover {
   background-color: #14335a;
+  transition: background-color 0.3s ease;
 }
 .productlisting-content .prodDesc,
 .productlisting-content .prodPrice {

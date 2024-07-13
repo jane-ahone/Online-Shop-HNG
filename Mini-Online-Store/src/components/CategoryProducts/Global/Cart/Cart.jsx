@@ -1,26 +1,21 @@
 import React, { useState } from "react";
 import exit from "../../../../assets/icons/multiplication-sign-icon.svg";
 import checkedIcon from "../../../../assets/icons/btn-checkmark.svg";
-import blueProduct from "../../../../assets/images/image 4.svg";
 import plusIcon from "../../../../assets/icons/plus-sign.svg";
 import minusIcon from "../../../../assets/icons/minus-icon.svg";
 import deleteIcon from "../../../../assets/icons/delete-icon.svg";
 import "./Cart.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCart } from "../../../../Context/CartContext";
+import { useProducts } from "../../../../Context/ProductsContext";
 
-const Cart = ({ setCartVisibility, selectedCartProductState, category }) => {
+const Cart = ({ setCartVisibility }) => {
   const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
+  const { allProducts, setAllProducts } = useProducts();
+
   const handleDeleteClick = () => {
     setCartVisibility((prevState) => !prevState);
   };
-
-  // const location = useLocation();
-  // const selectedCartProductStateSmall = location.state;
-
-  // const initialProducts = selectedCartProductState
-  //   ? selectedCartProductState.get()
-  //   : selectedCartProductStateSmall;
 
   const initialProducts = cartProducts;
 
@@ -47,7 +42,28 @@ const Cart = ({ setCartVisibility, selectedCartProductState, category }) => {
   };
 
   const handleDelete = (id) => {
+    removeFromCart(id);
+
     setProducts(products.filter((product) => product.id !== id));
+
+    setAllProducts(
+      allProducts.map((product) =>
+        product.id === id ? { ...product, cart: false } : product
+      )
+    );
+  };
+
+  const handleCartEmpty = () => {
+    clearCart();
+
+    setProducts([]);
+    setAllProducts(
+      allProducts.map((product) =>
+        cartProducts.some((cartProduct) => cartProduct.id === product.id)
+          ? { ...product, cart: false }
+          : product
+      )
+    );
   };
 
   const subtotal = products.reduce(
@@ -60,7 +76,6 @@ const Cart = ({ setCartVisibility, selectedCartProductState, category }) => {
     <div className="cart-main">
       <div className="cart-header">
         <p className="cart-title">My Cart</p>
-        {/* <Link to="/all products"> */}
         <img
           src={exit}
           onClick={handleDeleteClick}
@@ -68,7 +83,6 @@ const Cart = ({ setCartVisibility, selectedCartProductState, category }) => {
           id="exit-icon-bg"
           alt="Close Cart"
         />
-        {/* </Link> */}
         <Link to="/all products" id="exit-icon-sm">
           <img src={exit} className="exit-icon" alt="Close Cart" />
         </Link>
@@ -113,10 +127,15 @@ const Cart = ({ setCartVisibility, selectedCartProductState, category }) => {
             />
           </div>
         ))}
-        {/* <div className="all-btn">
-          <img src={checkedIcon} className="check-icon" alt="Check All" />
-          <p>ALL</p>
-        </div> */}
+        <div className="clear-cart">
+          <img
+            src={deleteIcon}
+            alt="Delete Product"
+            className="clear-cart-icon"
+            onClick={handleCartEmpty}
+          />
+          <span>Clear Cart</span>
+        </div>
         <hr />
         <div className="order-summary">
           <div className="subtotal">
@@ -132,15 +151,13 @@ const Cart = ({ setCartVisibility, selectedCartProductState, category }) => {
             <p>${subtotal + 0} </p>
           </div>
         </div>
-
         <Link
           to="/checkout"
           state={{
             products: products,
             subtotal: subtotal,
-            // selectedCartProductState: products,
           }}
-          className="checkout-link "
+          className="checkout-link"
           id="checkout-link-bg"
         >
           <button className="checkout-btn">Continue To Checkout</button>

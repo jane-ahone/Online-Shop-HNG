@@ -11,7 +11,7 @@ import { useProducts } from "../../../Context/ProductsContext";
 import CircularIndeterminate from "../Global/CircularProgress/CircularIndeterminate";
 
 const Sunscreen = ({ selectedCategory }) => {
-  const { addToCart, removeFromCart } = useCart();
+  const { addToCart, removeFromCart, cartProducts } = useCart();
   const { allProducts, setAllProducts } = useProducts();
 
   const [data, setData] = useState([]);
@@ -23,7 +23,7 @@ const Sunscreen = ({ selectedCategory }) => {
       setLoading(true);
       try {
         const response = await fetch(
-          "/api/products?organization_id=0a36d850c31a45d39133b32a2fd057a7&reverse_sort=false&Appid=SR2T6ZLOZN05508&Apikey=a8215cad7cfc4b2e93d320a64b03587d20240712233833515464"
+          "https://timbu-get-all-products.reavdev.workers.dev/?organization_id=0a36d850c31a45d39133b32a2fd057a7&reverse_sort=false&Appid=SR2T6ZLOZN05508&Apikey=a8215cad7cfc4b2e93d320a64b03587d20240712233833515464"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -57,8 +57,6 @@ const Sunscreen = ({ selectedCategory }) => {
   const [productsState, setProductsState] = useState(null);
 
   useEffect(() => {
-    // Set productsState when allProducts changes
-
     if (allProducts.length > 0) {
       setProductsState(
         allProducts.filter(
@@ -77,15 +75,25 @@ const Sunscreen = ({ selectedCategory }) => {
   };
 
   const toggleCart = (id) => {
+    console.log("Cart Products", cartProducts);
+    console.log(id);
+    const alreadyInCart = cartProducts.some((product) => product.id === id);
+
     const newProducts = productsState.map((product) => {
       if (product.id === id) {
+        // If the product is already in the cart, we don't add it again
         const updatedProduct = { ...product, cart: !product.cart };
-        if (updatedProduct.cart) {
-          addToCart(updatedProduct);
+        if (alreadyInCart) {
+          return { ...product, cart: true };
         } else {
-          removeFromCart(id);
+          if (updatedProduct.cart) {
+            addToCart(updatedProduct);
+          } else {
+            removeFromCart(id);
+          }
+
+          return updatedProduct;
         }
-        return updatedProduct;
       }
       return product;
     });
@@ -110,10 +118,12 @@ const Sunscreen = ({ selectedCategory }) => {
           {productsState.map((product, index) => (
             <div className="product" key={index}>
               <div className="product-image">
-                <img
-                  src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
-                  alt="Product"
-                />
+                <Link to="/product" state={product.id}>
+                  <img
+                    src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+                    alt="Product"
+                  />
+                </Link>
                 <img
                   src={product.like ? heartFilledIcon : heartIcon}
                   className="heart-icon"
