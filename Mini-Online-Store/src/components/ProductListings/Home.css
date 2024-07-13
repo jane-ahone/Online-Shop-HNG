@@ -45,10 +45,7 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
-/* .product-image {
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-} */
+
 .productlistings-title {
   font-size: 2rem;
   font-weight: 700;
@@ -70,7 +67,6 @@
 }
 .productlistings-header .toggle-filter:hover {
   background-color: #14335a;
-  transition: background-color 0.3s ease;
 }
 .productlisting-content .prodDesc,
 .productlisting-content .prodPrice {

@@ -24,11 +24,8 @@ const Exfoliators = () => {
 
   const [productsState, setProductsState] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(allProducts);
 
   useEffect(() => {
-    // Set productsState when allProducts changes
-
     if (allProducts.length > 0) {
       setProductsState(
         allProducts.filter(
@@ -110,7 +107,7 @@ const Exfoliators = () => {
                 />
               </div>
               <p className="prodDesc">{product.name}</p>
-              <p>{product.sold} sold</p>
+              <p>10000 sold</p>
               <p className="prodPrice">${product.current_price[0].CAD[0]}</p>
             </div>
           ))}

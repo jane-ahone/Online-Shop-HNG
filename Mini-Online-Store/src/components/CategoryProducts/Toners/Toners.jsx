@@ -40,8 +40,6 @@ const Toners = () => {
   };
 
   const toggleCart = (id) => {
-    console.log("Cart Products", cartProducts);
-    console.log(id);
     const alreadyInCart = cartProducts.some((product) => product.id === id);
 
     const newProducts = productsState.map((product) => {
@@ -103,7 +101,7 @@ const Toners = () => {
                 />
               </div>
               <p className="prodDesc">{product.name}</p>
-              <p>{product.sold} sold</p>
+              <p>10000 sold</p>
               <p className="prodPrice">${product.current_price[0].CAD[0]}</p>
             </div>
           ))}

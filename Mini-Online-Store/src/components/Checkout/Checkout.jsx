@@ -11,7 +11,6 @@ import Overlay from "../CategoryProducts/Overlay/Overlay";
 
 const Checkout = () => {
   const location = useLocation();
-  console.log(location.state);
   const products = location.state.products;
   const subtotal = location.state.subtotal;
   const fromTabletState = location.state.fromTablet;

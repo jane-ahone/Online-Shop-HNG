@@ -103,7 +103,7 @@ const Treatments = () => {
                 />
               </div>
               <p className="prodDesc">{product.name}</p>
-              <p>{product.sold} sold</p>
+              <p>5000 sold</p>
               <p className="prodPrice">${product.current_price[0].CAD[0]}</p>
             </div>
           ))}
