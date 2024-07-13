@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Header from "../CategoryProducts/Global/Header/Header";
-import { useProducts } from "../../Context/ProductsContext";
-
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import CircularIndeterminate from "../CategoryProducts/Global/CircularProgress/CircularIndeterminate";
+import Overlay from "../CategoryProducts/Overlay/Overlay";
+import Cart from "../CategoryProducts/Global/Cart/Cart";
 import { useCart } from "../../Context/CartContext";
 import heartIcon from "../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../assets/icons/heart-filled-icon.svg";
@@ -13,10 +13,10 @@ import cartFilledIcon from "../../assets/icons/icon-shopping-bag-filled.svg";
 import "./ProductDetails.css";
 
 const ProductDetails = () => {
-  // const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [cartVisibility, setCartVisibility] = useState(false);
   const { addToCart, removeFromCart } = useCart();
 
   const location = useLocation();
@@ -51,8 +51,6 @@ const ProductDetails = () => {
     fetchProduct();
   }, [productId]);
 
-  console.log(product);
-
   const toggleLike = () => {
     setProduct((prevProduct) => ({
       ...prevProduct,
@@ -74,7 +72,13 @@ const ProductDetails = () => {
 
   return !loading ? (
     <div className="product-details-page">
-      <Header />
+      <Header setCartVisibility={setCartVisibility} />
+      {cartVisibility && (
+        <>
+          <Overlay />
+          <Cart setCartVisibility={setCartVisibility} />
+        </>
+      )}
       {product && (
         <div className="product-details">
           <div className="product-image">
@@ -98,14 +102,13 @@ const ProductDetails = () => {
           </div>
           <div className="product-info">
             <h1>{product.name}</h1>
-            {/* API wasn't working here */}
             <p className="category">{product.categories[0].name}</p>
             <p className="desc">{product.description}</p>
             <p className="prodPrice">$40</p>
           </div>
           <Link
             to="/"
-            style={{ marginBottom: "2rem" }}
+            style={{ marginBottom: "0.5rem" }}
             className="back-products"
           >
             Back to Products

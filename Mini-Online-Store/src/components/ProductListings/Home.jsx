@@ -13,8 +13,6 @@ import heartIcon from "../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../assets/icons/heart-filled-icon.svg";
 import "./Home.css";
 
-//Arrange file structure later with api keys and vercel.json
-
 function useSelectedCartProducts() {
   const [selectedCartProducts, set] = useState([]);
   const get = () => {
@@ -29,6 +27,8 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 10; // Number of products per page
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +43,6 @@ const Home = () => {
         const result = await response.json();
         setData(result);
         const initialProduct = result.items;
-        console.log(initialProduct);
 
         const enhancedProducts = initialProduct.map((product) => ({
           ...product,
@@ -70,22 +69,17 @@ const Home = () => {
 
   const toggleLike = (id) => {
     setProducts(
-      products.map((product) => {
-        return product.id === id
-          ? { ...product, like: !product.like }
-          : product;
-      })
+      products.map((product) =>
+        product.id === id ? { ...product, like: !product.like } : product
+      )
     );
   };
 
   const toggleCart = (id) => {
-    console.log("Cart Products", cartProducts);
-    console.log(id);
     const alreadyInCart = cartProducts.some((product) => product.id === id);
 
     const newProducts = products.map((product) => {
       if (product.id === id) {
-        // If the product is already in the cart, we don't add it again
         const updatedProduct = { ...product, cart: !product.cart };
         if (alreadyInCart) {
           return { ...product, cart: true };
@@ -104,21 +98,31 @@ const Home = () => {
     setProducts(newProducts);
   };
 
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+  const totalPages = Math.ceil(products.length / productsPerPage);
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
   return !loading ? (
     <div className="productlistings-home-main">
-      <Header
-        setCartVisibility={setCartVisibility}
-        // selectedCartProductState={selectedCartProductState}
-      />
+      <Header setCartVisibility={setCartVisibility} />
 
       <div className="productlisting-content">
         {cartVisibility && (
           <>
             <Overlay />
-            <Cart
-              setCartVisibility={setCartVisibility}
-              // selectedCartProductState={selectedCartProductState}
-            />
+            <Cart setCartVisibility={setCartVisibility} />
           </>
         )}
 
@@ -132,7 +136,7 @@ const Home = () => {
           </Link>
         </div>
 
-        {products.map((product, index) => (
+        {currentProducts.map((product) => (
           <div key={product.id} className="product">
             <div className="product-image">
               <Link to="/product" state={product.id}>
@@ -157,13 +161,22 @@ const Home = () => {
               />
             </div>
 
-            {/* {console.log(product.photos[0].url)} */}
             <p className="prodDesc">{product.name}</p>
             <p className="prodSold">{10000} sold</p>
             <p className="prodPrice">${product.current_price[0].CAD[0]}</p>
-            {/* <p className="prodPrice">$100</p> */}
           </div>
         ))}
+      </div>
+      <div className="pagination">
+        <button onClick={handlePrevPage} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+          Next
+        </button>
       </div>
     </div>
   ) : (

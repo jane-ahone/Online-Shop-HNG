@@ -109,6 +109,21 @@
 #toggle-filter-sm {
   display: none;
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.pagination button {
+  font-weight: 700;
+  color: #14335a;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background: #c9ddd8;
+  margin: 0.5rem;
+}
 
 @media screen and (max-width: 1100px) {
   body {
