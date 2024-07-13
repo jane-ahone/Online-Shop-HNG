@@ -47,6 +47,9 @@
   border-radius: 10px;
   max-width: 100%;
 }
+.prodSold {
+  font-size: 0.9rem;
+}
 .cart-icon:hover {
   background-color: #14335a41;
 }
