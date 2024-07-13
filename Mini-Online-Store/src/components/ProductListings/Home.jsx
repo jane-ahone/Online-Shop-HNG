@@ -93,6 +93,7 @@ const Home = () => {
     });
     setProducts(newProducts);
   };
+  const handleCurrSelectedProduct = (id) => {};
 
   return !loading ? (
     <div className="productlistings-home-main">
@@ -124,24 +125,28 @@ const Home = () => {
 
         {products.map((product, index) => (
           <div key={product.id} className="product">
-            <div className="product-image">
-              <img
-                src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
-                alt={product.name}
-              />
-              <img
-                src={product.like ? heartFilledIcon : heartIcon}
-                className="heart-icon"
-                onClick={() => toggleLike(product.id)}
-                alt="Like button"
-              />
-              <img
-                src={product.cart ? cartFilledIcon : cartIcon}
-                className="cart-icon"
-                onClick={() => toggleCart(product.id)}
-                alt="Cart button"
-              />
-            </div>
+            <Link to="/product" state={product.id}>
+              <div className="product-image">
+                <img
+                  src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+                  alt={product.name}
+                  className="link-images"
+                />
+
+                <img
+                  src={product.like ? heartFilledIcon : heartIcon}
+                  className="heart-icon"
+                  onClick={() => toggleLike(product.id)}
+                  alt="Like button"
+                />
+                <img
+                  src={product.cart ? cartFilledIcon : cartIcon}
+                  className="cart-icon"
+                  onClick={() => toggleCart(product.id)}
+                  alt="Cart button"
+                />
+              </div>
+            </Link>
             {/* {console.log(product.photos[0].url)} */}
             <p className="prodDesc">{product.name}</p>
             <p className="prodSold">{10000} sold</p>

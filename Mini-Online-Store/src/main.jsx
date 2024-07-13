@@ -17,6 +17,7 @@ import Sidebar from "./components/CategoryProducts/Global/Sidebar/Sidebar.jsx";
 import Category from "./components/Category/Category.jsx";
 import { CartProvider } from "./Context/CartContext.jsx";
 import { AllProductsProvider } from "./Context/ProductsContext.jsx";
+import ProductDetails from "./components/SingleProduct/ProductDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
   {
     path: "/category",
     element: <Category />,
+  },
+  {
+    path: "/product",
+    element: <ProductDetails />,
   },
 ]);
 
