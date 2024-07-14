@@ -42,9 +42,7 @@ const Cart = ({ setCartVisibility }) => {
   };
 
   const handleDelete = (id) => {
-    console.log(allProducts);
     removeFromCart(id);
-
     setProducts(products.filter((product) => product.id !== id));
     console.log(allProducts);
 

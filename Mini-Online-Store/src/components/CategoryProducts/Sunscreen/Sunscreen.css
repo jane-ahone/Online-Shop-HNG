@@ -72,7 +72,7 @@
 
 @media screen and (max-width: 1500px) {
   .products > * {
-    max-width: fit-content;
+    max-width: 351px;
   }
 }
 
