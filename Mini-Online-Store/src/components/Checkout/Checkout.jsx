@@ -77,8 +77,10 @@ const Checkout = () => {
           <Link to="/all products">
             <p style={{ cursor: "pointer" }}>Product</p>
           </Link>
-          <p style={{ cursor: "pointer" }}>My Cart</p>
-          <p style={{ color: "#14335A" }}>Checkout</p>
+          <Link to="/cart">
+            <p style={{ cursor: "pointer" }}>My Cart</p>
+          </Link>
+          <p style={{ color: "#14335A", fontWeight: "500" }}>Checkout</p>
           <p style={{ color: "grey", cursor: "not-allowed" }}>Order Complete</p>
         </div>
         <div className="checkout-main-header-sm">

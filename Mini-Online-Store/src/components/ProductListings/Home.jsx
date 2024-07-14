@@ -76,7 +76,7 @@ const Home = () => {
 
   const toggleCart = (id) => {
     const alreadyInCart = cartProducts.some((product) => product.id === id);
-    const newProducts = productsState.map((product) => {
+    const newProducts = products.map((product) => {
       if (product.id === id) {
         const updatedProduct = { ...product, cart: !product.cart };
         if (alreadyInCart) {
@@ -89,7 +89,7 @@ const Home = () => {
       }
       return product;
     });
-    setProductsState(newProducts);
+    setProducts(newProducts);
   };
 
   const indexOfLastProduct = currentPage * productsPerPage;
