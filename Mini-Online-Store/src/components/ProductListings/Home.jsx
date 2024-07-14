@@ -76,25 +76,20 @@ const Home = () => {
 
   const toggleCart = (id) => {
     const alreadyInCart = cartProducts.some((product) => product.id === id);
-
-    const newProducts = products.map((product) => {
+    const newProducts = productsState.map((product) => {
       if (product.id === id) {
         const updatedProduct = { ...product, cart: !product.cart };
         if (alreadyInCart) {
-          return { ...product, cart: true };
+          removeFromCart(id);
+          return { ...product, cart: false };
         } else {
-          if (updatedProduct.cart) {
-            addToCart(updatedProduct);
-          } else {
-            removeFromCart(id);
-          }
-
+          addToCart(updatedProduct);
           return updatedProduct;
         }
       }
       return product;
     });
-    setProducts(newProducts);
+    setProductsState(newProducts);
   };
 
   const indexOfLastProduct = currentPage * productsPerPage;
