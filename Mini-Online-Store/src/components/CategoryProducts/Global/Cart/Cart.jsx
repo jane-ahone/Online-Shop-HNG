@@ -44,8 +44,6 @@ const Cart = ({ setCartVisibility }) => {
   const handleDelete = (id) => {
     removeFromCart(id);
     setProducts(products.filter((product) => product.id !== id));
-    console.log(allProducts);
-
     setAllProducts(
       allProducts.map((product) =>
         product.id === id ? { ...product, cart: false } : product
