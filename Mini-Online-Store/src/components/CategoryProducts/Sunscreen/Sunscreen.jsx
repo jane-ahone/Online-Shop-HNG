@@ -13,8 +13,8 @@ const appId = import.meta.env.VITE_APPID;
 const apiKey = import.meta.env.VITE_APIKEY;
 const organization_id = import.meta.env.VITE_ORGANISATIONID;
 
-console.log("App ID:", appId);
-console.log("API Key:", apiKey);
+// console.log("App ID:", appId);
+// console.log("API Key:", apiKey);
 
 const Sunscreen = ({ selectedCategory }) => {
   const { addToCart, removeFromCart, cartProducts } = useCart();
@@ -82,19 +82,14 @@ const Sunscreen = ({ selectedCategory }) => {
 
   const toggleCart = (id) => {
     const alreadyInCart = cartProducts.some((product) => product.id === id);
-
     const newProducts = productsState.map((product) => {
       if (product.id === id) {
         const updatedProduct = { ...product, cart: !product.cart };
         if (alreadyInCart) {
-          return { ...product, cart: true };
+          removeFromCart(id);
+          return { ...product, cart: false };
         } else {
-          if (updatedProduct.cart) {
-            addToCart(updatedProduct);
-          } else {
-            removeFromCart(id);
-          }
-
+          addToCart(updatedProduct);
           return updatedProduct;
         }
       }

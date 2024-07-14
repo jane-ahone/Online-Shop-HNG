@@ -42,9 +42,11 @@ const Cart = ({ setCartVisibility }) => {
   };
 
   const handleDelete = (id) => {
+    console.log(allProducts);
     removeFromCart(id);
 
     setProducts(products.filter((product) => product.id !== id));
+    console.log(allProducts);
 
     setAllProducts(
       allProducts.map((product) =>
@@ -55,7 +57,6 @@ const Cart = ({ setCartVisibility }) => {
 
   const handleCartEmpty = () => {
     clearCart();
-
     setProducts([]);
     setAllProducts(
       allProducts.map((product) =>
