@@ -1,10 +1,10 @@
-.sunscreen-main-content .products {
+.product-main-content .products {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2.5rem;
   justify-items: center;
 }
-.sunscreen-title {
+.product-title {
   font-size: 2rem;
   font-weight: 700;
   line-height: 39.01px;

@@ -61,9 +61,9 @@ const Masks = () => {
 
   return !loading ? (
     <div className="product-display-main">
-      <div className="sunscreen-main-content">
-        <div className="sunscreen-header">
-          <p className="sunscreen-title">
+      <div className="product-main-content">
+        <div className="product-header">
+          <p className="product-title">
             {selectedCategory ? selectedCategory : "Cleansers"}
           </p>
           <Link to="/all products">

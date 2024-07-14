@@ -2,28 +2,41 @@ import React, { useState } from "react";
 import Sidebar from "../Global/Sidebar/Sidebar";
 import Cart from "../Global/Cart/Cart";
 import Exfoliators from "./Exfoliators";
-// import "./Home.css";
 import Header from "../Global/Header/Header";
 import Overlay from "../Overlay/Overlay";
 import { Link } from "react-router-dom";
-import { useCart } from "../../../Context/CartContext";
+
+function useSelectedCartProducts() {
+  const [selectedCartProducts, set] = useState([]);
+  const get = () => {
+    return selectedCartProducts;
+  };
+
+  return { get, set };
+}
 
 const Home = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
-
+  const selectedCartProductState = useSelectedCartProducts();
   return (
     <div className="homeMain">
-      <Header setCartVisibility={setCartVisibility} />
+      <Header
+        setCartVisibility={setCartVisibility}
+        selectedCartProductState={selectedCartProductState}
+      />
       {cartVisibility ? (
         <>
           <Overlay />
-          <Cart setCartVisibility={setCartVisibility} />
+          <Cart
+            setCartVisibility={setCartVisibility}
+            selectedCartProductState={selectedCartProductState}
+          />
         </>
       ) : null}
 
       <div className="homeMain-contents">
         <Sidebar />
-        <Exfoliators />
+        <Exfoliators selectedCartProductState={selectedCartProductState} />
         {/* <span className="page-number">1</span> */}
       </div>
     </div>

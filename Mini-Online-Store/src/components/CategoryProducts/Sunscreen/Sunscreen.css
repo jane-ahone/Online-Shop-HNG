@@ -1,13 +1,13 @@
-.sunscreen-main-content .products {
+.product-main-content .products {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2.5rem;
   justify-items: center;
 }
-.sunscreen-main-content {
+.product-main-content {
   padding-right: 1rem;
 }
-.sunscreen-header,
+.product-header,
 .toggle-filter {
   display: flex;
   justify-content: space-between;
@@ -24,7 +24,7 @@
 .toggle-filter:hover {
   background-color: #040c17;
 }
-.sunscreen-title {
+.product-title {
   font-size: 2rem;
   font-weight: 700;
   line-height: 39.01px;
@@ -84,7 +84,7 @@
   .heart-icon {
     width: 7px;
   }
-  .sunscreen-title {
+  .product-title {
     margin-top: 0;
   }
 }

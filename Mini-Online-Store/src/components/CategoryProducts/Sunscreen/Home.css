@@ -42,7 +42,7 @@
   .sidebarMain {
     display: none;
   }
-  .sunscreen-main-content .products {
+  .product-main-content .products {
     grid-template-columns: 1fr 1fr;
   }
   .homeMain-contents {

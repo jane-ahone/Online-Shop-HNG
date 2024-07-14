@@ -79,7 +79,6 @@ const Sunscreen = ({ selectedCategory }) => {
 
     const newProducts = productsState.map((product) => {
       if (product.id === id) {
-        // If the product is already in the cart, we don't add it again
         const updatedProduct = { ...product, cart: !product.cart };
         if (alreadyInCart) {
           return { ...product, cart: true };
@@ -100,9 +99,9 @@ const Sunscreen = ({ selectedCategory }) => {
 
   return !loading ? (
     <div className="product-display-main">
-      <div className="sunscreen-main-content">
-        <div className="sunscreen-header">
-          <p className="sunscreen-title">
+      <div className="product-main-content">
+        <div className="product-header">
+          <p className="product-title">
             {selectedCategory ? selectedCategory : "Sunscreens"}
           </p>
           <Link to="/all products">

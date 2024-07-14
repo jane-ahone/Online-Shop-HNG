@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from "react";
-import cartIcon from "../../../assets/icons/icon-shopping-bag.svg";
-import cartFilledIcon from "../../../assets/icons/icon-shopping-bag-filled.svg";
-import heartIcon from "../../../assets/icons/heart-icon.svg";
+import React, { useEffect, useState } from "react";
 import heartFilledIcon from "../../../assets/icons/heart-filled-icon.svg";
+import heartIcon from "../../../assets/icons/heart-icon.svg";
+import cartFilledIcon from "../../../assets/icons/icon-shopping-bag-filled.svg";
+import cartIcon from "../../../assets/icons/icon-shopping-bag.svg";
 // import "./Moisturizers.css";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../../../Context/CartContext";
 import { useProducts } from "../../../Context/ProductsContext";
 
 import toggleFilter from "../../../assets/icons/filter-mail-square.svg";
 import CircularIndeterminate from "../Global/CircularProgress/CircularIndeterminate";
 
-const Moisturizers = ({ selectedCartProductState }) => {
-  const { cartProducts, addToCart, removeFromCart, clearCart } = useCart();
+const Moisturizers = () => {
+  const { cartProducts, addToCart, removeFromCart } = useCart();
   const { allProducts } = useProducts();
 
   const location = useLocation();
@@ -68,9 +67,9 @@ const Moisturizers = ({ selectedCartProductState }) => {
 
   return !loading ? (
     <div className="product-display-main">
-      <div className="sunscreen-main-content">
-        <div className="sunscreen-header">
-          <p className="sunscreen-title">
+      <div className="product-main-content">
+        <div className="product-header">
+          <p className="product-title">
             {selectedCategory ? selectedCategory : "Moisturizers"}
           </p>
           <Link to="/all products">
