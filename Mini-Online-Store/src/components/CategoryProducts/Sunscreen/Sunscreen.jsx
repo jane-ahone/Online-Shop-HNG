@@ -29,7 +29,7 @@ const Sunscreen = ({ selectedCategory }) => {
       setLoading(true);
       try {
         const response = await fetch(
-          `/api/products?organization_id=0a36d850c31a45d39133b32a2fd057a7&reverse_sort=false&Appid=SR2T6ZLOZN05508&Apikey=a8215cad7cfc4b2e93d320a64b03587d20240712233833515464`
+          `/api/products?organization_id=${organization_id}&reverse_sort=false&Appid=${appId}&Apikey=${apiKey}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
