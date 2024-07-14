@@ -11,6 +11,14 @@ import cartIcon from "../../assets/icons/icon-shopping-bag.svg";
 import cartFilledIcon from "../../assets/icons/icon-shopping-bag-filled.svg";
 import heartIcon from "../../assets/icons/heart-icon.svg";
 import heartFilledIcon from "../../assets/icons/heart-filled-icon.svg";
+const appId = import.meta.env.VITE_APPID;
+const apiKey = import.meta.env.VITE_APIKEY;
+const organization_id = import.meta.env.VITE_ORGANISATIONID;
+
+console.log("App ID:", appId);
+console.log("API Key:", apiKey);
+console.log("OrganisationId:", organization_id);
+
 import "./Home.css";
 
 const Home = () => {

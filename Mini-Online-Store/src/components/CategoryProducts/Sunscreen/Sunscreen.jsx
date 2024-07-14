@@ -9,6 +9,12 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../../Context/CartContext";
 import { useProducts } from "../../../Context/ProductsContext";
 import CircularIndeterminate from "../Global/CircularProgress/CircularIndeterminate";
+const appId = import.meta.env.VITE_APPID;
+const apiKey = import.meta.env.VITE_APIKEY;
+const organization_id = import.meta.env.VITE_ORGANISATIONID;
+
+console.log("App ID:", appId);
+console.log("API Key:", apiKey);
 
 const Sunscreen = ({ selectedCategory }) => {
   const { addToCart, removeFromCart, cartProducts } = useCart();
@@ -23,7 +29,7 @@ const Sunscreen = ({ selectedCategory }) => {
       setLoading(true);
       try {
         const response = await fetch(
-          "https://timbu-get-all-products.reavdev.workers.dev/?organization_id=0a36d850c31a45d39133b32a2fd057a7&reverse_sort=false&Appid=SR2T6ZLOZN05508&Apikey=a8215cad7cfc4b2e93d320a64b03587d20240712233833515464"
+          `https://timbu-get-all-products.reavdev.workers.dev/?organization_id=${organization_id}&reverse_sort=false&Appid=${appId}&Apikey=${apiKey}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
