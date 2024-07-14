@@ -49,6 +49,11 @@
 }
 .prodSold {
   font-size: 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 17.07px;
+  text-align: left;
+  color: #737373;
 }
 .cart-icon:hover {
   background-color: #14335a41;

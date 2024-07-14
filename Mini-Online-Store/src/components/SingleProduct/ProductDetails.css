@@ -26,7 +26,7 @@
 }
 
 .product-info .prodPrice {
-  font-size: 0.8rem;
+  /* font-size: 0.8rem; */
   font-weight: 800;
   margin-bottom: 0.8rem;
   color: #ed1e1e;
@@ -39,10 +39,9 @@
   color: #14335a;
 }
 .product-info p.desc {
-  font-weight: 500;
+  font-weight: normal;
   line-height: 1.5rem;
   white-space: pre-wrap;
-  font-size: 2rem;
 }
 .back-products {
   text-decoration: underline;
@@ -59,5 +58,7 @@ product-details {
   }
   .product-info p.desc {
     width: initial;
+    font-size: 0.7rem;
+    line-height: 1.2rem;
   }
 }
