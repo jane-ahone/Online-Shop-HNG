@@ -1,6 +1,7 @@
 .product-main-content .products {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  grid-auto-rows: 1fr;
   gap: 2.5rem;
   justify-items: center;
 }
@@ -47,6 +48,9 @@
   border-radius: 10px;
   max-width: 100%;
 }
+.products img:not(.cart-icon, .heart-icon) {
+  width: 100%;
+}
 .prodSold {
   font-size: 0.9rem;
   font-size: 0.8rem;
@@ -64,6 +68,12 @@
 }
 .product-display-main {
   max-width: 1700px;
+}
+
+@media screen and (max-width: 1500px) {
+  .products > * {
+    max-width: fit-content;
+  }
 }
 
 @media screen and (max-width: 375px) {

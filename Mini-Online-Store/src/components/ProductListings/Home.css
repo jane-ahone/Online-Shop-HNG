@@ -9,8 +9,6 @@
   margin: 0 2rem;
   display: grid;
   grid-template-columns: repeat(4, 23%);
-  /* grid-template-rows: 1fr 1fr 1fr;
-  gap: 5.75%; */
   gap: 2rem;
   justify-items: center;
   align-items: start;

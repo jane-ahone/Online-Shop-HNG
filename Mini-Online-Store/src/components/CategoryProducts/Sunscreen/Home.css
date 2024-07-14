@@ -3,7 +3,7 @@
   width: 100%;
   grid-template-columns: 16% 82%;
   column-gap: 2rem;
-  /* justify-items: center; */
+  justify-items: center;
 }
 .homeMain-contents .page-number {
   grid-column-start: span 2;
