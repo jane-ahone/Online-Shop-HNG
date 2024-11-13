@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import exit from "../../../../assets/icons/multiplication-sign-icon.svg";
 import checkedIcon from "../../../../assets/icons/btn-checkmark.svg";
-import blueProduct from "../../../../assets/images/image 4.svg";
 import plusIcon from "../../../../assets/icons/plus-sign.svg";
 import minusIcon from "../../../../assets/icons/minus-icon.svg";
 import deleteIcon from "../../../../assets/icons/delete-icon.svg";
@@ -23,6 +22,8 @@ const Cart = ({ setCartVisibility, selectedCartProductState }) => {
   console.log(initialProducts);
 
   const [products, setProducts] = useState(initialProducts);
+
+  const today = "Hi bitch";
 
   const handleIncrement = (id) => {
     setProducts(
