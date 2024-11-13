@@ -9,8 +9,6 @@ MiniStore is an e-commerce application designed for managing and selling skincar
 - Search Functionality: Allow users to search for specific products using the search bar.
 - Inventory Management: Add, edit, and remove products from the store's inventory.
 - Order Processing: Handle the process of placing and managing customer orders.
-- User Authentication: Implement user registration and login functionality for secure access.
-- Admin Dashboard: Provide an administrative interface for managing products, orders, and user accounts.
 
 ## Technologies Used
 
@@ -18,20 +16,12 @@ MiniStore is an e-commerce application designed for managing and selling skincar
   - HTML5
   - CSS3
   - JavaScript
-  - React.js
-  - Redux (optional)
+ 
 
 - Backend:
-  - Node.js
-  - Express.js
-  - MongoDB (or any preferred database)
+  - Static site
 
-- Authentication:
-  - JSON Web Tokens (JWT)
-  - bcrypt (for password hashing)
 
-- Payment Integration:
-  - Stripe (or any preferred payment gateway)
 
 ## Getting Started
 
@@ -46,9 +36,6 @@ MiniStore is an e-commerce application designed for managing and selling skincar
    npm install
    ```
 
-3. Set up the environment variables:
-   - Create a `.env` file in the root directory.
-   - Define the required environment variables (e.g., database connection string, JWT secret key).
 
 4. Start the development server:
    ```
@@ -57,17 +44,6 @@ MiniStore is an e-commerce application designed for managing and selling skincar
 
 5. Open your browser and navigate to `http://localhost:3000` to access the application.
 
-## Folder Structure
-
-- `src/components`: Contains reusable React components used throughout the application.
-- `src/pages`: Contains individual pages or views of the application.
-- `src/styles`: Contains CSS files for styling the application.
-- `src/services`: Contains API service files for making HTTP requests to the backend.
-- `src/utils`: Contains utility functions used in the application.
-- `server`: Contains the backend server code.
-- `server/models`: Contains database models and schemas.
-- `server/routes`: Contains API route handlers.
-- `server/middlewares`: Contains custom middleware functions.
 
 ## Contributing
 
